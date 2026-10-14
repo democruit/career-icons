@@ -42,6 +42,27 @@ Component names are PascalCase plus an `Icon` suffix. `ats-scan.svg` becomes `At
 
 Outline is the only style in 0.1.0. Keep the default export names stable so a later filled style can be added as extra files and extra exports (for example `AtsScanFilledIcon`) without renaming outline icons.
 
+## React color and defaults
+
+Every icon uses `stroke="currentColor"`. The default `color` is `currentColor`, so the icon inherits the parent CSS color. The `color` prop sets the icon color and overrides the parent.
+
+`CareerIconsProvider` from `@democruit/career-icons/react` supplies defaults. Icons render without a provider. Precedence is icon prop, then provider, then built-in default.
+
+| Prop | Default |
+| --- | --- |
+| `size` | `24` |
+| `strokeWidth` | `2` |
+| `color` | `currentColor` |
+| `animate` | `none` (`hover`, `always`, or `none`) |
+| `absoluteStrokeWidth` | `false` (when `true`, stroke stays visually constant as size changes) |
+
+```jsx
+<button style={{ color: "#2563EB" }}>
+  <ResumeIcon />
+  Save resume
+</button>
+```
+
 ## Icon contract
 
 Each icon is a pair: `icons/<name>.svg` and `icons/<name>.json`.

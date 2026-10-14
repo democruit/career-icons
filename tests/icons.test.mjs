@@ -2,6 +2,8 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { afterAll, beforeAll, expect, test } from "vitest";
 import { buildIcons } from "../scripts/build.mjs";
 import { assertPaintBounds, loadIcons, parseSvg } from "../scripts/icons.mjs";
@@ -90,27 +92,28 @@ test("build emits matching raw exports, SVG files, manifest and sprite", async (
   }
 });
 
-test("React entry produces SVG elements and accepts size, color and accessible labels", () => {
-  // Temporary output is outside node_modules; resolve React through the workspace loader.
+test("React icons keep stroke currentColor and let the color prop override inherited color", () => {
   const code = require("node:fs").readFileSync(join(output, "react/index.cjs"), "utf8");
-  const exports = {};
-  new Function("require", "exports", code)(require, exports);
-  for (const { componentName } of built) {
-    const element = exports[componentName]({
-      width: 16,
-      height: 16,
-      color: "navy",
-      "aria-label": "Preview",
-    });
-    expect(element.type).toBe("svg");
-    expect(element.props).toMatchObject({
-      viewBox: "0 0 24 24",
-      width: 16,
-      height: 16,
-      stroke: "currentColor",
-      color: "navy",
-      "aria-label": "Preview",
-    });
-    expect(element.props.children.length).toBeGreaterThan(0);
+  const icons = {};
+  new Function("require", "exports", code)(require, icons);
+  for (const { componentName, svg } of built) {
+    expect(svg).toContain('stroke="currentColor"');
+    expect(svg).not.toMatch(/stroke="(?!currentColor)[^"]+"/);
+    const html = renderToStaticMarkup(
+      createElement(icons[componentName], {
+        width: 16,
+        height: 16,
+        color: "navy",
+        "aria-label": "Preview",
+      }),
+    );
+    expect(html).toContain("<svg");
+    expect(html).toContain('viewBox="0 0 24 24"');
+    expect(html).toContain('width="16"');
+    expect(html).toContain('height="16"');
+    expect(html).toContain('stroke="currentColor"');
+    expect(html).toContain('color="navy"');
+    expect(html).not.toContain('stroke="navy"');
+    expect(html).toContain('aria-label="Preview"');
   }
 });
