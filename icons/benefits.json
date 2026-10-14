@@ -1,0 +1,9 @@
+{
+  "name": "benefits",
+  "title": "Benefits",
+  "category": "offers-salary",
+  "tags": ["benefits", "perks", "employee-benefits", "reward", "gift", "compensation"],
+  "aliases": ["employee-perks"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

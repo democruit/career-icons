@@ -1,0 +1,9 @@
+{
+  "name": "pay-transparency",
+  "title": "Pay transparency",
+  "category": "offers-salary",
+  "tags": ["pay", "transparency", "salary", "disclosure", "compensation", "visibility"],
+  "aliases": ["salary-transparency"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

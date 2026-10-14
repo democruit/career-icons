@@ -1,0 +1,9 @@
+{
+  "name": "offer-accepted",
+  "title": "Offer accepted",
+  "category": "offers-salary",
+  "tags": ["offer", "accepted", "handshake", "agreement", "hired", "contract"],
+  "aliases": ["accepted-offer"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

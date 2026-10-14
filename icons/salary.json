@@ -1,0 +1,9 @@
+{
+  "name": "salary",
+  "title": "Salary",
+  "category": "offers-salary",
+  "tags": ["salary", "money", "pay", "compensation", "banknote", "wages"],
+  "aliases": ["paycheck"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

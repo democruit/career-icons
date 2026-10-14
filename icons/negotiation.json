@@ -1,0 +1,9 @@
+{
+  "name": "negotiation",
+  "title": "Negotiation",
+  "category": "offers-salary",
+  "tags": ["negotiation", "salary", "discussion", "counteroffer", "bargaining", "exchange"],
+  "aliases": ["salary-negotiation"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

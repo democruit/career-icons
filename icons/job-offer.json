@@ -1,0 +1,9 @@
+{
+  "name": "job-offer",
+  "title": "Job offer",
+  "category": "offers-salary",
+  "tags": ["job-offer", "offer-letter", "employment", "envelope", "contract", "hiring"],
+  "aliases": ["employment-offer"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

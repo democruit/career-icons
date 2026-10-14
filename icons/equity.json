@@ -1,0 +1,9 @@
+{
+  "name": "equity",
+  "title": "Equity",
+  "category": "offers-salary",
+  "tags": ["equity", "shares", "stock", "ownership", "vesting", "compensation"],
+  "aliases": ["stock-equity"],
+  "since": "0.1.0",
+  "animation": "draw"
+}
