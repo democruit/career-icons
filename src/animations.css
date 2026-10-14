@@ -1,0 +1,213 @@
+/* Opt-in motion for @democruit/career-icons. Icons stay static until this file is imported. */
+
+[data-ci-animate] [data-ci-part] {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+[data-ci-animate] [data-ci-part="lines"] {
+  stroke-dasharray: 20;
+}
+
+[data-ci-animate] [data-ci-part="check"] {
+  stroke-dasharray: 8;
+}
+
+@keyframes ci-draw-lines {
+  from {
+    stroke-dashoffset: 20;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ci-draw-lines-loop {
+  0% {
+    opacity: 1;
+    stroke-dashoffset: 20;
+  }
+  42%,
+  70% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  86% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 20;
+  }
+}
+
+@keyframes ci-draw-check {
+  from {
+    stroke-dashoffset: 8;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ci-draw-check-loop {
+  0% {
+    opacity: 1;
+    stroke-dashoffset: 8;
+  }
+  42%,
+  70% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  86% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 8;
+  }
+}
+
+@keyframes ci-pop {
+  from {
+    opacity: 0.35;
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ci-pop-loop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes ci-slide-left {
+  from {
+    transform: translateX(2.5px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ci-slide-right {
+  from {
+    transform: translateX(-2.5px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ci-slide-left-loop {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes ci-slide-right-loop {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes ci-wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(-6deg);
+  }
+  70% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes ci-wiggle-loop {
+  0%,
+  100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+
+/* prefers-reduced-motion: reduce receives none of these rules, so those icons stay still. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-ci-animate="always"] [data-ci-part="lines"] {
+    animation: ci-draw-lines-loop 1.4s ease-out infinite;
+  }
+
+  [data-ci-animate="always"] [data-ci-part="check"] {
+    animation: ci-draw-check-loop 1.4s ease-out infinite;
+  }
+
+  [data-ci-animate="always"] [data-ci-part="person"] {
+    animation: ci-pop-loop 1.2s ease-out infinite;
+  }
+
+  [data-ci-animate="always"] [data-ci-part="handle-left"] {
+    animation: ci-slide-left-loop 1.2s ease-out infinite;
+  }
+
+  [data-ci-animate="always"] [data-ci-part="handle-right"] {
+    animation: ci-slide-right-loop 1.2s ease-out infinite;
+  }
+
+  [data-ci-animate="always"] [data-ci-part="box"] {
+    animation: ci-wiggle-loop 900ms ease-out infinite;
+  }
+
+  [data-ci-animate="hover"]:hover [data-ci-part="lines"],
+  .ci-hover:hover [data-ci-animate="hover"] [data-ci-part="lines"] {
+    animation: ci-draw-lines 400ms ease-out 1 both;
+  }
+
+  [data-ci-animate="hover"]:hover [data-ci-part="check"],
+  .ci-hover:hover [data-ci-animate="hover"] [data-ci-part="check"] {
+    animation: ci-draw-check 400ms ease-out 1 both;
+  }
+
+  [data-ci-animate="hover"]:hover [data-ci-part="person"],
+  .ci-hover:hover [data-ci-animate="hover"] [data-ci-part="person"] {
+    animation: ci-pop 400ms ease-out 1 both;
+  }
+
+  [data-ci-animate="hover"]:hover [data-ci-part="handle-left"],
+  .ci-hover:hover [data-ci-animate="hover"] [data-ci-part="handle-left"] {
+    animation: ci-slide-left 420ms ease-out 1 both;
+  }
+
+  [data-ci-animate="hover"]:hover [data-ci-part="handle-right"],
+  .ci-hover:hover [data-ci-animate="hover"] [data-ci-part="handle-right"] {
+    animation: ci-slide-right 420ms ease-out 1 both;
+  }
+
+  [data-ci-animate="hover"]:hover [data-ci-part="box"],
+  .ci-hover:hover [data-ci-animate="hover"] [data-ci-part="box"] {
+    animation: ci-wiggle 450ms ease-out 1 both;
+  }
+}

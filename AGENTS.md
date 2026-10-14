@@ -35,8 +35,9 @@ Published entry points:
 | `@democruit/career-icons/svg/*` | optimized `.svg` files |
 | `@democruit/career-icons/sprite.svg` | sprite of `<symbol>`s |
 | `@democruit/career-icons/icons.json` | full metadata manifest |
+| `@democruit/career-icons/animations.css` | opt-in motion; icons stay static without this import |
 
-`sideEffects` is `false`. `publishConfig.access` is `"public"`. Only `dist/` is published.
+JavaScript entries are side-effect free. `sideEffects` lists only `./dist/animations.css`, so bundlers keep that import and can still tree-shake icons. `publishConfig.access` is `"public"`. Only `dist/` is published.
 
 Component names are PascalCase plus an `Icon` suffix. `ats-scan.svg` becomes `AtsScanIcon`. Filenames stay kebab-case.
 
@@ -57,11 +58,19 @@ Every icon uses `stroke="currentColor"`. The default `color` is `currentColor`, 
 | `absoluteStrokeWidth` | `false` (when `true`, stroke stays visually constant as size changes) |
 
 ```jsx
-<button style={{ color: "#2563EB" }}>
-  <ResumeIcon />
-  Save resume
-</button>
+import "@democruit/career-icons/animations.css";
+
+export function SaveResume() {
+  return (
+    <button style={{ color: "#2563EB" }}>
+      <ResumeIcon />
+      Save resume
+    </button>
+  );
+}
 ```
+
+`animate="hover"` runs the icon's motion once when the pointer is over the icon or any ancestor with the class `ci-hover`. `animate="always"` loops that motion. `animate="none"` leaves the icon static even if the CSS is loaded. Hover runs are 300–500ms, ease-out, and use transform, opacity, or stroke-dashoffset. `prefers-reduced-motion: reduce` disables them.
 
 ## Icon contract
 
@@ -120,7 +129,7 @@ npm run typecheck   # tsc --noEmit
 npm test            # vitest
 npm run build       # dist outputs
 npm run preview:pilot # review contact sheet; Python 3 + Pillow
-npm run size        # size-limit; one React icon < 1 KB gzip
+npm run size        # size-limit; animations.css < 3 KB gzip
 npm run site:build  # static docs
 ```
 

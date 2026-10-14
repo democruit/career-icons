@@ -21,7 +21,9 @@
     "democruit"
   ],
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": [
+    "./dist/animations.css"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -44,7 +46,8 @@
     },
     "./svg/*": "./dist/svg/*",
     "./sprite.svg": "./dist/sprite.svg",
-    "./icons.json": "./dist/icons.json"
+    "./icons.json": "./dist/icons.json",
+    "./animations.css": "./dist/animations.css"
   },
   "peerDependencies": {
     "react": ">=18"
@@ -61,7 +64,7 @@
     "test": "vitest run",
     "validate": "node scripts/validate.mjs",
     "build": "node scripts/build.mjs",
-    "size": "node scripts/pending.mjs size",
+    "size": "size-limit",
     "site:build": "node scripts/pending.mjs site",
     "prepare": "husky",
     "preview:pilot": "node scripts/preview-pilot.mjs"
@@ -72,11 +75,19 @@
   "engines": {
     "node": ">=20"
   },
+  "size-limit": [
+    {
+      "path": "dist/animations.css",
+      "limit": "3 kB",
+      "gzip": true
+    }
+  ],
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
     "@resvg/resvg-js": "^2.6.2",
+    "@size-limit/file": "^14.2.0",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "fast-xml-parser": "^5.11.2",
@@ -84,6 +95,7 @@
     "lint-staged": "^17.6.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
+    "size-limit": "^14.2.0",
     "svgo": "^4.1.0",
     "typescript": "^7.0.2",
     "vitest": "^5.0.4"

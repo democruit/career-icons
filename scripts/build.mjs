@@ -1,4 +1,4 @@
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { loadIcons } from "./icons.mjs";
 
@@ -112,12 +112,14 @@ export async function buildIcons(output = fileURLToPath(new URL("../dist/", impo
   };
   for (const [name, content] of Object.entries(outputs))
     await writeFile(`${output}/${name}`, `${content}\n`);
+  const css = await readFile(fileURLToPath(new URL("../src/animations.css", import.meta.url)));
+  await writeFile(`${output}/animations.css`, css);
   return icons;
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const icons = await buildIcons();
   console.log(
-    `Built ${icons.length} icons: SVGs, ESM/CJS, React, declarations, metadata and sprite.`,
+    `Built ${icons.length} icons: SVGs, ESM/CJS, React, declarations, metadata, sprite and animations.css.`,
   );
 }
