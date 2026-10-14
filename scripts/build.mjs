@@ -34,6 +34,7 @@ function resolveIconProps(props = {}) {
 
 const reactAttributes = {
   "stroke-width": "strokeWidth",
+  "stroke-dasharray": "strokeDasharray",
   "stroke-linecap": "strokeLinecap",
   "stroke-linejoin": "strokeLinejoin",
 };

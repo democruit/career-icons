@@ -1,0 +1,9 @@
+{
+  "name": "ghosted",
+  "title": "Ghosted",
+  "category": "applications",
+  "tags": ["ghosted", "ghosting", "no-response", "silence", "recruiter", "application"],
+  "aliases": ["no-response"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

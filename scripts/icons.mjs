@@ -39,7 +39,7 @@ const roots = {
 };
 const attributes = {
   svg: new Set([...Object.keys(roots), "xmlns"]),
-  path: new Set(["d"]),
+  path: new Set(["d", "stroke-dasharray"]),
   circle: new Set(["cx", "cy", "r"]),
   rect: new Set(["x", "y", "width", "height", "rx", "ry"]),
   line: new Set(["x1", "y1", "x2", "y2"]),

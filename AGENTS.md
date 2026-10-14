@@ -83,6 +83,7 @@ SVG:
 - 2px padding. Painted strokes, caps and joins stay inside the 20×20 live area from (2,2) to (22,22). Outer centerlines normally sit between 3 and 21.
 - Rectangles use `rx="2"`. Use approximately six or fewer elements; prioritize legibility at 16px.
 - Child elements may only be `path`, `circle`, `rect`, `line`, `polyline`, `polygon`, and `g`.
+- A path may use `stroke-dasharray` for intentional dotted geometry, such as `ghosted`. Dots retain the same 2px round stroke.
 - Animated sub-parts may set `data-ci-part` to a kebab-case name, for example `data-ci-part="check"`. No other `data-*` attributes, `id` attributes, or inline styles.
 - Forbidden: `text`, raster images, gradients, filters, masks, clip paths, `style` attributes, `id` attributes, hardcoded colors, and `transform` on the root `<svg>`.
 - Optimized file size must be 1 KB or under (1024 bytes).

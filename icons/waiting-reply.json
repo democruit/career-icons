@@ -1,0 +1,9 @@
+{
+  "name": "waiting-reply",
+  "title": "Waiting reply",
+  "category": "applications",
+  "tags": ["waiting", "reply", "response", "pending", "message", "hourglass"],
+  "aliases": ["awaiting-response"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

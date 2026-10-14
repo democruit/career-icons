@@ -1,0 +1,9 @@
+{
+  "name": "easy-apply",
+  "title": "Easy apply",
+  "category": "applications",
+  "tags": ["easy-apply", "quick-apply", "application", "instant", "resume", "fast"],
+  "aliases": ["quick-application"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

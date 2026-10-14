@@ -1,0 +1,9 @@
+{
+  "name": "job-post",
+  "title": "Job post",
+  "category": "applications",
+  "tags": ["job", "posting", "vacancy", "listing", "bulletin-board", "position"],
+  "aliases": ["job-posting"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

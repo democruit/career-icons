@@ -1,0 +1,9 @@
+{
+  "name": "application-tracker",
+  "title": "Application tracker",
+  "category": "applications",
+  "tags": ["application", "tracker", "kanban", "pipeline", "status", "job-search"],
+  "aliases": ["application-pipeline"],
+  "since": "0.1.0",
+  "animation": "draw"
+}
