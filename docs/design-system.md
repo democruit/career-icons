@@ -64,10 +64,10 @@ one simple container. The pilot uses only the shield check; other modifiers awai
 - **ATS pass:** the same document fold plus a shield containing a check. Only two content lines
   remain, keeping the lower-right area clear.
 - **Video interview:** shared laptop and person, with no camera dot or call controls.
-- **Salary range:** two rounded slider handles, broken track behind them and a centered dollar
-  sign above. Handles mark a range rather than a single value.
-- **Laid off:** open box with a tilted folder and a small plant. A single flap crease establishes
-  cardboard without adding a face, brand or distress symbol.
+- **Salary range:** two rounded slider handles and a broken track are the dominant shape. A
+  smaller dollar sign sits above them. Handles mark a range rather than a single value.
+- **Laid off:** open box with two items, a tilted folder and a simple sprout. A single flap crease
+  establishes cardboard without adding a face, brand or distress symbol.
 
 Two review-only variants live in `docs/previews/alternatives/`: `resume-alt.svg` swaps the empty
 photo block for a tiny portrait; `laid-off-alt.svg` replaces the plant with a desk mug. Recommend
