@@ -1,0 +1,9 @@
+{
+  "name": "job-tracker",
+  "title": "Job tracker",
+  "category": "tools",
+  "tags": ["job-tracker", "tracking", "progress", "clipboard", "tasks", "dashboard"],
+  "aliases": ["progress-tracker"],
+  "since": "0.1.0",
+  "animation": "draw"
+}
