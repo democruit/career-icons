@@ -55,7 +55,7 @@ test("icon props beat the provider, which beats the built-in defaults", () => {
   const defaults = markup(createElement(icons.ResumeIcon));
   expect(attr(defaults, "width")).toBe("24");
   expect(attr(defaults, "height")).toBe("24");
-  expect(attr(defaults, "stroke-width")).toBe("2");
+  expect(attr(defaults, "stroke-width")).toBe("1.5");
   expect(attr(defaults, "color")).toBe("currentColor");
   expect(defaults).not.toContain("data-ci-animate");
 
@@ -105,5 +105,10 @@ test("absoluteStrokeWidth keeps the visual stroke constant and can be set by the
     ),
   );
   expect(attr(html, "width")).toBe("48");
-  expect(attr(html, "stroke-width")).toBe("1");
+  expect(attr(html, "stroke-width")).toBe("0.75");
+
+  const explicit = markup(
+    createElement(icons.ResumeIcon, { size: 32, strokeWidth: 1.5, absoluteStrokeWidth: true }),
+  );
+  expect(attr(explicit, "stroke-width")).toBe("1.125");
 });

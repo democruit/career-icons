@@ -34,7 +34,7 @@ test("pilot contains exactly five final icons with useful search metadata", asyn
 
 test("validator rejects forbidden artwork and wrong root stroke", async () => {
   const svg = await readFile(new URL("../icons/resume.svg", import.meta.url), "utf8");
-  expect(() => parseSvg(svg.replace('stroke-width="2"', 'stroke-width="1"'))).toThrow(
+  expect(() => parseSvg(svg.replace('stroke-width="1.5"', 'stroke-width="1"'))).toThrow(
     "stroke-width",
   );
   expect(() => parseSvg(svg.replace("</svg>", '<text x="5" y="5">CV</text></svg>'))).toThrow(

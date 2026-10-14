@@ -52,10 +52,10 @@ Every icon uses `stroke="currentColor"`. The default `color` is `currentColor`, 
 | Prop | Default |
 | --- | --- |
 | `size` | `24` |
-| `strokeWidth` | `2` |
+| `strokeWidth` | `1.5` |
 | `color` | `currentColor` |
 | `animate` | `none` (`hover`, `always`, or `none`) |
-| `absoluteStrokeWidth` | `false` (when `true`, stroke stays visually constant as size changes) |
+| `absoluteStrokeWidth` | `false` (when `true`, rendered stroke is `strokeWidth * 24 / size`) |
 
 ```jsx
 import "@democruit/career-icons/animations.css";
@@ -78,7 +78,7 @@ Each icon is a pair: `icons/<name>.svg` and `icons/<name>.json`.
 
 SVG:
 
-- Root `<svg viewBox="0 0 24 24">` with `fill="none"`, `stroke="currentColor"`, `stroke-width="2"`, `stroke-linecap="round"`, `stroke-linejoin="round"`.
+- Root `<svg viewBox="0 0 24 24">` with `fill="none"`, `stroke="currentColor"`, `stroke-width="1.5"`, `stroke-linecap="round"`, `stroke-linejoin="round"`.
 - No `width` or `height` attributes (SVGO strips dimensions and keeps `viewBox`).
 - 2px padding. Painted strokes, caps and joins stay inside the 20×20 live area from (2,2) to (22,22). Outer centerlines normally sit between 3 and 21.
 - Rectangles use `rx="2"`. Use approximately six or fewer elements; prioritize legibility at 16px.

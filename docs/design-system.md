@@ -6,16 +6,17 @@ approved. These shapes were drawn directly on the grid; no external icon artwork
 ## Grid and optical size
 
 - Canvas: `viewBox="0 0 24 24"`. No intrinsic width or height.
-- Stroke: `2`, `currentColor`, round caps and joins. Fill: `none`.
+- Stroke: `1.5`, `currentColor`, round caps and joins. Fill: `none`. Consumers can still
+  render a heavier stroke; `absoluteStrokeWidth` keeps that weight constant in pixels.
 - Padding: the **painted stroke**, including caps and joins, stays within `(2,2)`–`(22,22)`.
-  Ordinary outer centerlines therefore sit between 3 and 21.
+  With a 1.5 stroke, outer centerlines normally sit between 2.75 and 21.25.
 - Circular silhouettes: diameter 18 on the centerline, 20 including stroke. Square silhouettes:
   about 16 on the centerline, 18 including stroke. Wide silhouettes: about 18×14 on the centerline,
   20×16 including stroke. Tall documents intentionally use an 18px centerline height.
 - Rectangles use a 2px corner radius. Curved paths use equivalent quadratic corners. Half-grid
   positions are allowed for optical balance and modifier checks.
 - Aim for six or fewer SVG elements. A path may join related strokes, but does not justify adding
-  detail. At 16px the stroke becomes 1.33px; preserve empty space and remove decorative marks.
+  detail. At 16px a 1.5 stroke becomes 1px; preserve empty space and remove decorative marks.
 - No letters or numbers. The salary icon's essential dollar sign is drawn as paths, never text.
 
 ## Shared base shapes
@@ -36,7 +37,7 @@ relevant geometry into standalone icons; package SVGs have no symbols, IDs or ex
 
 ```svg
 <!-- Document base: all standalone icons use the same root attributes. -->
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
      stroke-linecap="round" stroke-linejoin="round">
   <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z"/>
   <path d="M14 3V8H19"/>
@@ -76,8 +77,9 @@ silhouette. The alternatives are deliberately excluded from validation, package 
 ## Review and reproduction
 
 Review [the animation loop](previews/pilot-animations.gif) for the five pilot motions, then
-[the contact sheet](previews/pilot.png) at its native resolution: actual 16, 24 and 48px
-art on both backgrounds, followed by a consistency row on each background and the alternatives.
+[the contact sheet](previews/pilot.png) at its native resolution: 16, 24, 32 and 48px art
+with strokes 1.5 and 2 side by side, on both backgrounds, followed by a consistency row and the
+alternatives.
 The review PNG uses labels outside icons; none are part of icon geometry.
 
 Run `npm run preview:pilot` to reproduce it. This development script uses the pinned npm SVG

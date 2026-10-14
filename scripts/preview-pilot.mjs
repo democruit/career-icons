@@ -28,10 +28,15 @@ try {
       ["light", "#243447"],
       ["dark", "#eef3fa"],
     ]) {
-      for (const size of [16, 24, 48]) {
-        const colored = svg.replaceAll("currentColor", color);
-        const png = new Resvg(colored, { fitTo: { mode: "width", value: size } }).render().asPng();
-        await writeFile(join(temporary, `${name}-${theme}-${size}.png`), png);
+      for (const stroke of ["1.5", "2"]) {
+        const stroked = svg.replace('stroke-width="1.5"', `stroke-width="${stroke}"`);
+        for (const size of [16, 24, 32, 48]) {
+          const colored = stroked.replaceAll("currentColor", color);
+          const png = new Resvg(colored, { fitTo: { mode: "width", value: size } })
+            .render()
+            .asPng();
+          await writeFile(join(temporary, `${name}-${theme}-${stroke}-${size}.png`), png);
+        }
       }
     }
   }

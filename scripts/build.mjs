@@ -2,7 +2,7 @@ import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { loadIcons } from "./icons.mjs";
 
-const reactRuntime = `const defaults = { size: 24, strokeWidth: 2, color: "currentColor", animate: "none", absoluteStrokeWidth: false };
+const reactRuntime = `const defaults = { size: 24, strokeWidth: 1.5, color: "currentColor", animate: "none", absoluteStrokeWidth: false };
 const CareerIconsContext = createContext(defaults);
 function CareerIconsProvider({ children, size, strokeWidth, color, animate, absoluteStrokeWidth }) {
   const parent = useContext(CareerIconsContext);
