@@ -1,0 +1,9 @@
+{
+  "name": "skills",
+  "title": "Skills",
+  "category": "career-growth",
+  "tags": ["skills", "competency", "capability", "puzzle", "expertise", "talent"],
+  "aliases": ["skill-set"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

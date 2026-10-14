@@ -1,0 +1,9 @@
+{
+  "name": "certificate",
+  "title": "Certificate",
+  "category": "career-growth",
+  "tags": ["certificate", "certification", "qualification", "credential", "award", "achievement"],
+  "aliases": ["professional-certificate"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

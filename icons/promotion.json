@@ -1,0 +1,9 @@
+{
+  "name": "promotion",
+  "title": "Promotion",
+  "category": "career-growth",
+  "tags": ["promotion", "advancement", "career-growth", "progress", "stairs", "raise"],
+  "aliases": ["career-promotion"],
+  "since": "0.1.0",
+  "animation": "draw"
+}
