@@ -1,0 +1,9 @@
+{
+  "name": "ai-interviewer",
+  "title": "AI interviewer",
+  "category": "interviews",
+  "tags": ["ai", "interviewer", "chatbot", "artificial-intelligence", "interview", "automated"],
+  "aliases": ["automated-interviewer"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

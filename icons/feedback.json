@@ -1,0 +1,9 @@
+{
+  "name": "feedback",
+  "title": "Feedback",
+  "category": "interviews",
+  "tags": ["feedback", "review", "rating", "interview", "evaluation", "comment"],
+  "aliases": ["interview-feedback"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

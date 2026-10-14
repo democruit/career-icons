@@ -1,0 +1,16 @@
+{
+  "name": "tell-me-about-yourself",
+  "title": "Tell me about yourself",
+  "category": "interviews",
+  "tags": [
+    "interview",
+    "introduction",
+    "self-introduction",
+    "candidate",
+    "storytelling",
+    "elevator-pitch"
+  ],
+  "aliases": ["introduce-yourself"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

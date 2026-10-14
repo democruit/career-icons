@@ -1,0 +1,9 @@
+{
+  "name": "interview-prep",
+  "title": "Interview prep",
+  "category": "interviews",
+  "tags": ["interview", "preparation", "checklist", "practice", "candidate", "coaching"],
+  "aliases": ["interview-preparation"],
+  "since": "0.1.0",
+  "animation": "draw-check"
+}

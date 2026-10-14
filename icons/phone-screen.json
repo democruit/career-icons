@@ -1,0 +1,9 @@
+{
+  "name": "phone-screen",
+  "title": "Phone screen",
+  "category": "interviews",
+  "tags": ["phone", "screening", "call", "interview", "recruiter", "mobile"],
+  "aliases": ["telephone-interview"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

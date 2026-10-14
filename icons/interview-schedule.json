@@ -1,0 +1,9 @@
+{
+  "name": "interview-schedule",
+  "title": "Interview schedule",
+  "category": "interviews",
+  "tags": ["interview", "schedule", "calendar", "appointment", "candidate", "booking"],
+  "aliases": ["scheduled-interview"],
+  "since": "0.1.0",
+  "animation": "draw"
+}
