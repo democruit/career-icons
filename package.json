@@ -1,0 +1,84 @@
+{
+  "name": "@democruit/career-icons",
+  "version": "0.1.0",
+  "description": "Career-themed outline SVG icons for resumes, interviews, offers, and job search.",
+  "license": "MIT",
+  "author": "Democruit (https://democruit.com)",
+  "homepage": "https://github.com/democruit/career-icons#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/democruit/career-icons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/democruit/career-icons/issues"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "career",
+    "react",
+    "job-search",
+    "democruit"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js",
+      "require": "./dist/react/index.cjs"
+    },
+    "./svg/*": "./dist/svg/*",
+    "./sprite.svg": "./dist/sprite.svg",
+    "./icons.json": "./dist/icons.json"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "validate": "node scripts/pending.mjs validate",
+    "build": "node scripts/pending.mjs build",
+    "size": "node scripts/pending.mjs size",
+    "site:build": "node scripts/pending.mjs site",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,tsx,json,md,yml,yaml,css}": "biome check --write --no-errors-on-unmatched"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@types/node": "^26.6.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4"
+  }
+}

@@ -1,0 +1,10 @@
+---
+description: Follow AGENTS.md as the source of truth for this repository
+alwaysApply: true
+---
+
+# Career Icons
+
+Read and follow [AGENTS.md](../../AGENTS.md) before changing this repo.
+
+AGENTS.md is the only spec for structure, the icon contract, commands, commits, and how to add an icon. Do not copy third-party icon paths or other companies' logos. Do not push, tag, publish, or deploy unless the user explicitly asks in the current request.
