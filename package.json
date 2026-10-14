@@ -78,19 +78,13 @@
   "engines": {
     "node": ">=20"
   },
-  "size-limit": [
-    {
-      "path": "dist/animations.css",
-      "limit": "3 kB",
-      "gzip": true
-    }
-  ],
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
     "@fontsource/geist-sans": "^5.3.0",
     "@resvg/resvg-js": "^2.6.2",
+    "@size-limit/esbuild": "^14.2.0",
     "@size-limit/file": "^14.2.0",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
