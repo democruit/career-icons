@@ -28,9 +28,13 @@ const hoverSample = `<button type="button" className="ci-hover">
   Save resume
 </button>`;
 
+const strokeStops = [1, 1.25, 1.5, 1.75, 2];
+
 export function App() {
   const capture = new URLSearchParams(window.location.search).has("capture");
   const [preview, setPreview] = useState(capture);
+  const [strokeWidth, setStrokeWidth] = useState(1.5);
+  const [absoluteStrokeWidth, setAbsoluteStrokeWidth] = useState(false);
 
   if (capture) {
     return (
@@ -68,7 +72,38 @@ export function App() {
               Preview animations
             </button>
           </div>
-          <CareerIconsProvider size={64} animate={preview ? "always" : "none"} color="#0f172a">
+          <div className="controls">
+            <fieldset className="stroke-picker">
+              <legend>Stroke width</legend>
+              {strokeStops.map((stop) => (
+                <label key={stop}>
+                  <input
+                    type="radio"
+                    name="stroke-width"
+                    value={stop}
+                    checked={strokeWidth === stop}
+                    onChange={() => setStrokeWidth(stop)}
+                  />
+                  {stop}
+                </label>
+              ))}
+            </fieldset>
+            <button
+              type="button"
+              className="toggle"
+              aria-pressed={absoluteStrokeWidth}
+              onClick={() => setAbsoluteStrokeWidth((value) => !value)}
+            >
+              absoluteStrokeWidth
+            </button>
+          </div>
+          <CareerIconsProvider
+            size={64}
+            strokeWidth={strokeWidth}
+            absoluteStrokeWidth={absoluteStrokeWidth}
+            animate={preview ? "always" : "none"}
+            color="#0f172a"
+          >
             <IconList />
           </CareerIconsProvider>
         </section>

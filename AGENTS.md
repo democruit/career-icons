@@ -143,7 +143,7 @@ with the same names. React remains an optional peer; render/build tools are deve
 It also shows the two review-only alternatives. Python 3 with Pillow is required; set `PILOT_PYTHON`
 to a virtual environment executable if needed. This local preview command is not part of CI.
 
-`size` checks that `dist/animations.css` is under 3 KB gzip. `site:build` builds the static preview in `site/` after the package build. CI runs these checks and does not publish or deploy. The site previews the five pilot animations, the provider, a `ci-hover` parent, and an icon inside a colored button.
+`size` checks that `dist/animations.css` is under 3 KB gzip. `site:build` builds the static preview in `site/` after the package build. CI runs these checks and does not publish or deploy. The site previews the five pilot animations, the provider, a `ci-hover` parent, an icon inside a colored button, and stroke controls (1 to 2, plus `absoluteStrokeWidth`).
 
 The current pilot is exactly `resume`, `ats-pass`, `video-interview`, `salary-range`, and `laid-off`.
 Do not create more icons until the user approves the pilot. Base shapes in `docs/` and alternatives
