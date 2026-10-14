@@ -32,7 +32,10 @@ try {
         const stroked = svg.replace(/stroke-width="[^"]+"/, `stroke-width="${stroke}"`);
         for (const size of [16, 24, 32, 48]) {
           const colored = stroked.replaceAll("currentColor", color);
-          const png = new Resvg(colored, { fitTo: { mode: "width", value: size } })
+          const png = new Resvg(colored, {
+            font: { loadSystemFonts: false },
+            fitTo: { mode: "width", value: size },
+          })
             .render()
             .asPng();
           await writeFile(join(temporary, `${name}-${theme}-${stroke}-${size}.png`), png);

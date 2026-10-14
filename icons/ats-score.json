@@ -1,0 +1,9 @@
+{
+  "name": "ats-score",
+  "title": "ATS score",
+  "category": "ats",
+  "tags": ["ats", "score", "gauge", "rating", "screening", "compatibility"],
+  "aliases": ["resume-score"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

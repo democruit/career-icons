@@ -1,0 +1,9 @@
+{
+  "name": "parse-error",
+  "title": "Parse error",
+  "category": "ats",
+  "tags": ["parse-error", "parsing", "ats", "document", "broken", "unreadable"],
+  "aliases": ["resume-parse-error"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

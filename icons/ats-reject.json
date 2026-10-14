@@ -1,0 +1,9 @@
+{
+  "name": "ats-reject",
+  "title": "ATS reject",
+  "category": "ats",
+  "tags": ["ats", "rejected", "screening", "resume", "failed", "application"],
+  "aliases": ["screening-rejected"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

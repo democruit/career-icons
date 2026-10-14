@@ -1,0 +1,9 @@
+{
+  "name": "keyword-match",
+  "title": "Keyword match",
+  "category": "ats",
+  "tags": ["keyword", "match", "tags", "skills", "relevance", "ats"],
+  "aliases": ["matching-keywords"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

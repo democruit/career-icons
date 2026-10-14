@@ -31,6 +31,7 @@ try {
     ]) {
       for (const size of [16, 24, 48]) {
         const png = new Resvg(svg.replaceAll("currentColor", color), {
+          font: { loadSystemFonts: false },
           fitTo: { mode: "width", value: size },
         })
           .render()

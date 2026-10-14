@@ -103,7 +103,7 @@ export function assertPaintBounds(svg) {
   const namespaced = /\bxmlns=/.test(svg)
     ? svg
     : svg.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"');
-  const bounds = new Resvg(namespaced).getBBox();
+  const bounds = new Resvg(namespaced, { font: { loadSystemFonts: false } }).getBBox();
   assert(bounds, "SVG contains no visible geometry");
   assert(
     bounds.x >= 2 &&
@@ -117,7 +117,7 @@ export function assertPaintBounds(svg) {
     /\bviewBox=(["'])0 0 24 24\1/,
     'viewBox="-4 -4 32 32" width="320" height="320"',
   );
-  const rendered = new Resvg(expanded).render();
+  const rendered = new Resvg(expanded, { font: { loadSystemFonts: false } }).render();
   const pixels = rendered.pixels;
   let painted = 0;
   for (let y = 0; y < 320; y++) {
