@@ -1,4 +1,4 @@
-# Pilot outline design system
+# Outline design system
 
 The five original pilot icons are approved as the style reference for the full collection. These shapes were drawn directly on the grid; no external icon artwork was used.
 
@@ -75,7 +75,8 @@ silhouette. The alternatives are deliberately excluded from validation, package 
 
 ## Review and reproduction
 
-Review [the animation loop](previews/pilot-animations.gif) for the five pilot motions, then
+The historical [animation loop](previews/pilot-animations.gif) illustrates the five pilot motions
+at the earlier 1.5px weight. For the current artwork, review
 [the contact sheet](previews/pilot.png) at its native resolution: 16, 24, 32 and 48px art
 with strokes 1.5 and 2 side by side, on both backgrounds, followed by a consistency row and the
 alternatives.
@@ -87,3 +88,12 @@ environment). Set `PILOT_PYTHON` to that environment's Python executable when ne
 
 The full-set request restores the 2px default stroke. The primary pilot artwork and its simplified
 salary-range and laid-off geometry remain the reference; no alternative was selected.
+
+## Full collection review
+
+[All 60 icons](previews/all.png) and [the category report](full-set-report.md) record the final
+16/24/48px review. `npm run preview -- <category>` reproduces each sheet; `all` renders the whole
+collection. Directional arrows intrinsic to paths, stairs or referrals may sit outside the status
+modifier envelope. Ghosted uses a round dotted path; seven-day-plan uses seven small round stroke
+segments, with no numerals. Salary-range keeps its handles dominant but widens the dollar sign
+to preserve the symbol at the requested 2px stroke.

@@ -18,7 +18,9 @@ a {
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
   outline: 2px solid #2563eb;
   outline-offset: 3px;
 }
@@ -101,6 +103,85 @@ section {
   align-items: center;
   gap: 12px;
   margin-top: 16px;
+}
+
+.catalog-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.catalog-controls label,
+.catalog-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.search-field {
+  flex: 1;
+  min-width: min(240px, 100%);
+}
+
+.catalog-controls input,
+.catalog-controls select {
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+}
+
+.icon-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.icon-gallery li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid #dbe3f0;
+  border-radius: 12px;
+  background: #fff;
+  color: #243447;
+}
+
+.icon-sample {
+  display: grid;
+  place-items: center;
+  height: 64px;
+}
+
+.icon-gallery span {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.icon-gallery small {
+  overflow-wrap: anywhere;
+  color: #516175;
+  font-size: 0.75rem;
+}
+
+.icon-gallery-dark li {
+  border-color: #304257;
+  background: #15202e;
+  color: #eef3fa;
+}
+
+.icon-gallery-dark small {
+  color: #afbdd0;
 }
 
 .stroke-picker {

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { icons as collection } from "../../dist/index.js";
+import * as components from "../../dist/react/index.js";
 import {
   AtsPassIcon,
   CareerIconsProvider,
@@ -29,11 +31,112 @@ const hoverSample = `<button type="button" className="ci-hover">
 </button>`;
 
 const strokeStops = [1, 1.25, 1.5, 1.75, 2];
+const categories = [...new Set(collection.map((icon) => icon.category))].sort();
+const categoryLabel = (category) => category.replaceAll("-", " ");
+
+function Catalog() {
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("all");
+  const [size, setSize] = useState(24);
+  const [dark, setDark] = useState(false);
+  const words = search.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  const matches = collection.filter((icon) => {
+    const terms = [icon.name, icon.title, icon.category, ...icon.tags, ...icon.aliases]
+      .join(" ")
+      .toLowerCase();
+    return (
+      (category === "all" || icon.category === category) &&
+      words.every((word) => terms.includes(word))
+    );
+  });
+  return (
+    <section aria-labelledby="catalog-heading">
+      <div className="section-row">
+        <h2 id="catalog-heading">Browse all {collection.length} icons</h2>
+        <a href="#usage-heading">React usage</a>
+      </div>
+      <div className="catalog-controls">
+        <label className="search-field">
+          Search icons
+          <input
+            type="search"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            placeholder="Resume, interview, compensation…"
+          />
+        </label>
+        <div className="catalog-field">
+          <label htmlFor="catalog-category">Category</label>
+          <select
+            id="catalog-category"
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+          >
+            <option value="all">All categories</option>
+            {categories.map((value) => (
+              <option key={value} value={value}>
+                {categoryLabel(value)}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="catalog-field">
+          <label htmlFor="catalog-size">Preview size</label>
+          <select
+            id="catalog-size"
+            value={size}
+            onChange={(event) => setSize(Number(event.target.value))}
+          >
+            {[16, 24, 48].map((value) => (
+              <option key={value} value={value}>
+                {value}px
+              </option>
+            ))}
+          </select>
+        </div>
+        <button
+          type="button"
+          className="toggle"
+          aria-pressed={dark}
+          onClick={() => setDark((value) => !value)}
+        >
+          Dark background
+        </button>
+      </div>
+      <p role="status" aria-live="polite">
+        {matches.length} of {collection.length} icons
+      </p>
+      {matches.length ? (
+        <ul className={`icon-gallery${dark ? " icon-gallery-dark" : ""}`} aria-label="Icon results">
+          {matches.map((icon) => {
+            const name = `${icon.name
+              .split("-")
+              .map((part) => part[0].toUpperCase() + part.slice(1))
+              .join("")}Icon`;
+            // biome-ignore lint/performance/noDynamicNamespaceImportAccess: The catalog intentionally displays every icon.
+            const Icon = components[name];
+            return (
+              <li key={icon.name}>
+                <div className="icon-sample">
+                  <Icon size={size} strokeWidth={2} aria-hidden="true" />
+                </div>
+                <span>{icon.title}</span>
+                <small>{icon.name}</small>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p>No icons match. Try a broader search or another category.</p>
+      )}
+    </section>
+  );
+}
 
 export function App() {
   const capture = new URLSearchParams(window.location.search).has("capture");
   const [preview, setPreview] = useState(capture);
-  const [strokeWidth, setStrokeWidth] = useState(1.5);
+  const [strokeWidth, setStrokeWidth] = useState(2);
   const [absoluteStrokeWidth, setAbsoluteStrokeWidth] = useState(false);
 
   if (capture) {
@@ -53,13 +156,14 @@ export function App() {
         <p className="brand">
           <a href="https://democruit.com">Democruit</a> career icons
         </p>
-        <h1>Animation preview</h1>
+        <h1>60 icons for your next career move.</h1>
         <p className="lede">
-          Icons inherit color, take defaults from <code>CareerIconsProvider</code>, and stay still
-          until <code>animations.css</code> is imported.
+          Original outline icons for resumes, job applications, interviews and everything that
+          follows. A 24px grid, friendly 2px strokes and ten career categories.
         </p>
       </header>
       <main>
+        <Catalog />
         <section aria-labelledby="preview-heading">
           <div className="section-row">
             <h2 id="preview-heading">Pilot icons</h2>
@@ -124,6 +228,21 @@ export function App() {
               Accent icon
             </button>
           </div>
+        </section>
+
+        <section aria-labelledby="usage-heading">
+          <h2 id="usage-heading">React usage</h2>
+          <p>
+            Install <code>@democruit/career-icons</code>, then import individual icons from the
+            React entry.
+          </p>
+          <pre>
+            <code>{`npm install @democruit/career-icons\n\nimport { ResumeIcon } from "@democruit/career-icons/react";\n\n<ResumeIcon size={24} aria-label="Resume" />`}</code>
+          </pre>
+          <p>
+            Icons inherit the parent color. Use <code>aria-hidden="true"</code> alongside a text
+            label, or provide an accessible label for a meaningful standalone icon.
+          </p>
         </section>
 
         <section aria-labelledby="provider-heading">
