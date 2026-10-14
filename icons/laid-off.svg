@@ -1,6 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M4 12H20V19Q20 21 18 21H6Q4 21 4 19Z"/>
-  <path d="M4 12L7 16H17L20 12"/>
+  <g data-ci-part="box">
+    <path d="M4 12H20V19Q20 21 18 21H6Q4 21 4 19Z"/>
+    <path d="M4 12L7 16H17L20 12"/>
+  </g>
   <path d="M6 12L5 5L11 4L12 12"/>
   <path d="M17 12V8Q13 8 13 4Q17 4 17 8Q17 5 21 5Q21 9 17 9"/>
 </svg>

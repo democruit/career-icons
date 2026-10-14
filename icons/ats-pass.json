@@ -11,5 +11,6 @@
     "approved"
   ],
   "aliases": ["ats-approved", "screening-pass"],
-  "since": "0.1.0"
+  "since": "0.1.0",
+  "animation": "draw-check"
 }

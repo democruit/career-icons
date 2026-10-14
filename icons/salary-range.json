@@ -4,5 +4,6 @@
   "category": "offers-salary",
   "tags": ["salary", "pay-range", "compensation", "wages", "salary-band", "negotiation"],
   "aliases": ["pay-band", "compensation-range"],
-  "since": "0.1.0"
+  "since": "0.1.0",
+  "animation": "slide"
 }

@@ -6,7 +6,7 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterAll, beforeAll, expect, test } from "vitest";
 import { buildIcons } from "../scripts/build.mjs";
-import { assertPaintBounds, loadIcons, parseSvg } from "../scripts/icons.mjs";
+import { animations, assertPaintBounds, loadIcons, parseSvg } from "../scripts/icons.mjs";
 
 const pilot = ["ats-pass", "laid-off", "resume", "salary-range", "video-interview"];
 const require = createRequire(import.meta.url);
@@ -55,6 +55,46 @@ test("padding audit catches painted strokes, even beyond the original viewport",
   expect(() =>
     assertPaintBounds(svg.replace("</svg>", '<circle cx="300" cy="12" r="2"/></svg>')),
   ).toThrow("Paint exceeds");
+});
+
+test("pilot icons declare animations and part attributes the validator accepts", async () => {
+  const expected = {
+    resume: { animation: "draw", part: "lines" },
+    "ats-pass": { animation: "draw-check", part: "check" },
+    "video-interview": { animation: "pop", part: "person" },
+    "salary-range": { animation: "slide", part: "handle-left" },
+    "laid-off": { animation: "wiggle", part: "box" },
+  };
+  const icons = await loadIcons();
+  for (const { metadata, svg } of icons) {
+    expect(animations.has(metadata.animation)).toBe(true);
+    expect(metadata.animation).toBe(expected[metadata.name].animation);
+    expect(svg).toContain(`data-ci-part="${expected[metadata.name].part}"`);
+  }
+  expect(icons.find(({ metadata }) => metadata.name === "salary-range")?.svg).toContain(
+    'data-ci-part="handle-right"',
+  );
+  const svg = await readFile(new URL("../icons/resume.svg", import.meta.url), "utf8");
+  expect(() => parseSvg(svg.replace('data-ci-part="lines"', 'data-ci-part="Lines"'))).toThrow(
+    "Forbidden attribute",
+  );
+  expect(() => parseSvg(svg.replace("data-ci-part", "data-id"))).toThrow("Forbidden attribute");
+});
+
+test("metadata rejects an unknown animation name", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "career-icons-animation-"));
+  try {
+    const svg = await readFile(new URL("../icons/resume.svg", import.meta.url), "utf8");
+    const metadata = { ...(await loadIcons())[0].metadata };
+    await writeFile(join(directory, "sample.svg"), svg);
+    await writeFile(
+      join(directory, "sample.json"),
+      JSON.stringify({ ...metadata, name: "sample", aliases: [], animation: "bounce" }),
+    );
+    await expect(loadIcons(directory)).rejects.toThrow("invalid animation");
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test("metadata rejects duplicate aliases across icons", async () => {

@@ -18,6 +18,15 @@ const categories = new Set([
   "tools",
 ]);
 const kebab = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+export const animations = new Set([
+  "draw",
+  "draw-check",
+  "nudge-right",
+  "scan",
+  "wiggle",
+  "pop",
+  "slide",
+]);
 const semver =
   /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[\da-zA-Z-]+(?:\.[\da-zA-Z-]+)*)?(?:\+[\da-zA-Z-]+(?:\.[\da-zA-Z-]+)*)?$/;
 const roots = {
@@ -64,8 +73,12 @@ export function parseSvg(svg) {
       const attrs = node[":@"] ?? {};
       for (const [key, value] of Object.entries(attrs)) {
         const inherited = key in roots && key !== "viewBox" && value === roots[key];
+        const part = !root && key === "data-ci-part" && kebab.test(value);
         assert(
-          attributes[tag].has(key) || (!root && inherited) || (!root && key === "transform"),
+          attributes[tag].has(key) ||
+            (!root && inherited) ||
+            (!root && key === "transform") ||
+            part,
           `Forbidden attribute/value: ${tag}.${key}`,
         );
       }
@@ -137,6 +150,7 @@ export async function loadIcons(directory = iconDirectory) {
     assert(metadata.name === name, `${name}: metadata name mismatch`);
     assert(typeof metadata.title === "string" && metadata.title.trim(), `${name}: missing title`);
     assert(categories.has(metadata.category), `${name}: invalid category`);
+    assert(animations.has(metadata.animation), `${name}: invalid animation`);
     assert(
       typeof metadata.since === "string" && semver.test(metadata.since),
       `${name}: invalid since`,

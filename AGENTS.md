@@ -74,6 +74,7 @@ SVG:
 - 2px padding. Painted strokes, caps and joins stay inside the 20×20 live area from (2,2) to (22,22). Outer centerlines normally sit between 3 and 21.
 - Rectangles use `rx="2"`. Use approximately six or fewer elements; prioritize legibility at 16px.
 - Child elements may only be `path`, `circle`, `rect`, `line`, `polyline`, `polygon`, and `g`.
+- Animated sub-parts may set `data-ci-part` to a kebab-case name, for example `data-ci-part="check"`. No other `data-*` attributes, `id` attributes, or inline styles.
 - Forbidden: `text`, raster images, gradients, filters, masks, clip paths, `style` attributes, `id` attributes, hardcoded colors, and `transform` on the root `<svg>`.
 - Optimized file size must be 1 KB or under (1024 bytes).
 
@@ -86,7 +87,8 @@ Metadata:
   "category": "ats",
   "tags": ["ats", "resume"],
   "aliases": ["applicant-tracking"],
-  "since": "0.1.0"
+  "since": "0.1.0",
+  "animation": "scan"
 }
 ```
 
@@ -96,6 +98,7 @@ Metadata:
 - `tags` and `aliases` are arrays of kebab-case strings. Tags may repeat across icons. A tag or alias may not repeat inside one icon.
 - An alias may not match any icon name or another icon's alias.
 - `since` is the SemVer version that introduced the icon.
+- `animation` names the motion CSS will run when animation is enabled: `draw`, `draw-check`, `nudge-right`, `scan`, `wiggle`, `pop`, or `slide`. The pilot uses `draw` (resume lines), `draw-check`, `pop` (video-interview person), `slide` (salary handles), and `wiggle` (laid-off box).
 - Placeholders add `"placeholder": true`. Remove that flag when the icon is final art.
 
 ## How to add an icon
