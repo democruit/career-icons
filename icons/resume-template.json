@@ -1,0 +1,9 @@
+{
+  "name": "resume-template",
+  "title": "Resume template",
+  "category": "resume",
+  "tags": ["resume", "template", "layout", "cv", "format", "sample"],
+  "aliases": ["cv-template"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

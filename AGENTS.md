@@ -52,7 +52,7 @@ Every icon uses `stroke="currentColor"`. The default `color` is `currentColor`, 
 | Prop | Default |
 | --- | --- |
 | `size` | `24` |
-| `strokeWidth` | `1.5` |
+| `strokeWidth` | `2` |
 | `color` | `currentColor` |
 | `animate` | `none` (`hover`, `always`, or `none`) |
 | `absoluteStrokeWidth` | `false` (when `true`, rendered stroke is `strokeWidth * 24 / size`) |
@@ -78,7 +78,7 @@ Each icon is a pair: `icons/<name>.svg` and `icons/<name>.json`.
 
 SVG:
 
-- Root `<svg viewBox="0 0 24 24">` with `fill="none"`, `stroke="currentColor"`, `stroke-width="1.5"`, `stroke-linecap="round"`, `stroke-linejoin="round"`.
+- Root `<svg viewBox="0 0 24 24">` with `fill="none"`, `stroke="currentColor"`, `stroke-width="2"`, `stroke-linecap="round"`, `stroke-linejoin="round"`.
 - No `width` or `height` attributes (SVGO strips dimensions and keeps `viewBox`).
 - 2px padding. Painted strokes, caps and joins stay inside the 20×20 live area from (2,2) to (22,22). Outer centerlines normally sit between 3 and 21.
 - Rectangles use `rx="2"`. Use approximately six or fewer elements; prioritize legibility at 16px.
@@ -128,7 +128,8 @@ npm run format      # biome --write
 npm run typecheck   # tsc --noEmit
 npm test            # vitest
 npm run build       # dist outputs
-npm run preview:pilot # review contact sheet; Python 3 + Pillow
+npm run preview:pilot # pilot stroke comparison; Python 3 + Pillow
+npm run preview -- <category> # category sheet; use all for the full collection
 npm run preview:animations # pilot animation GIF; Playwright + ffmpeg
 npm run size        # size-limit; animations.css < 3 KB gzip
 npm run site:build  # static docs
@@ -145,8 +146,8 @@ to a virtual environment executable if needed. This local preview command is not
 
 `size` checks that `dist/animations.css` is under 3 KB gzip. `site:build` builds the static preview in `site/` after the package build. CI runs these checks and does not publish or deploy. The site previews the five pilot animations, the provider, a `ci-hover` parent, an icon inside a colored button, and stroke controls (1 to 2, plus `absoluteStrokeWidth`).
 
-The current pilot is exactly `resume`, `ats-pass`, `video-interview`, `salary-range`, and `laid-off`.
-Do not create more icons until the user approves the pilot. Base shapes in `docs/` and alternatives
+The approved style reference is `resume`, `ats-pass`, `video-interview`, `salary-range`, and `laid-off`.
+The user approved expanding the collection in task 2B. Base shapes in `docs/` and alternatives
 in `docs/previews/alternatives/` are design references, excluded from package output.
 
 ## Commits

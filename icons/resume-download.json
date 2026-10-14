@@ -1,0 +1,9 @@
+{
+  "name": "resume-download",
+  "title": "Resume download",
+  "category": "resume",
+  "tags": ["resume", "cv", "download", "export", "save", "document"],
+  "aliases": ["download-resume"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

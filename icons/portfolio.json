@@ -1,0 +1,9 @@
+{
+  "name": "portfolio",
+  "title": "Portfolio",
+  "category": "resume",
+  "tags": ["portfolio", "projects", "work-samples", "showcase", "folder", "creative"],
+  "aliases": ["work-portfolio"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

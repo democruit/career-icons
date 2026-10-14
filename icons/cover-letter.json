@@ -1,0 +1,16 @@
+{
+  "name": "cover-letter",
+  "title": "Cover letter",
+  "category": "resume",
+  "tags": [
+    "cover-letter",
+    "motivation-letter",
+    "application",
+    "envelope",
+    "introduction",
+    "writing"
+  ],
+  "aliases": ["application-letter"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

@@ -7,7 +7,7 @@ import { Resvg } from "@resvg/resvg-js";
 import { assertPaintBounds, loadIcons, parseSvg } from "./icons.mjs";
 
 const order = ["resume", "ats-pass", "video-interview", "salary-range", "laid-off"];
-const icons = await loadIcons();
+const icons = (await loadIcons()).filter(({ metadata }) => order.includes(metadata.name));
 if (icons.length !== 5 || icons.some(({ metadata }) => !order.includes(metadata.name))) {
   throw new Error("Pilot preview requires exactly the five approved pilot names");
 }
@@ -29,7 +29,7 @@ try {
       ["dark", "#eef3fa"],
     ]) {
       for (const stroke of ["1.5", "2"]) {
-        const stroked = svg.replace('stroke-width="1.5"', `stroke-width="${stroke}"`);
+        const stroked = svg.replace(/stroke-width="[^"]+"/, `stroke-width="${stroke}"`);
         for (const size of [16, 24, 32, 48]) {
           const colored = stroked.replaceAll("currentColor", color);
           const png = new Resvg(colored, { fitTo: { mode: "width", value: size } })

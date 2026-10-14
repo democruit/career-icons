@@ -1,0 +1,9 @@
+{
+  "name": "resume-check",
+  "title": "Resume check",
+  "category": "resume",
+  "tags": ["resume", "cv", "review", "checklist", "approved", "verified"],
+  "aliases": ["verified-resume"],
+  "since": "0.1.0",
+  "animation": "draw-check"
+}

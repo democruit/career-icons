@@ -21,9 +21,9 @@ afterAll(async () => {
   await rm(output, { recursive: true, force: true });
 });
 
-test("pilot contains exactly five final icons with useful search metadata", async () => {
+test("collection includes the pilot and final icons with useful search metadata", async () => {
   const icons = await loadIcons();
-  expect(icons.map(({ metadata }) => metadata.name)).toEqual(pilot);
+  expect(icons.map(({ metadata }) => metadata.name)).toEqual(expect.arrayContaining(pilot));
   for (const { metadata } of icons) {
     expect(metadata.placeholder).toBeUndefined();
     expect(metadata.tags.length).toBeGreaterThanOrEqual(4);
@@ -34,7 +34,7 @@ test("pilot contains exactly five final icons with useful search metadata", asyn
 
 test("validator rejects forbidden artwork and wrong root stroke", async () => {
   const svg = await readFile(new URL("../icons/resume.svg", import.meta.url), "utf8");
-  expect(() => parseSvg(svg.replace('stroke-width="1.5"', 'stroke-width="1"'))).toThrow(
+  expect(() => parseSvg(svg.replace('stroke-width="2"', 'stroke-width="1"'))).toThrow(
     "stroke-width",
   );
   expect(() => parseSvg(svg.replace("</svg>", '<text x="5" y="5">CV</text></svg>'))).toThrow(
@@ -65,7 +65,7 @@ test("pilot icons declare animations and part attributes the validator accepts",
     "salary-range": { animation: "slide", part: "handle-left" },
     "laid-off": { animation: "wiggle", part: "box" },
   };
-  const icons = await loadIcons();
+  const icons = (await loadIcons()).filter(({ metadata }) => pilot.includes(metadata.name));
   for (const { metadata, svg } of icons) {
     expect(animations.has(metadata.animation)).toBe(true);
     expect(metadata.animation).toBe(expected[metadata.name].animation);
@@ -118,10 +118,10 @@ test("metadata rejects duplicate aliases across icons", async () => {
 test("build emits matching raw exports, SVG files, manifest and sprite", async () => {
   const pkg = require(join(output, "index.cjs"));
   const manifest = JSON.parse(await readFile(join(output, "icons.json"), "utf8"));
-  expect(manifest.map(({ name }) => name)).toEqual(pilot);
-  expect(pkg.icons.map(({ name }) => name)).toEqual(pilot);
+  expect(manifest.map(({ name }) => name)).toEqual(built.map(({ metadata }) => metadata.name));
+  expect(pkg.icons.map(({ name }) => name)).toEqual(built.map(({ metadata }) => metadata.name));
   const sprite = await readFile(join(output, "sprite.svg"), "utf8");
-  expect((sprite.match(/<symbol /g) ?? []).length).toBe(5);
+  expect((sprite.match(/<symbol /g) ?? []).length).toBe(built.length);
   expect(sprite).not.toContain("-alt");
   const esm = await readFile(join(output, "index.js"), "utf8");
   for (const { metadata, componentName, svg } of built) {
