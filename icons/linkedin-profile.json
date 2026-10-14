@@ -1,0 +1,9 @@
+{
+  "name": "linkedin-profile",
+  "title": "LinkedIn profile",
+  "category": "networking",
+  "tags": ["linkedin", "profile", "professional", "social-network", "contact", "networking"],
+  "aliases": ["professional-profile"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

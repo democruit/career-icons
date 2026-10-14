@@ -1,0 +1,9 @@
+{
+  "name": "recruiter",
+  "title": "Recruiter",
+  "category": "networking",
+  "tags": ["recruiter", "talent-acquisition", "hiring", "headhunter", "sourcing", "candidate"],
+  "aliases": ["talent-recruiter"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "network",
+  "title": "Network",
+  "category": "networking",
+  "tags": ["network", "connections", "networking", "community", "contacts", "relationships"],
+  "aliases": ["career-network"],
+  "since": "0.1.0",
+  "animation": "draw"
+}
