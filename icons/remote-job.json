@@ -1,0 +1,9 @@
+{
+  "name": "remote-job",
+  "title": "Remote job",
+  "category": "remote-work",
+  "tags": ["remote-job", "work-from-home", "home-office", "laptop", "telecommute", "distributed"],
+  "aliases": ["home-office-job"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

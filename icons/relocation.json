@@ -1,0 +1,9 @@
+{
+  "name": "relocation",
+  "title": "Relocation",
+  "category": "remote-work",
+  "tags": ["relocation", "move", "location", "moving", "map-pin", "job-change"],
+  "aliases": ["job-relocation"],
+  "since": "0.1.0",
+  "animation": "draw"
+}
