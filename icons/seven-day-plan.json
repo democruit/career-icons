@@ -1,0 +1,9 @@
+{
+  "name": "seven-day-plan",
+  "title": "Seven day plan",
+  "category": "layoffs-transition",
+  "tags": ["seven-day-plan", "week", "calendar", "planning", "schedule", "transition"],
+  "aliases": ["weekly-plan"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

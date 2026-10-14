@@ -1,0 +1,9 @@
+{
+  "name": "open-to-work",
+  "title": "Open to work",
+  "category": "layoffs-transition",
+  "tags": ["open-to-work", "available", "job-search", "employment", "candidate", "transition"],
+  "aliases": ["available-for-work"],
+  "since": "0.1.0",
+  "animation": "draw"
+}

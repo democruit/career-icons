@@ -1,0 +1,9 @@
+{
+  "name": "unemployment-benefits",
+  "title": "Unemployment benefits",
+  "category": "layoffs-transition",
+  "tags": ["unemployment", "benefits", "assistance", "income-support", "insurance", "protection"],
+  "aliases": ["unemployment-support"],
+  "since": "0.1.0",
+  "animation": "draw"
+}
