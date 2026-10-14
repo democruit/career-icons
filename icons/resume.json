@@ -1,0 +1,8 @@
+{
+  "name": "resume",
+  "title": "Resume",
+  "category": "resume",
+  "tags": ["resume", "cv", "curriculum-vitae", "profile", "job-search", "document"],
+  "aliases": ["career-resume"],
+  "since": "0.1.0"
+}

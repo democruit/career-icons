@@ -1,0 +1,15 @@
+{
+  "name": "ats-pass",
+  "title": "ATS pass",
+  "category": "ats",
+  "tags": [
+    "ats",
+    "resume-screening",
+    "applicant-tracking",
+    "keyword-match",
+    "screening",
+    "approved"
+  ],
+  "aliases": ["ats-approved", "screening-pass"],
+  "since": "0.1.0"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "video-interview",
+  "title": "Video interview",
+  "category": "interviews",
+  "tags": [
+    "interview",
+    "video-call",
+    "online-interview",
+    "virtual-interview",
+    "candidate",
+    "laptop"
+  ],
+  "aliases": ["remote-interview"],
+  "since": "0.1.0"
+}

@@ -17,9 +17,11 @@ Do not copy or trace third-party icon sets (Lucide, Heroicons, Material, Feather
 ```
 icons/<name>.svg          source artwork (kebab-case)
 icons/<name>.json         metadata for that icon
-scripts/                  validate, build, figma export
+scripts/                  validate, build, pilot preview, figma export
 dist/                     generated package output (gitignored)
 site/                     static docs site
+docs/design-system.md     pilot visual language and base shapes
+docs/previews/            review images; alternatives are not package icons
 tests/                    vitest
 .github/workflows/ci.yml  check only; no publish or deploy
 ```
@@ -48,7 +50,8 @@ SVG:
 
 - Root `<svg viewBox="0 0 24 24">` with `fill="none"`, `stroke="currentColor"`, `stroke-width="2"`, `stroke-linecap="round"`, `stroke-linejoin="round"`.
 - No `width` or `height` attributes (SVGO strips dimensions and keeps `viewBox`).
-- 2px padding. Drawn geometry stays inside the 20×20 live area from (2,2) to (22,22).
+- 2px padding. Painted strokes, caps and joins stay inside the 20×20 live area from (2,2) to (22,22). Outer centerlines normally sit between 3 and 21.
+- Rectangles use `rx="2"`. Use approximately six or fewer elements; prioritize legibility at 16px.
 - Child elements may only be `path`, `circle`, `rect`, `line`, `polyline`, `polygon`, and `g`.
 - Forbidden: `text`, raster images, gradients, filters, masks, clip paths, `style` attributes, `id` attributes, hardcoded colors, and `transform` on the root `<svg>`.
 - Optimized file size must be 1 KB or under (1024 bytes).
@@ -92,11 +95,26 @@ npm run format      # biome --write
 npm run typecheck   # tsc --noEmit
 npm test            # vitest
 npm run build       # dist outputs
+npm run preview:pilot # review contact sheet; Python 3 + Pillow
 npm run size        # size-limit; one React icon < 1 KB gzip
 npm run site:build  # static docs
 ```
 
-`validate`, `build`, `size`, and `site:build` print a not-implemented notice until their phase lands. CI runs the same commands and does not publish or deploy.
+`validate` checks source SVG/metadata, alias uniqueness, optimized size, and painted stroke bounds
+using an expanded viewport. `build` validates first and replaces generated `dist/` with all published
+entry points. Root named exports are raw SVG strings (`ResumeIcon`); React entry exports components
+with the same names. React remains an optional peer; render/build tools are development dependencies.
+
+`preview:pilot` renders exactly the five pilot icons at 16, 24 and 48px on light/dark backgrounds.
+It also shows the two review-only alternatives. Python 3 with Pillow is required; set `PILOT_PYTHON`
+to a virtual environment executable if needed. This local preview command is not part of CI.
+
+`size` and `site:build` still print a not-implemented notice until their phases land. CI runs the
+other listed checks and does not publish or deploy. No docs site exists yet.
+
+The current pilot is exactly `resume`, `ats-pass`, `video-interview`, `salary-range`, and `laid-off`.
+Do not create more icons until the user approves the pilot. Base shapes in `docs/` and alternatives
+in `docs/previews/alternatives/` are design references, excluded from package output.
 
 ## Commits
 
@@ -112,7 +130,7 @@ Header max length is 100. Husky runs lint-staged, then commitlint.
 
 ## Tooling choices
 
-- Biome for format and lint (one tool, no ESLint/Prettier split).
+- Biome for format and lint (one tool, no ESLint/Prettier split). Raw SVG artwork is exempt from `noSvgWithoutTitle` because the icon contract forbids title elements. Consumers provide an accessible label or mark decorative icons hidden.
 - Vitest for unit tests.
 - TypeScript `strict`, plus `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, and `verbatimModuleSyntax`.
 - Node `>=20`. CI uses the version in `.nvmrc`.
