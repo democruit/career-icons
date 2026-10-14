@@ -65,9 +65,11 @@
     "validate": "node scripts/validate.mjs",
     "build": "node scripts/build.mjs",
     "size": "size-limit",
-    "site:build": "node scripts/pending.mjs site",
+    "site:dev": "vite --config site/vite.config.js",
+    "site:build": "npm run build && vite build --config site/vite.config.js",
     "prepare": "husky",
-    "preview:pilot": "node scripts/preview-pilot.mjs"
+    "preview:pilot": "node scripts/preview-pilot.mjs",
+    "preview:animations": "npm run site:build && node scripts/capture-pilot-animations.mjs"
   },
   "lint-staged": {
     "*.{js,mjs,cjs,ts,tsx,json,md,yml,yaml,css}": "biome check --write --no-errors-on-unmatched"
@@ -86,18 +88,22 @@
     "@biomejs/biome": "^2.5.15",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
+    "@fontsource/geist-sans": "^5.3.0",
     "@resvg/resvg-js": "^2.6.2",
     "@size-limit/file": "^14.2.0",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
     "fast-xml-parser": "^5.11.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
+    "playwright": "^1.64.1",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "size-limit": "^14.2.0",
     "svgo": "^4.1.0",
     "typescript": "^7.0.2",
+    "vite": "^8.3.4",
     "vitest": "^5.0.4"
   }
 }

@@ -1,0 +1,199 @@
+:root {
+  color: #0f172a;
+  background: #f8fafc;
+  font-family: "Geist Sans", "Geist", sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: #1d4ed8;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.site-header,
+main,
+footer {
+  width: min(960px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.site-header {
+  padding-top: 32px;
+}
+
+.brand {
+  margin: 0;
+  color: #334155;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.lede,
+section p {
+  color: #334155;
+}
+
+.section-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+.toggle,
+.save {
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle {
+  background: #2563eb;
+  color: #fff;
+  padding: 8px 14px;
+}
+
+.toggle[aria-pressed="false"] {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid #dbe3f0;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.stage span {
+  font-weight: 600;
+}
+
+.stage small {
+  color: #334155;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.save {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #2563eb;
+  color: #fff;
+}
+
+.save-quiet {
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+}
+
+pre {
+  overflow: auto;
+  margin: 16px 0 0;
+  padding: 16px;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+code {
+  font-family: "Geist Sans", ui-monospace, monospace;
+  font-size: 0.92em;
+}
+
+.card {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #dbe3f0;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.card p {
+  margin: 0;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.stage-compact {
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+}
+
+footer {
+  padding: 8px 0 40px;
+  color: #334155;
+}
+
+.capture {
+  width: 1120px;
+  padding: 28px 32px 36px;
+  background: #fff;
+  color: #0f172a;
+}
+
+.capture h1 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+.capture .stage {
+  grid-template-columns: repeat(5, 1fr);
+}

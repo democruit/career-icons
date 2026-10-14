@@ -129,6 +129,7 @@ npm run typecheck   # tsc --noEmit
 npm test            # vitest
 npm run build       # dist outputs
 npm run preview:pilot # review contact sheet; Python 3 + Pillow
+npm run preview:animations # pilot animation GIF; Playwright + ffmpeg
 npm run size        # size-limit; animations.css < 3 KB gzip
 npm run site:build  # static docs
 ```
@@ -142,8 +143,7 @@ with the same names. React remains an optional peer; render/build tools are deve
 It also shows the two review-only alternatives. Python 3 with Pillow is required; set `PILOT_PYTHON`
 to a virtual environment executable if needed. This local preview command is not part of CI.
 
-`size` and `site:build` still print a not-implemented notice until their phases land. CI runs the
-other listed checks and does not publish or deploy. No docs site exists yet.
+`size` checks that `dist/animations.css` is under 3 KB gzip. `site:build` builds the static preview in `site/` after the package build. CI runs these checks and does not publish or deploy. The site previews the five pilot animations, the provider, a `ci-hover` parent, and an icon inside a colored button.
 
 The current pilot is exactly `resume`, `ats-pass`, `video-interview`, `salary-range`, and `laid-off`.
 Do not create more icons until the user approves the pilot. Base shapes in `docs/` and alternatives

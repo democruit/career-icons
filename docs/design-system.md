@@ -75,7 +75,8 @@ silhouette. The alternatives are deliberately excluded from validation, package 
 
 ## Review and reproduction
 
-Review [the contact sheet](previews/pilot.png) at its native resolution: actual 16, 24 and 48px
+Review [the animation loop](previews/pilot-animations.gif) for the five pilot motions, then
+[the contact sheet](previews/pilot.png) at its native resolution: actual 16, 24 and 48px
 art on both backgrounds, followed by a consistency row on each background and the alternatives.
 The review PNG uses labels outside icons; none are part of icon geometry.
 
