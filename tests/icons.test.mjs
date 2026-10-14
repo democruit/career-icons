@@ -9,6 +9,23 @@ import { buildIcons } from "../scripts/build.mjs";
 import { animations, assertPaintBounds, loadIcons, parseSvg } from "../scripts/icons.mjs";
 
 const pilot = ["ats-pass", "laid-off", "resume", "salary-range", "video-interview"];
+const approved = {
+  resume:
+    "resume resume-edit resume-check resume-upload resume-download resume-template cover-letter portfolio",
+  ats: "ats-pass ats-scan ats-reject keyword-match parse-error ats-score",
+  applications:
+    "job-post job-search apply application-tracker saved-job easy-apply ghosted waiting-reply follow-up",
+  interviews:
+    "video-interview interview phone-screen ai-interviewer interview-prep interview-schedule tell-me-about-yourself mock-interview feedback",
+  "offers-salary":
+    "salary-range job-offer offer-accepted salary negotiation pay-transparency benefits equity",
+  "layoffs-transition":
+    "laid-off open-to-work severance unemployment-benefits career-change warn-notice seven-day-plan",
+  networking: "referral network recruiter linkedin-profile",
+  "remote-work": "remote-job hybrid relocation",
+  "career-growth": "promotion skills certificate career-goal learning",
+  tools: "job-tracker",
+};
 const require = createRequire(import.meta.url);
 let output;
 let built;
@@ -23,12 +40,38 @@ afterAll(async () => {
 
 test("collection includes the pilot and final icons with useful search metadata", async () => {
   const icons = await loadIcons();
+  const names = Object.values(approved)
+    .flatMap((list) => list.split(" "))
+    .sort();
+  expect(icons).toHaveLength(60);
+  expect(icons.map(({ metadata }) => metadata.name)).toEqual(names);
+  for (const [category, list] of Object.entries(approved)) {
+    expect(
+      icons
+        .filter(({ metadata }) => metadata.category === category)
+        .map(({ metadata }) => metadata.name),
+    ).toEqual(list.split(" ").sort());
+  }
   expect(icons.map(({ metadata }) => metadata.name)).toEqual(expect.arrayContaining(pilot));
   for (const { metadata } of icons) {
     expect(metadata.placeholder).toBeUndefined();
     expect(metadata.tags.length).toBeGreaterThanOrEqual(4);
     expect(metadata.tags.length).toBeLessThanOrEqual(8);
     expect(metadata.since).toBe("0.1.0");
+  }
+});
+
+test("all sixty silhouettes are distinct, minimal and honestly describe their animated parts", () => {
+  const geometry = built.map(({ svg }) => svg.replace(/\sdata-ci-part="[^"]*"/g, ""));
+  expect(new Set(geometry).size).toBe(60);
+  for (const { metadata, tree, svg } of built) {
+    const count = (nodes) =>
+      nodes.reduce((total, node) => {
+        const tag = Object.keys(node).find((key) => key !== ":@");
+        return total + (tag === "g" ? count(node.g) : 1);
+      }, 0);
+    expect(count(tree.svg), metadata.name).toBeLessThanOrEqual(6);
+    expect(svg.includes("data-ci-part"), metadata.name).toBe(metadata.animation !== "none");
   }
 });
 

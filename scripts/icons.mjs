@@ -19,6 +19,7 @@ const categories = new Set([
 ]);
 const kebab = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const animations = new Set([
+  "none",
   "draw",
   "draw-check",
   "nudge-right",

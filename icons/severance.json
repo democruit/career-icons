@@ -5,5 +5,5 @@
   "tags": ["severance", "compensation", "exit", "termination", "payment", "job-loss"],
   "aliases": ["severance-pay"],
   "since": "0.1.0",
-  "animation": "draw"
+  "animation": "none"
 }

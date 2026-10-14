@@ -5,5 +5,5 @@
   "tags": ["career-goal", "target", "objective", "ambition", "goal", "focus"],
   "aliases": ["career-target"],
   "since": "0.1.0",
-  "animation": "draw"
+  "animation": "none"
 }

@@ -108,7 +108,7 @@ Metadata:
 - `tags` and `aliases` are arrays of kebab-case strings. Tags may repeat across icons. A tag or alias may not repeat inside one icon.
 - An alias may not match any icon name or another icon's alias.
 - `since` is the SemVer version that introduced the icon.
-- `animation` names the motion CSS will run when animation is enabled: `draw`, `draw-check`, `nudge-right`, `scan`, `wiggle`, `pop`, or `slide`. The pilot uses `draw` (resume lines), `draw-check`, `pop` (video-interview person), `slide` (salary handles), and `wiggle` (laid-off box).
+- `animation` names the motion CSS will run when animation is enabled: `draw`, `draw-check`, `nudge-right`, `scan`, `wiggle`, `pop`, or `slide`. Use `none` for artwork with no animated parts. The pilot uses `draw` (resume lines), `draw-check`, `pop` (video-interview person), `slide` (salary handles), and `wiggle` (laid-off box).
 - Placeholders add `"placeholder": true`. Remove that flag when the icon is final art.
 
 ## How to add an icon
@@ -132,7 +132,7 @@ npm run build       # dist outputs
 npm run preview:pilot # pilot stroke comparison; Python 3 + Pillow
 npm run preview -- <category> # category sheet; use all for the full collection
 npm run preview:animations # pilot animation GIF; Playwright + ffmpeg
-npm run size        # size-limit; animations.css < 3 KB gzip
+npm run size        # each React icon < 1 KB gzip; animations.css < 3 KB gzip
 npm run site:build  # static docs
 ```
 
@@ -145,7 +145,7 @@ with the same names. React remains an optional peer; render/build tools are deve
 It also shows the two review-only alternatives. Python 3 with Pillow is required; set `PILOT_PYTHON`
 to a virtual environment executable if needed. This local preview command is not part of CI.
 
-`size` checks that `dist/animations.css` is under 3 KB gzip. `site:build` builds the static preview in `site/` after the package build. CI runs these checks and does not publish or deploy. The site previews the five pilot animations, the provider, a `ci-hover` parent, an icon inside a colored button, and stroke controls (1 to 2, plus `absoluteStrokeWidth`).
+`size` uses `.size-limit.mjs` to check every individual React import (including shared runtime, excluding the React peer) under 1 KB gzip and `dist/animations.css` under 3 KB gzip. `site:build` builds the static preview in `site/` after the package build. CI runs these checks and does not publish or deploy. The site searches all 60 icons by title/name/tags/aliases, filters ten categories and previews 16/24/48px on light/dark backgrounds. It also previews the five pilot animations, the provider, a `ci-hover` parent, an icon inside a colored button, and stroke controls (1 to 2, plus `absoluteStrokeWidth`).
 
 The approved style reference is `resume`, `ats-pass`, `video-interview`, `salary-range`, and `laid-off`.
 The user approved expanding the collection in task 2B. Base shapes in `docs/` and alternatives
@@ -169,3 +169,11 @@ Header max length is 100. Husky runs lint-staged, then commitlint.
 - Vitest for unit tests.
 - TypeScript `strict`, plus `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, and `verbatimModuleSyntax`.
 - Node `>=20`. CI uses the version in `.nvmrc`.
+
+## Full collection
+
+The 0.1.0 collection is exactly 60 icons. Task 2B listed 56 additions but requested 55;
+`applied-count` was omitted because its stacked documents overlap `resume-template`.
+Category decisions and open review questions live in `docs/full-set-report.md`.
+`npm run preview -- <category>` creates `docs/previews/<category>.png`; `all` creates the
+full sheet at `docs/previews/all.png`. These local previews require Python 3 with Pillow.

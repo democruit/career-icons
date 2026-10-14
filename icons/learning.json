@@ -5,5 +5,5 @@
   "tags": ["learning", "education", "study", "book", "knowledge", "development"],
   "aliases": ["professional-learning"],
   "since": "0.1.0",
-  "animation": "draw"
+  "animation": "none"
 }

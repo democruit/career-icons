@@ -5,5 +5,5 @@
   "tags": ["saved-job", "bookmark", "favorites", "shortlist", "briefcase", "vacancy"],
   "aliases": ["bookmarked-job"],
   "since": "0.1.0",
-  "animation": "draw"
+  "animation": "none"
 }

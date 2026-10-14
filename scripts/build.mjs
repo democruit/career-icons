@@ -57,7 +57,7 @@ export async function buildIcons(output = fileURLToPath(new URL("../dist/", impo
   const manifest = icons.map(({ metadata }) => metadata);
   const records = icons.map(({ metadata, svg }) => ({ ...metadata, svg }));
   const declarations = [
-    'export type IconAnimation = "draw" | "draw-check" | "nudge-right" | "scan" | "wiggle" | "pop" | "slide";',
+    'export type IconAnimation = "none" | "draw" | "draw-check" | "nudge-right" | "scan" | "wiggle" | "pop" | "slide";',
     "export interface IconMetadata { name: string; title: string; category: string; tags: string[]; aliases: string[]; since: string; animation: IconAnimation; placeholder?: boolean; }",
     "export declare const icons: ReadonlyArray<IconMetadata & { svg: string }>;",
   ];
