@@ -80,6 +80,8 @@ npm test
 npm run build
 npm run size
 npm run site:build
+npm run release:dry-run   # preflight publish (no upload)
+npm run release           # publish to npm after CI checks; see AGENTS.md
 ```
 
 Validation checks the SVG and metadata contract, painted padding and the 1024-byte optimized SVG

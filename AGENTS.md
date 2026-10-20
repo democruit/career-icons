@@ -134,7 +134,14 @@ npm run preview -- <category> # category sheet; use all for the full collection
 npm run preview:animations # pilot animation GIF; Playwright + ffmpeg
 npm run size        # each React icon < 1 KB gzip; animations.css < 3 KB gzip
 npm run site:build  # static docs
+npm run release:dry-run # CI checks + npm publish --dry-run
+npm run release       # same checks, npm publish, git tag v<version>
 ```
+
+`release` mirrors CI (`validate` through `size` and `site:build`), confirms `dist` `version` matches
+`package.json`, checks npm login and that the version is not already on the registry, then runs
+`npm publish`. It creates `v<version>` unless you pass `--no-tag`. Pass `--push` to push the branch
+and tag. Requires a clean git tree unless `--allow-dirty`. Does not commit or bump versions.
 
 `validate` checks source SVG/metadata, alias uniqueness, optimized size, and painted stroke bounds
 using an expanded viewport. `build` validates first and replaces generated `dist/` with all published
