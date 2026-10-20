@@ -1,4 +1,4 @@
-# @democruit/career-icons
+# @democruit-labs/career-icons
 
 **60 original career-themed outline SVG icons** by [Democruit](https://democruit.com), an independent
 open-source project of Aequovia, LLC. Resumes, ATS screening, applications, interviews, salary,
@@ -14,11 +14,11 @@ raw SVG entry · React is an optional peer.
 ## Install and use
 
 ```sh
-npm install @democruit/career-icons
+npm install @democruit-labs/career-icons
 ```
 
 ```jsx
-import { ResumeIcon, JobSearchIcon } from "@democruit/career-icons/react";
+import { ResumeIcon, JobSearchIcon } from "@democruit-labs/career-icons/react";
 
 <ResumeIcon size={24} aria-label="Resume" />;
 <JobSearchIcon size={16} aria-hidden="true" />; // next to a visible text label
@@ -30,8 +30,8 @@ sets shared defaults; icon props override the provider. `absoluteStrokeWidth` ke
 stroke weight constant in pixels when the icon size changes.
 
 ```jsx
-import { CareerIconsProvider, AtsPassIcon } from "@democruit/career-icons/react";
-import "@democruit/career-icons/animations.css"; // optional; honors reduced motion
+import { CareerIconsProvider, AtsPassIcon } from "@democruit-labs/career-icons/react";
+import "@democruit-labs/career-icons/animations.css"; // optional; honors reduced motion
 
 <CareerIconsProvider size={24} color="#2563eb" animate="hover">
   <AtsPassIcon aria-label="ATS approved" />
@@ -44,12 +44,12 @@ prop (`hover`, `always`, `none`). A `ci-hover` class lets an ancestor trigger ho
 
 | Import | Contents |
 | --- | --- |
-| `@democruit/career-icons` | Named SVG strings, such as `ResumeIcon`, plus searchable `icons` records |
-| `@democruit/career-icons/react` | Named React components and provider |
-| `@democruit/career-icons/svg/resume.svg` | Optimized standalone SVG |
-| `@democruit/career-icons/sprite.svg` | All 60 symbols, identified by kebab-case names |
-| `@democruit/career-icons/icons.json` | Titles, categories, search tags, aliases, version and motion metadata |
-| `@democruit/career-icons/animations.css` | Optional motion stylesheet |
+| `@democruit-labs/career-icons` | Named SVG strings, such as `ResumeIcon`, plus searchable `icons` records |
+| `@democruit-labs/career-icons/react` | Named React components and provider |
+| `@democruit-labs/career-icons/svg/resume.svg` | Optimized standalone SVG |
+| `@democruit-labs/career-icons/sprite.svg` | All 60 symbols, identified by kebab-case names |
+| `@democruit-labs/career-icons/icons.json` | Titles, categories, search tags, aliases, version and motion metadata |
+| `@democruit-labs/career-icons/animations.css` | Optional motion stylesheet |
 
 ## Browse locally
 

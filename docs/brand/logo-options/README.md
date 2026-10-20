@@ -1,6 +1,6 @@
 # Logo mark options — review only
 
-Four original, hand-authored directions for `@democruit/career-icons`. None is selected or wired
+Four original, hand-authored directions for `@democruit-labs/career-icons`. None is selected or wired
 into the package, docs site, existing README, or published assets.
 
 [Open the full comparison](preview.png) at native resolution to judge the 16px marks.

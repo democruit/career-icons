@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Source of truth for humans and coding agents working in `@democruit/career-icons`. If another doc disagrees with this file, this file wins. Update this file in the same change when a command, path, or icon rule changes.
+Source of truth for humans and coding agents working in `@democruit-labs/career-icons`. If another doc disagrees with this file, this file wins. Update this file in the same change when a command, path, or icon rule changes.
 
 Built and maintained by [Democruit](https://democruit.com). Independent open-source project of Aequovia, LLC.
 
@@ -30,12 +30,12 @@ Published entry points:
 
 | Import | Artifact |
 | --- | --- |
-| `@democruit/career-icons` | metadata + raw SVG strings, one named export per icon |
-| `@democruit/career-icons/react` | React components, `react` optional peer |
-| `@democruit/career-icons/svg/*` | optimized `.svg` files |
-| `@democruit/career-icons/sprite.svg` | sprite of `<symbol>`s |
-| `@democruit/career-icons/icons.json` | full metadata manifest |
-| `@democruit/career-icons/animations.css` | opt-in motion; icons stay static without this import |
+| `@democruit-labs/career-icons` | metadata + raw SVG strings, one named export per icon |
+| `@democruit-labs/career-icons/react` | React components, `react` optional peer |
+| `@democruit-labs/career-icons/svg/*` | optimized `.svg` files |
+| `@democruit-labs/career-icons/sprite.svg` | sprite of `<symbol>`s |
+| `@democruit-labs/career-icons/icons.json` | full metadata manifest |
+| `@democruit-labs/career-icons/animations.css` | opt-in motion; icons stay static without this import |
 
 JavaScript entries are side-effect free. `sideEffects` lists only `./dist/animations.css`, so bundlers keep that import and can still tree-shake icons. `publishConfig.access` is `"public"`. Only `dist/` is published.
 
@@ -47,7 +47,7 @@ Outline is the only style in 0.1.0. Keep the default export names stable so a la
 
 Every icon uses `stroke="currentColor"`. The default `color` is `currentColor`, so the icon inherits the parent CSS color. The `color` prop sets the icon color and overrides the parent.
 
-`CareerIconsProvider` from `@democruit/career-icons/react` supplies defaults. Icons render without a provider. Precedence is icon prop, then provider, then built-in default.
+`CareerIconsProvider` from `@democruit-labs/career-icons/react` supplies defaults. Icons render without a provider. Precedence is icon prop, then provider, then built-in default.
 
 | Prop | Default |
 | --- | --- |
@@ -58,7 +58,7 @@ Every icon uses `stroke="currentColor"`. The default `color` is `currentColor`, 
 | `absoluteStrokeWidth` | `false` (when `true`, rendered stroke is `strokeWidth * 24 / size`) |
 
 ```jsx
-import "@democruit/career-icons/animations.css";
+import "@democruit-labs/career-icons/animations.css";
 
 export function SaveResume() {
   return (

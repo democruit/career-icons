@@ -10,7 +10,7 @@ test("package is the public scoped career icon library", () => {
     peerDependenciesMeta: { react: { optional: boolean } };
   };
 
-  expect(pkg.name).toBe("@democruit/career-icons");
+  expect(pkg.name).toBe("@democruit-labs/career-icons");
   expect(pkg.sideEffects).toEqual(["./dist/animations.css"]);
   expect(pkg.publishConfig.access).toBe("public");
   expect(pkg.exports).toHaveProperty(".");

@@ -1,4 +1,4 @@
-/* Opt-in motion for @democruit/career-icons. Icons stay static until this file is imported. */
+/* Opt-in motion for @democruit-labs/career-icons. Icons stay static until this file is imported. */
 
 [data-ci-animate] [data-ci-part] {
   transform-box: fill-box;

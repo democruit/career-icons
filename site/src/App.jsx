@@ -18,8 +18,8 @@ const icons = [
   { name: "Laid off", motion: "Box wiggles", Icon: LaidOffIcon },
 ];
 
-const providerSample = `import "@democruit/career-icons/animations.css";
-import { CareerIconsProvider, ResumeIcon } from "@democruit/career-icons/react";
+const providerSample = `import "@democruit-labs/career-icons/animations.css";
+import { CareerIconsProvider, ResumeIcon } from "@democruit-labs/career-icons/react";
 
 <CareerIconsProvider size={32} animate="hover" color="#2563EB">
   <ResumeIcon />
@@ -233,11 +233,11 @@ export function App() {
         <section aria-labelledby="usage-heading">
           <h2 id="usage-heading">React usage</h2>
           <p>
-            Install <code>@democruit/career-icons</code>, then import individual icons from the
+            Install <code>@democruit-labs/career-icons</code>, then import individual icons from the
             React entry.
           </p>
           <pre>
-            <code>{`npm install @democruit/career-icons\n\nimport { ResumeIcon } from "@democruit/career-icons/react";\n\n<ResumeIcon size={24} aria-label="Resume" />`}</code>
+            <code>{`npm install @democruit-labs/career-icons\n\nimport { ResumeIcon } from "@democruit-labs/career-icons/react";\n\n<ResumeIcon size={24} aria-label="Resume" />`}</code>
           </pre>
           <p>
             Icons inherit the parent color. Use <code>aria-hidden="true"</code> alongside a text

@@ -1,5 +1,5 @@
 {
-  "name": "@democruit/career-icons",
+  "name": "@democruit-labs/career-icons",
   "version": "0.1.0",
   "description": "Career-themed outline SVG icons for resumes, interviews, offers, and job search.",
   "license": "MIT",
@@ -64,6 +64,7 @@
     "test": "vitest run",
     "validate": "node scripts/validate.mjs",
     "build": "node scripts/build.mjs",
+    "prepack": "npm run build",
     "size": "size-limit",
     "site:dev": "vite --config site/vite.config.js",
     "site:build": "npm run build && vite build --config site/vite.config.js",
