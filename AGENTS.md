@@ -30,7 +30,7 @@ Published entry points:
 
 | Import | Artifact |
 | --- | --- |
-| `@democruit-labs/career-icons` | metadata + raw SVG strings, one named export per icon |
+| `@democruit-labs/career-icons` | metadata + raw SVG strings, one named export per icon, plus `version` (from root `package.json` at build) |
 | `@democruit-labs/career-icons/react` | React components, `react` optional peer |
 | `@democruit-labs/career-icons/svg/*` | optimized `.svg` files |
 | `@democruit-labs/career-icons/sprite.svg` | sprite of `<symbol>`s |

@@ -159,14 +159,19 @@ test("metadata rejects duplicate aliases across icons", async () => {
 });
 
 test("build emits matching raw exports, SVG files, manifest and sprite", async () => {
+  const rootPkg = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
   const pkg = require(join(output, "index.cjs"));
   const manifest = JSON.parse(await readFile(join(output, "icons.json"), "utf8"));
+  expect(pkg.version).toBe(rootPkg.version);
   expect(manifest.map(({ name }) => name)).toEqual(built.map(({ metadata }) => metadata.name));
   expect(pkg.icons.map(({ name }) => name)).toEqual(built.map(({ metadata }) => metadata.name));
   const sprite = await readFile(join(output, "sprite.svg"), "utf8");
   expect((sprite.match(/<symbol /g) ?? []).length).toBe(built.length);
   expect(sprite).not.toContain("-alt");
   const esm = await readFile(join(output, "index.js"), "utf8");
+  expect(esm).toContain(`export const version = ${JSON.stringify(rootPkg.version)};`);
+  const types = await readFile(join(output, "index.d.ts"), "utf8");
+  expect(types).toContain("export declare const version: string;");
   for (const { metadata, componentName, svg } of built) {
     expect(pkg[componentName]).toBe(svg);
     expect((await readFile(join(output, `svg/${metadata.name}.svg`), "utf8")).trim()).toBe(svg);

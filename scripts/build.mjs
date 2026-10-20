@@ -50,6 +50,9 @@ function element(node) {
 }
 
 export async function buildIcons(output = fileURLToPath(new URL("../dist/", import.meta.url))) {
+  const packageVersion = JSON.parse(
+    await readFile(fileURLToPath(new URL("../package.json", import.meta.url)), "utf8"),
+  ).version;
   const icons = await loadIcons();
   await rm(output, { recursive: true, force: true });
   await mkdir(`${output}/svg`, { recursive: true });
@@ -57,12 +60,20 @@ export async function buildIcons(output = fileURLToPath(new URL("../dist/", impo
   const manifest = icons.map(({ metadata }) => metadata);
   const records = icons.map(({ metadata, svg }) => ({ ...metadata, svg }));
   const declarations = [
+    "export declare const version: string;",
     'export type IconAnimation = "none" | "draw" | "draw-check" | "nudge-right" | "scan" | "wiggle" | "pop" | "slide";',
     "export interface IconMetadata { name: string; title: string; category: string; tags: string[]; aliases: string[]; since: string; animation: IconAnimation; placeholder?: boolean; }",
     "export declare const icons: ReadonlyArray<IconMetadata & { svg: string }>;",
   ];
-  const esm = [`export const icons = ${JSON.stringify(records)};`];
-  const cjs = [`"use strict";`, `exports.icons = ${JSON.stringify(records)};`];
+  const esm = [
+    `export const version = ${JSON.stringify(packageVersion)};`,
+    `export const icons = ${JSON.stringify(records)};`,
+  ];
+  const cjs = [
+    `"use strict";`,
+    `exports.version = ${JSON.stringify(packageVersion)};`,
+    `exports.icons = ${JSON.stringify(records)};`,
+  ];
   const reactEsm = [
     '"use client";',
     'import { createContext, createElement, useContext } from "react";',

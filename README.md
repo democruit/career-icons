@@ -44,12 +44,19 @@ prop (`hover`, `always`, `none`). A `ci-hover` class lets an ancestor trigger ho
 
 | Import | Contents |
 | --- | --- |
-| `@democruit-labs/career-icons` | Named SVG strings, such as `ResumeIcon`, plus searchable `icons` records |
+| `@democruit-labs/career-icons` | Named SVG strings, such as `ResumeIcon`, searchable `icons` records, and `version` |
 | `@democruit-labs/career-icons/react` | Named React components and provider |
 | `@democruit-labs/career-icons/svg/resume.svg` | Optimized standalone SVG |
 | `@democruit-labs/career-icons/sprite.svg` | All 60 symbols, identified by kebab-case names |
 | `@democruit-labs/career-icons/icons.json` | Titles, categories, search tags, aliases, version and motion metadata |
 | `@democruit-labs/career-icons/animations.css` | Optional motion stylesheet |
+
+The installed npm package version is available from the main entry (injected at build time from
+`package.json`):
+
+```ts
+import { version } from "@democruit-labs/career-icons";
+```
 
 ## Browse locally
 
