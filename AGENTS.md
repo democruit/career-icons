@@ -179,7 +179,7 @@ fix(build): keep viewBox in optimized svg
 ci(ci): run size-limit on the react entry
 ```
 
-Header max length is 100. Husky runs lint-staged, then commitlint.
+Commitlint enforces conventional type and required scope only. Husky runs lint-staged, then commitlint.
 
 ## Tooling choices
 
