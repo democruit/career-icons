@@ -1,0 +1,9 @@
+{
+  "name": "contact-card",
+  "title": "Contact card",
+  "category": "networking",
+  "tags": ["networking", "contact", "card", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

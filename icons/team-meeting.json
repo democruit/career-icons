@@ -1,0 +1,9 @@
+{
+  "name": "team-meeting",
+  "title": "Team meeting",
+  "category": "workplace",
+  "tags": ["workplace", "team", "meeting", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

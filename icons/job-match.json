@@ -1,0 +1,9 @@
+{
+  "name": "job-match",
+  "title": "Job match",
+  "category": "applications",
+  "tags": ["applications", "job", "match", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

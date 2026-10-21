@@ -1,0 +1,9 @@
+{
+  "name": "career-milestone",
+  "title": "Career milestone",
+  "category": "career-growth",
+  "tags": ["career-growth", "career", "milestone", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

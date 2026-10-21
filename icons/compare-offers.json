@@ -1,0 +1,9 @@
+{
+  "name": "compare-offers",
+  "title": "Compare offers",
+  "category": "offers-salary",
+  "tags": ["offers-salary", "compare", "offers", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

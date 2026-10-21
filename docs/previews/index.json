@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "iconCount": 200,
+  "categories": {
+    "applications": 23,
+    "ats": 6,
+    "career-growth": 17,
+    "inclusion": 5,
+    "industries": 10,
+    "interviews": 24,
+    "job-types": 12,
+    "layoffs-transition": 17,
+    "networking": 14,
+    "offers-salary": 20,
+    "remote-work": 3,
+    "resume": 23,
+    "tools": 11,
+    "workplace": 15
+  },
+  "sizes": [16, 24, 48],
+  "themes": ["light", "dark"],
+  "sheets": [
+    "docs/previews/all.png",
+    "docs/previews/applications.png",
+    "docs/previews/ats.png",
+    "docs/previews/career-growth.png",
+    "docs/previews/inclusion.png",
+    "docs/previews/industries.png",
+    "docs/previews/interviews.png",
+    "docs/previews/job-types.png",
+    "docs/previews/layoffs-transition.png",
+    "docs/previews/networking.png",
+    "docs/previews/offers-salary.png",
+    "docs/previews/remote-work.png",
+    "docs/previews/resume.png",
+    "docs/previews/tools.png",
+    "docs/previews/workplace.png",
+    "docs/previews/similarity.png",
+    "docs/previews/pilot.png"
+  ]
+}

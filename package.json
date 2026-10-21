@@ -1,6 +1,6 @@
 {
   "name": "@democruit-labs/career-icons",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Career-themed outline SVG icons for resumes, interviews, offers, and job search.",
   "license": "MIT",
   "author": "Democruit (https://democruit.com)",
@@ -92,6 +92,7 @@
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "esbuild": "^0.28.2",
     "fast-xml-parser": "^5.11.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",

@@ -1,0 +1,9 @@
+{
+  "name": "freelance",
+  "title": "Freelance",
+  "category": "job-types",
+  "tags": ["job-types", "freelance", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

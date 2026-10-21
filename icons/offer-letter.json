@@ -1,0 +1,9 @@
+{
+  "name": "offer-letter",
+  "title": "Offer letter",
+  "category": "offers-salary",
+  "tags": ["offers-salary", "offer", "letter", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "full-time",
+  "title": "Full time",
+  "category": "job-types",
+  "tags": ["job-types", "full", "time", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

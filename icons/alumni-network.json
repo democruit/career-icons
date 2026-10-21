@@ -1,0 +1,9 @@
+{
+  "name": "alumni-network",
+  "title": "Alumni network",
+  "category": "networking",
+  "tags": ["networking", "alumni", "network", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

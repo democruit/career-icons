@@ -1,0 +1,9 @@
+{
+  "name": "interview-timer",
+  "title": "Interview timer",
+  "category": "interviews",
+  "tags": ["interviews", "interview", "timer", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

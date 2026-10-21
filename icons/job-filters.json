@@ -1,0 +1,9 @@
+{
+  "name": "job-filters",
+  "title": "Job filters",
+  "category": "applications",
+  "tags": ["applications", "job", "filters", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "signing-bonus",
+  "title": "Signing bonus",
+  "category": "offers-salary",
+  "tags": ["offers-salary", "signing", "bonus", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

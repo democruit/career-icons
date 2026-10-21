@@ -104,9 +104,10 @@ Metadata:
 
 - `name` matches the filename and is unique.
 - `title` is the human label.
-- `category` is one of: `resume`, `ats`, `applications`, `interviews`, `offers-salary`, `layoffs-transition`, `networking`, `remote-work`, `career-growth`, `tools`.
+- `category` is one of: `resume`, `ats`, `applications`, `interviews`, `offers-salary`, `layoffs-transition`, `networking`, `remote-work`, `career-growth`, `tools`, `job-types`, `workplace`, `industries`, `inclusion`.
 - `tags` and `aliases` are arrays of kebab-case strings. Tags may repeat across icons. A tag or alias may not repeat inside one icon.
-- An alias may not match any icon name or another icon's alias.
+- An alias may not match any icon name or another icon's alias, except the preserved legacy
+  mappings `ats-score` → `resume-score` and `feedback` → `interview-feedback` in 0.2.0.
 - `since` is the SemVer version that introduced the icon.
 - `animation` names the motion CSS will run when animation is enabled: `draw`, `draw-check`, `nudge-right`, `scan`, `wiggle`, `pop`, or `slide`. Use `none` for artwork with no animated parts. The pilot uses `draw` (resume lines), `draw-check`, `pop` (video-interview person), `slide` (salary handles), and `wiggle` (laid-off box).
 - Placeholders add `"placeholder": true`. Remove that flag when the icon is final art.
@@ -130,7 +131,7 @@ npm run typecheck   # tsc --noEmit
 npm test            # vitest
 npm run build       # dist outputs
 npm run preview:pilot # pilot stroke comparison; Python 3 + Pillow
-npm run preview -- <category> # category sheet; use all for the full collection
+npm run preview -- <category> # category sheet; all = collection; sheets = all + categories + similarity
 npm run preview:animations # pilot animation GIF; Playwright + ffmpeg
 npm run size        # each React icon < 1 KB gzip; animations.css < 3 KB gzip
 npm run site:build  # static docs
@@ -144,7 +145,7 @@ npm run release       # same checks, npm publish, git tag v<version>
 and tag. Requires a clean git tree unless `--allow-dirty`. Does not commit or bump versions.
 
 `validate` checks source SVG/metadata, alias uniqueness, optimized size, and painted stroke bounds
-using an expanded viewport. `build` validates first and replaces generated `dist/` with all published
+using an expanded viewport. `build` validates first, audits output coverage, and replaces generated `dist/` with all published
 entry points. Root named exports are raw SVG strings (`ResumeIcon`); React entry exports components
 with the same names. React remains an optional peer; render/build tools are development dependencies.
 
@@ -152,7 +153,7 @@ with the same names. React remains an optional peer; render/build tools are deve
 It also shows the two review-only alternatives. Python 3 with Pillow is required; set `PILOT_PYTHON`
 to a virtual environment executable if needed. This local preview command is not part of CI.
 
-`size` uses `.size-limit.mjs` to check every individual React import (including shared runtime, excluding the React peer) under 1 KB gzip and `dist/animations.css` under 3 KB gzip. `site:build` builds the static preview in `site/` after the package build. CI runs these checks and does not publish or deploy. The site searches all 60 icons by title/name/tags/aliases, filters ten categories and previews 16/24/48px on light/dark backgrounds. It also previews the five pilot animations, the provider, a `ci-hover` parent, an icon inside a colored button, and stroke controls (1 to 2, plus `absoluteStrokeWidth`).
+`size` uses `.size-limit.mjs` to check every individual React import (including shared runtime, excluding the React peer) under 1 KB gzip and `dist/animations.css` under 3 KB gzip. `site:build` builds the static preview in `site/` after the package build. CI runs these checks and does not publish or deploy. The site searches all 200 icons by title/name/tags/aliases, filters fourteen categories and previews 16/24/48px on light/dark backgrounds. It also previews the five pilot animations, the provider, a `ci-hover` parent, an icon inside a colored button, and stroke controls (1 to 2, plus `absoluteStrokeWidth`).
 
 The approved style reference is `resume`, `ats-pass`, `video-interview`, `salary-range`, and `laid-off`.
 The user approved expanding the collection in task 2B. Base shapes in `docs/` and alternatives
@@ -179,8 +180,11 @@ Header max length is 100. Husky runs lint-staged, then commitlint.
 
 ## Full collection
 
-The 0.1.0 collection is exactly 60 icons. Task 2B listed 56 additions but requested 55;
+The 0.2.0 collection is exactly 200 icons; `scripts/collection-0.2.0.json` lists the 140 additions.
+The 0.1.0 collection contained 60 icons. Task 2B listed 56 additions but requested 55;
 `applied-count` was omitted because its stacked documents overlap `resume-template`.
 Category decisions and open review questions live in `docs/full-set-report.md`.
 `npm run preview -- <category>` creates `docs/previews/<category>.png`; `all` creates the
-full sheet at `docs/previews/all.png`. These local previews require Python 3 with Pillow.
+full sheet at `docs/previews/all.png`. `sheets` also creates all category sheets and
+`docs/previews/similarity.png` with related icons side by side; `docs/previews/index.json`
+records category counts and sheet paths. These local previews require Python 3 with Pillow.

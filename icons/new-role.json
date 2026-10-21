@@ -1,0 +1,9 @@
+{
+  "name": "new-role",
+  "title": "New role",
+  "category": "career-growth",
+  "tags": ["career-growth", "new", "role", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

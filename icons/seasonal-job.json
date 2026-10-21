@@ -1,0 +1,9 @@
+{
+  "name": "seasonal-job",
+  "title": "Seasonal job",
+  "category": "job-types",
+  "tags": ["job-types", "seasonal", "job", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

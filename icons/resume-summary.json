@@ -1,0 +1,9 @@
+{
+  "name": "resume-summary",
+  "title": "Resume summary",
+  "category": "resume",
+  "tags": ["resume", "summary", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

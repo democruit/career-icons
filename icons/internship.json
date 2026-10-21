@@ -1,0 +1,9 @@
+{
+  "name": "internship",
+  "title": "Internship",
+  "category": "job-types",
+  "tags": ["job-types", "internship", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

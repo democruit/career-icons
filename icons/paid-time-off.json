@@ -1,0 +1,9 @@
+{
+  "name": "paid-time-off",
+  "title": "Paid time off",
+  "category": "offers-salary",
+  "tags": ["offers-salary", "paid", "time", "off", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

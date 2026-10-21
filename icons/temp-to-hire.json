@@ -1,0 +1,9 @@
+{
+  "name": "temp-to-hire",
+  "title": "Temp to hire",
+  "category": "job-types",
+  "tags": ["job-types", "temp", "to", "hire", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

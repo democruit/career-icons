@@ -1,0 +1,9 @@
+{
+  "name": "career-break",
+  "title": "Career break",
+  "category": "layoffs-transition",
+  "tags": ["layoffs-transition", "career", "break", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

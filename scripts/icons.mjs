@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { Resvg } from "@resvg/resvg-js";
@@ -16,6 +17,10 @@ const categories = new Set([
   "remote-work",
   "career-growth",
   "tools",
+  "job-types",
+  "workplace",
+  "industries",
+  "inclusion",
 ]);
 const kebab = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const animations = new Set([
@@ -76,10 +81,7 @@ export function parseSvg(svg) {
         const inherited = key in roots && key !== "viewBox" && value === roots[key];
         const part = !root && key === "data-ci-part" && kebab.test(value);
         assert(
-          attributes[tag].has(key) ||
-            (!root && inherited) ||
-            (!root && key === "transform") ||
-            part,
+          attributes[tag].has(key) || (!root && inherited) || part,
           `Forbidden attribute/value: ${tag}.${key}`,
         );
       }
@@ -138,12 +140,31 @@ export async function loadIcons(directory = iconDirectory) {
     .map((file) => file.slice(0, -4))
     .sort();
   assert(names.length > 0, "No icons found");
+  if (directory === iconDirectory) {
+    const original = JSON.parse(
+      await readFile(new URL("./collection-0.1.0.json", import.meta.url)),
+    );
+    const additions = JSON.parse(
+      await readFile(new URL("./collection-0.2.0.json", import.meta.url)),
+    );
+    const expected = [
+      ...original.map(({ name }) => name),
+      ...Object.values(additions).flat(),
+    ].sort();
+    assert(names.length === 200 && new Set(expected).size === 200, "Expected exactly 200 icons");
+    assert(
+      JSON.stringify(names) === JSON.stringify(expected),
+      "Collection names differ from release inventory",
+    );
+  }
   assert(
     files.filter((file) => file.endsWith(".json")).length === names.length,
     "Unpaired metadata",
   );
   const claimed = new Set(names);
   const icons = [];
+  const geometries = new Set();
+  const smallRenders = new Set();
   for (const name of names) {
     assert(kebab.test(name), `Invalid filename: ${name}`);
     const metadata = JSON.parse(await readFile(`${directory}/${name}.json`, "utf8"));
@@ -169,7 +190,10 @@ export async function loadIcons(directory = iconDirectory) {
       assert(new Set(values).size === values.length, `${name}: duplicate ${field}`);
     }
     for (const alias of metadata.aliases) {
-      assert(!claimed.has(alias), `${name}: alias collision: ${alias}`);
+      const legacyAlias =
+        (name === "ats-score" && alias === "resume-score") ||
+        (name === "feedback" && alias === "interview-feedback");
+      assert(!claimed.has(alias) || legacyAlias, `${name}: alias collision: ${alias}`);
       claimed.add(alias);
     }
     try {
@@ -180,6 +204,16 @@ export async function loadIcons(directory = iconDirectory) {
       }).data;
       assert(Buffer.byteLength(optimized) <= 1024, "Optimized SVG exceeds 1024 bytes");
       assertPaintBounds(optimized);
+      const geometry = optimized.replace(/\sdata-ci-part="[^"]*"/g, "");
+      assert(!geometries.has(geometry), "Duplicate optimized geometry");
+      geometries.add(geometry);
+      const small = new Resvg(optimized, {
+        font: { loadSystemFonts: false },
+        fitTo: { mode: "width", value: 16 },
+      }).render().pixels;
+      const fingerprint = createHash("sha256").update(small).digest("hex");
+      assert(!smallRenders.has(fingerprint), "Duplicate artwork at 16px");
+      smallRenders.add(fingerprint);
       const componentName = `${name
         .split("-")
         .map((part) => part[0].toUpperCase() + part.slice(1))

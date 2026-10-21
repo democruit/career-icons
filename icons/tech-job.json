@@ -1,0 +1,9 @@
+{
+  "name": "tech-job",
+  "title": "Tech job",
+  "category": "industries",
+  "tags": ["industries", "tech", "job", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

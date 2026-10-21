@@ -1,0 +1,9 @@
+{
+  "name": "mental-health",
+  "title": "Mental health",
+  "category": "layoffs-transition",
+  "tags": ["layoffs-transition", "mental", "health", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

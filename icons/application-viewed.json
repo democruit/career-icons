@@ -1,0 +1,9 @@
+{
+  "name": "application-viewed",
+  "title": "Application viewed",
+  "category": "applications",
+  "tags": ["applications", "application", "viewed", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

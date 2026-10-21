@@ -1,0 +1,9 @@
+{
+  "name": "resume-version",
+  "title": "Resume version",
+  "category": "resume",
+  "tags": ["resume", "version", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

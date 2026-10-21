@@ -1,0 +1,9 @@
+{
+  "name": "application-notes",
+  "title": "Application notes",
+  "category": "applications",
+  "tags": ["applications", "application", "notes", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

@@ -1,5 +1,6 @@
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { auditBuild } from "./audit-build.mjs";
 import { loadIcons } from "./icons.mjs";
 
 const reactRuntime = `const defaults = { size: 24, strokeWidth: 2, color: "currentColor", animate: "none", absoluteStrokeWidth: false };
@@ -126,6 +127,7 @@ export async function buildIcons(output = fileURLToPath(new URL("../dist/", impo
     await writeFile(`${output}/${name}`, `${content}\n`);
   const css = await readFile(fileURLToPath(new URL("../src/animations.css", import.meta.url)));
   await writeFile(`${output}/animations.css`, css);
+  await auditBuild(output, icons, packageVersion);
   return icons;
 }
 

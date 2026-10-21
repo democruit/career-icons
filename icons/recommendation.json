@@ -1,0 +1,9 @@
+{
+  "name": "recommendation",
+  "title": "Recommendation",
+  "category": "networking",
+  "tags": ["networking", "recommendation", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "application-sent",
+  "title": "Application sent",
+  "category": "applications",
+  "tags": ["applications", "application", "sent", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

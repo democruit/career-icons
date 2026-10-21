@@ -1,0 +1,9 @@
+{
+  "name": "one-page-resume",
+  "title": "One page resume",
+  "category": "resume",
+  "tags": ["resume", "one", "page", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

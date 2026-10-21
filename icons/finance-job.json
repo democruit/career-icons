@@ -1,0 +1,9 @@
+{
+  "name": "finance-job",
+  "title": "Finance job",
+  "category": "industries",
+  "tags": ["industries", "finance", "job", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

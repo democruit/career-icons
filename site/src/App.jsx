@@ -10,6 +10,8 @@ import {
   VideoInterviewIcon,
 } from "../../dist/react/index.js";
 
+import { searchIcons } from "./catalog.mjs";
+
 const icons = [
   { name: "Resume", motion: "Lines draw in", Icon: ResumeIcon },
   { name: "ATS pass", motion: "Check draws", Icon: AtsPassIcon },
@@ -39,16 +41,7 @@ function Catalog() {
   const [category, setCategory] = useState("all");
   const [size, setSize] = useState(24);
   const [dark, setDark] = useState(false);
-  const words = search.toLowerCase().trim().split(/\s+/).filter(Boolean);
-  const matches = collection.filter((icon) => {
-    const terms = [icon.name, icon.title, icon.category, ...icon.tags, ...icon.aliases]
-      .join(" ")
-      .toLowerCase();
-    return (
-      (category === "all" || icon.category === category) &&
-      words.every((word) => terms.includes(word))
-    );
-  });
+  const matches = searchIcons(collection, search, category);
   return (
     <section aria-labelledby="catalog-heading">
       <div className="section-row">

@@ -1,0 +1,9 @@
+{
+  "name": "elevator-pitch",
+  "title": "Elevator pitch",
+  "category": "networking",
+  "tags": ["networking", "elevator", "pitch", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

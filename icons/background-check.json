@@ -1,0 +1,9 @@
+{
+  "name": "background-check",
+  "title": "Background check",
+  "category": "resume",
+  "tags": ["resume", "background", "check", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

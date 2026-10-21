@@ -1,0 +1,9 @@
+{
+  "name": "marketing-job",
+  "title": "Marketing job",
+  "category": "industries",
+  "tags": ["industries", "marketing", "job", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

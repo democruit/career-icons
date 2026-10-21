@@ -1,0 +1,9 @@
+{
+  "name": "coffee-chat",
+  "title": "Coffee chat",
+  "category": "networking",
+  "tags": ["networking", "coffee", "chat", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

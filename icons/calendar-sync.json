@@ -1,0 +1,9 @@
+{
+  "name": "calendar-sync",
+  "title": "Calendar sync",
+  "category": "tools",
+  "tags": ["tools", "calendar", "sync", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

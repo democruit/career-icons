@@ -1,0 +1,9 @@
+{
+  "name": "upskill",
+  "title": "Upskill",
+  "category": "career-growth",
+  "tags": ["career-growth", "upskill", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

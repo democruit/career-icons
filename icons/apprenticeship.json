@@ -1,0 +1,9 @@
+{
+  "name": "apprenticeship",
+  "title": "Apprenticeship",
+  "category": "job-types",
+  "tags": ["job-types", "apprenticeship", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

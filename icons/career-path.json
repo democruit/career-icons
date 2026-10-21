@@ -1,0 +1,9 @@
+{
+  "name": "career-path",
+  "title": "Career path",
+  "category": "career-growth",
+  "tags": ["career-growth", "career", "path", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

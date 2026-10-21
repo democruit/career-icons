@@ -1,0 +1,9 @@
+{
+  "name": "group-interview",
+  "title": "Group interview",
+  "category": "interviews",
+  "tags": ["interviews", "group", "interview", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "shortlisted",
+  "title": "Shortlisted",
+  "category": "applications",
+  "tags": ["applications", "shortlisted", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "cost-of-living",
+  "title": "Cost of living",
+  "category": "offers-salary",
+  "tags": ["offers-salary", "cost", "of", "living", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

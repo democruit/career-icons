@@ -1,0 +1,9 @@
+{
+  "name": "cv-international",
+  "title": "International CV",
+  "category": "resume",
+  "tags": ["resume", "cv", "international", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

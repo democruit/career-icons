@@ -1,0 +1,9 @@
+{
+  "name": "interview-feedback",
+  "title": "Interview feedback",
+  "category": "interviews",
+  "tags": ["interviews", "interview", "feedback", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

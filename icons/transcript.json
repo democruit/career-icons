@@ -1,0 +1,9 @@
+{
+  "name": "transcript",
+  "title": "Transcript",
+  "category": "resume",
+  "tags": ["resume", "transcript", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "health-insurance",
+  "title": "Health insurance",
+  "category": "offers-salary",
+  "tags": ["offers-salary", "health", "insurance", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

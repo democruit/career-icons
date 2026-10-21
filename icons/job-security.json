@@ -1,0 +1,9 @@
+{
+  "name": "job-security",
+  "title": "Job security",
+  "category": "layoffs-transition",
+  "tags": ["layoffs-transition", "job", "security", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

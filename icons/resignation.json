@@ -1,0 +1,9 @@
+{
+  "name": "resignation",
+  "title": "Resignation",
+  "category": "layoffs-transition",
+  "tags": ["layoffs-transition", "resignation", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

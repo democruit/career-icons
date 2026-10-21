@@ -1,0 +1,9 @@
+{
+  "name": "chrome-extension",
+  "title": "Chrome extension",
+  "category": "tools",
+  "tags": ["tools", "chrome", "extension", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

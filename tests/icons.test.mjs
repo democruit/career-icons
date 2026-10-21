@@ -2,13 +2,21 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { build as bundle } from "esbuild";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterAll, beforeAll, expect, test } from "vitest";
 import { buildIcons } from "../scripts/build.mjs";
 import { animations, assertPaintBounds, loadIcons, parseSvg } from "../scripts/icons.mjs";
+import { searchIcons } from "../site/src/catalog.mjs";
 
 const pilot = ["ats-pass", "laid-off", "resume", "salary-range", "video-interview"];
+const additions = JSON.parse(
+  await readFile(new URL("../scripts/collection-0.2.0.json", import.meta.url)),
+);
+const original = JSON.parse(
+  await readFile(new URL("../scripts/collection-0.1.0.json", import.meta.url)),
+);
 const approved = {
   resume:
     "resume resume-edit resume-check resume-upload resume-download resume-template cover-letter portfolio",
@@ -43,12 +51,17 @@ test("collection includes the pilot and final icons with useful search metadata"
   const names = Object.values(approved)
     .flatMap((list) => list.split(" "))
     .sort();
-  expect(icons).toHaveLength(60);
-  expect(icons.map(({ metadata }) => metadata.name)).toEqual(names);
+  expect(icons).toHaveLength(200);
+  expect(icons.map(({ metadata }) => metadata.name)).toEqual(
+    [...names, ...Object.values(additions).flat()].sort(),
+  );
+  for (const metadata of original) {
+    expect(icons.find((icon) => icon.metadata.name === metadata.name)?.metadata).toEqual(metadata);
+  }
   for (const [category, list] of Object.entries(approved)) {
     expect(
       icons
-        .filter(({ metadata }) => metadata.category === category)
+        .filter(({ metadata }) => metadata.category === category && metadata.since === "0.1.0")
         .map(({ metadata }) => metadata.name),
     ).toEqual(list.split(" ").sort());
   }
@@ -57,13 +70,17 @@ test("collection includes the pilot and final icons with useful search metadata"
     expect(metadata.placeholder).toBeUndefined();
     expect(metadata.tags.length).toBeGreaterThanOrEqual(4);
     expect(metadata.tags.length).toBeLessThanOrEqual(8);
-    expect(metadata.since).toBe("0.1.0");
+    expect(metadata.since).toBe(names.includes(metadata.name) ? "0.1.0" : "0.2.0");
+    if (!names.includes(metadata.name)) {
+      expect(additions[metadata.category]).toContain(metadata.name);
+      expect(metadata.animation).toBe("none");
+    }
   }
 });
 
-test("all sixty silhouettes are distinct, minimal and honestly describe their animated parts", () => {
+test("all 200 geometries are distinct, minimal and honestly describe their animated parts", () => {
   const geometry = built.map(({ svg }) => svg.replace(/\sdata-ci-part="[^"]*"/g, ""));
-  expect(new Set(geometry).size).toBe(60);
+  expect(new Set(geometry).size).toBe(200);
   for (const { metadata, tree, svg } of built) {
     const count = (nodes) =>
       nodes.reduce((total, node) => {
@@ -87,6 +104,14 @@ test("validator rejects forbidden artwork and wrong root stroke", async () => {
     "Forbidden attribute",
   );
   expect(() => parseSvg(svg.replace("<rect ", '<rect id="photo" '))).toThrow("Forbidden attribute");
+  for (const attribute of ['fill="red"', 'stroke="#000"', 'transform="translate(1 1)"']) {
+    expect(() => parseSvg(svg.replace("<rect ", `<rect ${attribute} `))).toThrow(
+      "Forbidden attribute",
+    );
+  }
+  expect(() =>
+    parseSvg(svg.replace("</svg>", '<image href="data:image/png;base64,AA=="/></svg>')),
+  ).toThrow("Forbidden element");
 });
 
 test("padding audit catches painted strokes, even beyond the original viewport", async () => {
@@ -204,4 +229,45 @@ test("React icons keep stroke currentColor and let the color prop override inher
     expect(html).not.toContain('stroke="navy"');
     expect(html).toContain('aria-label="Preview"');
   }
+});
+
+test("named raw and React imports discard the other 199 icons", async () => {
+  for (const entry of ["index.js", "react/index.js"]) {
+    const result = await bundle({
+      stdin: {
+        contents: `import { ResumeTailorIcon } from ${JSON.stringify(join(output, entry))}; console.log(ResumeTailorIcon);`,
+        resolveDir: output,
+      },
+      bundle: true,
+      write: false,
+      minify: true,
+      format: "esm",
+      external: ["react"],
+    });
+    const code = result.outputFiles[0].text;
+    expect(code).toContain("svg");
+    expect(code).not.toContain("ResumeCompareIcon");
+    expect(code).not.toContain("MentalHealthIcon");
+    expect(code).not.toContain("accessibility");
+    expect(Buffer.byteLength(code)).toBeLessThan(entry === "index.js" ? 1024 : 2500);
+  }
+});
+
+test("catalog finds every icon by name, title, tags and aliases in its category", () => {
+  const collection = built.map(({ metadata }) => metadata);
+  expect(new Set(collection.map(({ category }) => category)).size).toBe(14);
+  expect(searchIcons(collection, "")).toHaveLength(200);
+  for (const metadata of collection) {
+    for (const query of [metadata.name, metadata.title, ...metadata.tags, ...metadata.aliases]) {
+      expect(searchIcons(collection, query, metadata.category)).toContain(metadata);
+    }
+  }
+  expect(searchIcons(collection, "resume-score").map(({ name }) => name)).toEqual([
+    "ats-score",
+    "resume-score",
+  ]);
+  expect(searchIcons(collection, "interview-feedback").map(({ name }) => name)).toEqual([
+    "feedback",
+    "interview-feedback",
+  ]);
 });

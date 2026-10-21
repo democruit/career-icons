@@ -1,0 +1,9 @@
+{
+  "name": "ai-match-score",
+  "title": "AI match score",
+  "category": "tools",
+  "tags": ["tools", "ai", "match", "score", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "quick-apply-batch",
+  "title": "Quick apply batch",
+  "category": "applications",
+  "tags": ["applications", "quick", "apply", "batch", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

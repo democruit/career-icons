@@ -1,0 +1,570 @@
+[
+  {
+    "name": "ai-interviewer",
+    "title": "AI interviewer",
+    "category": "interviews",
+    "tags": ["ai", "interviewer", "chatbot", "artificial-intelligence", "interview", "automated"],
+    "aliases": ["automated-interviewer"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "application-tracker",
+    "title": "Application tracker",
+    "category": "applications",
+    "tags": ["application", "tracker", "kanban", "pipeline", "status", "job-search"],
+    "aliases": ["application-pipeline"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "apply",
+    "title": "Apply",
+    "category": "applications",
+    "tags": ["apply", "application", "submit", "send", "resume", "candidate"],
+    "aliases": ["submit-application"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "ats-pass",
+    "title": "ATS pass",
+    "category": "ats",
+    "tags": [
+      "ats",
+      "resume-screening",
+      "applicant-tracking",
+      "keyword-match",
+      "screening",
+      "approved"
+    ],
+    "aliases": ["ats-approved", "screening-pass"],
+    "since": "0.1.0",
+    "animation": "draw-check"
+  },
+  {
+    "name": "ats-reject",
+    "title": "ATS reject",
+    "category": "ats",
+    "tags": ["ats", "rejected", "screening", "resume", "failed", "application"],
+    "aliases": ["screening-rejected"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "ats-scan",
+    "title": "ATS scan",
+    "category": "ats",
+    "tags": ["ats", "scan", "screening", "resume", "document", "parsing"],
+    "aliases": ["resume-scan"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "ats-score",
+    "title": "ATS score",
+    "category": "ats",
+    "tags": ["ats", "score", "gauge", "rating", "screening", "compatibility"],
+    "aliases": ["resume-score"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "benefits",
+    "title": "Benefits",
+    "category": "offers-salary",
+    "tags": ["benefits", "perks", "employee-benefits", "reward", "gift", "compensation"],
+    "aliases": ["employee-perks"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "career-change",
+    "title": "Career change",
+    "category": "layoffs-transition",
+    "tags": ["career", "change", "pivot", "transition", "crossroads", "direction"],
+    "aliases": ["career-pivot"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "career-goal",
+    "title": "Career goal",
+    "category": "career-growth",
+    "tags": ["career-goal", "target", "objective", "ambition", "goal", "focus"],
+    "aliases": ["career-target"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "certificate",
+    "title": "Certificate",
+    "category": "career-growth",
+    "tags": ["certificate", "certification", "qualification", "credential", "award", "achievement"],
+    "aliases": ["professional-certificate"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "cover-letter",
+    "title": "Cover letter",
+    "category": "resume",
+    "tags": [
+      "cover-letter",
+      "motivation-letter",
+      "application",
+      "envelope",
+      "introduction",
+      "writing"
+    ],
+    "aliases": ["application-letter"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "easy-apply",
+    "title": "Easy apply",
+    "category": "applications",
+    "tags": ["easy-apply", "quick-apply", "application", "instant", "resume", "fast"],
+    "aliases": ["quick-application"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "equity",
+    "title": "Equity",
+    "category": "offers-salary",
+    "tags": ["equity", "shares", "stock", "ownership", "vesting", "compensation"],
+    "aliases": ["stock-equity"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "feedback",
+    "title": "Feedback",
+    "category": "interviews",
+    "tags": ["feedback", "review", "rating", "interview", "evaluation", "comment"],
+    "aliases": ["interview-feedback"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "follow-up",
+    "title": "Follow up",
+    "category": "applications",
+    "tags": ["follow-up", "reminder", "email", "response", "application", "contact"],
+    "aliases": ["application-followup"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "ghosted",
+    "title": "Ghosted",
+    "category": "applications",
+    "tags": ["ghosted", "ghosting", "no-response", "silence", "recruiter", "application"],
+    "aliases": ["no-response"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "hybrid",
+    "title": "Hybrid",
+    "category": "remote-work",
+    "tags": ["hybrid", "office", "home", "flexible-work", "workplace", "mixed"],
+    "aliases": ["hybrid-work"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "interview",
+    "title": "Interview",
+    "category": "interviews",
+    "tags": ["interview", "conversation", "hiring", "candidate", "interviewer", "meeting"],
+    "aliases": ["in-person-interview"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "interview-prep",
+    "title": "Interview prep",
+    "category": "interviews",
+    "tags": ["interview", "preparation", "checklist", "practice", "candidate", "coaching"],
+    "aliases": ["interview-preparation"],
+    "since": "0.1.0",
+    "animation": "draw-check"
+  },
+  {
+    "name": "interview-schedule",
+    "title": "Interview schedule",
+    "category": "interviews",
+    "tags": ["interview", "schedule", "calendar", "appointment", "candidate", "booking"],
+    "aliases": ["scheduled-interview"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "job-offer",
+    "title": "Job offer",
+    "category": "offers-salary",
+    "tags": ["job-offer", "offer-letter", "employment", "envelope", "contract", "hiring"],
+    "aliases": ["employment-offer"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "job-post",
+    "title": "Job post",
+    "category": "applications",
+    "tags": ["job", "posting", "vacancy", "listing", "bulletin-board", "position"],
+    "aliases": ["job-posting"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "job-search",
+    "title": "Job search",
+    "category": "applications",
+    "tags": ["job", "search", "vacancy", "employment", "briefcase", "discovery"],
+    "aliases": ["employment-search"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "job-tracker",
+    "title": "Job tracker",
+    "category": "tools",
+    "tags": ["job-tracker", "tracking", "progress", "clipboard", "tasks", "dashboard"],
+    "aliases": ["progress-tracker"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "keyword-match",
+    "title": "Keyword match",
+    "category": "ats",
+    "tags": ["keyword", "match", "tags", "skills", "relevance", "ats"],
+    "aliases": ["matching-keywords"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "laid-off",
+    "title": "Laid off",
+    "category": "layoffs-transition",
+    "tags": ["layoff", "redundancy", "job-loss", "career-transition", "outplacement", "severance"],
+    "aliases": ["job-displacement", "laid-off-worker"],
+    "since": "0.1.0",
+    "animation": "wiggle"
+  },
+  {
+    "name": "learning",
+    "title": "Learning",
+    "category": "career-growth",
+    "tags": ["learning", "education", "study", "book", "knowledge", "development"],
+    "aliases": ["professional-learning"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "linkedin-profile",
+    "title": "LinkedIn profile",
+    "category": "networking",
+    "tags": ["linkedin", "profile", "professional", "social-network", "contact", "networking"],
+    "aliases": ["professional-profile"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "mock-interview",
+    "title": "Mock interview",
+    "category": "interviews",
+    "tags": ["mock-interview", "practice", "rehearsal", "coaching", "interview", "repeat"],
+    "aliases": ["practice-interview"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "negotiation",
+    "title": "Negotiation",
+    "category": "offers-salary",
+    "tags": ["negotiation", "salary", "discussion", "counteroffer", "bargaining", "exchange"],
+    "aliases": ["salary-negotiation"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "network",
+    "title": "Network",
+    "category": "networking",
+    "tags": ["network", "connections", "networking", "community", "contacts", "relationships"],
+    "aliases": ["career-network"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "offer-accepted",
+    "title": "Offer accepted",
+    "category": "offers-salary",
+    "tags": ["offer", "accepted", "handshake", "agreement", "hired", "contract"],
+    "aliases": ["accepted-offer"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "open-to-work",
+    "title": "Open to work",
+    "category": "layoffs-transition",
+    "tags": ["open-to-work", "available", "job-search", "employment", "candidate", "transition"],
+    "aliases": ["available-for-work"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "parse-error",
+    "title": "Parse error",
+    "category": "ats",
+    "tags": ["parse-error", "parsing", "ats", "document", "broken", "unreadable"],
+    "aliases": ["resume-parse-error"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "pay-transparency",
+    "title": "Pay transparency",
+    "category": "offers-salary",
+    "tags": ["pay", "transparency", "salary", "disclosure", "compensation", "visibility"],
+    "aliases": ["salary-transparency"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "phone-screen",
+    "title": "Phone screen",
+    "category": "interviews",
+    "tags": ["phone", "screening", "call", "interview", "recruiter", "mobile"],
+    "aliases": ["telephone-interview"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "portfolio",
+    "title": "Portfolio",
+    "category": "resume",
+    "tags": ["portfolio", "projects", "work-samples", "showcase", "folder", "creative"],
+    "aliases": ["work-portfolio"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "promotion",
+    "title": "Promotion",
+    "category": "career-growth",
+    "tags": ["promotion", "advancement", "career-growth", "progress", "stairs", "raise"],
+    "aliases": ["career-promotion"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "recruiter",
+    "title": "Recruiter",
+    "category": "networking",
+    "tags": ["recruiter", "talent-acquisition", "hiring", "headhunter", "sourcing", "candidate"],
+    "aliases": ["talent-recruiter"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "referral",
+    "title": "Referral",
+    "category": "networking",
+    "tags": ["referral", "introduction", "recommendation", "connection", "hiring", "network"],
+    "aliases": ["employee-referral"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "relocation",
+    "title": "Relocation",
+    "category": "remote-work",
+    "tags": ["relocation", "move", "location", "moving", "map-pin", "job-change"],
+    "aliases": ["job-relocation"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "remote-job",
+    "title": "Remote job",
+    "category": "remote-work",
+    "tags": ["remote-job", "work-from-home", "home-office", "laptop", "telecommute", "distributed"],
+    "aliases": ["home-office-job"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "resume",
+    "title": "Resume",
+    "category": "resume",
+    "tags": ["resume", "cv", "curriculum-vitae", "profile", "job-search", "document"],
+    "aliases": ["career-resume"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "resume-check",
+    "title": "Resume check",
+    "category": "resume",
+    "tags": ["resume", "cv", "review", "checklist", "approved", "verified"],
+    "aliases": ["verified-resume"],
+    "since": "0.1.0",
+    "animation": "draw-check"
+  },
+  {
+    "name": "resume-download",
+    "title": "Resume download",
+    "category": "resume",
+    "tags": ["resume", "cv", "download", "export", "save", "document"],
+    "aliases": ["download-resume"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "resume-edit",
+    "title": "Resume edit",
+    "category": "resume",
+    "tags": ["resume", "cv", "edit", "rewrite", "document", "profile"],
+    "aliases": ["edit-resume"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "resume-template",
+    "title": "Resume template",
+    "category": "resume",
+    "tags": ["resume", "template", "layout", "cv", "format", "sample"],
+    "aliases": ["cv-template"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "resume-upload",
+    "title": "Resume upload",
+    "category": "resume",
+    "tags": ["resume", "cv", "upload", "import", "submit", "document"],
+    "aliases": ["upload-resume"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "salary",
+    "title": "Salary",
+    "category": "offers-salary",
+    "tags": ["salary", "money", "pay", "compensation", "banknote", "wages"],
+    "aliases": ["paycheck"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "salary-range",
+    "title": "Salary range",
+    "category": "offers-salary",
+    "tags": ["salary", "pay-range", "compensation", "wages", "salary-band", "negotiation"],
+    "aliases": ["pay-band", "compensation-range"],
+    "since": "0.1.0",
+    "animation": "slide"
+  },
+  {
+    "name": "saved-job",
+    "title": "Saved job",
+    "category": "applications",
+    "tags": ["saved-job", "bookmark", "favorites", "shortlist", "briefcase", "vacancy"],
+    "aliases": ["bookmarked-job"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "seven-day-plan",
+    "title": "Seven day plan",
+    "category": "layoffs-transition",
+    "tags": ["seven-day-plan", "week", "calendar", "planning", "schedule", "transition"],
+    "aliases": ["weekly-plan"],
+    "since": "0.1.0",
+    "animation": "draw"
+  },
+  {
+    "name": "severance",
+    "title": "Severance",
+    "category": "layoffs-transition",
+    "tags": ["severance", "compensation", "exit", "termination", "payment", "job-loss"],
+    "aliases": ["severance-pay"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "skills",
+    "title": "Skills",
+    "category": "career-growth",
+    "tags": ["skills", "competency", "capability", "puzzle", "expertise", "talent"],
+    "aliases": ["skill-set"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "tell-me-about-yourself",
+    "title": "Tell me about yourself",
+    "category": "interviews",
+    "tags": [
+      "interview",
+      "introduction",
+      "self-introduction",
+      "candidate",
+      "storytelling",
+      "elevator-pitch"
+    ],
+    "aliases": ["introduce-yourself"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "unemployment-benefits",
+    "title": "Unemployment benefits",
+    "category": "layoffs-transition",
+    "tags": ["unemployment", "benefits", "assistance", "income-support", "insurance", "protection"],
+    "aliases": ["unemployment-support"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "video-interview",
+    "title": "Video interview",
+    "category": "interviews",
+    "tags": [
+      "interview",
+      "video-call",
+      "online-interview",
+      "virtual-interview",
+      "candidate",
+      "laptop"
+    ],
+    "aliases": ["remote-interview"],
+    "since": "0.1.0",
+    "animation": "pop"
+  },
+  {
+    "name": "waiting-reply",
+    "title": "Waiting reply",
+    "category": "applications",
+    "tags": ["waiting", "reply", "response", "pending", "message", "hourglass"],
+    "aliases": ["awaiting-response"],
+    "since": "0.1.0",
+    "animation": "none"
+  },
+  {
+    "name": "warn-notice",
+    "title": "WARN notice",
+    "category": "layoffs-transition",
+    "tags": ["warn", "notice", "layoff", "warning", "employer", "redundancy", "notification"],
+    "aliases": ["layoff-notice"],
+    "since": "0.1.0",
+    "animation": "none"
+  }
+]

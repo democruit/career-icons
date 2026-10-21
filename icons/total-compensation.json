@@ -1,0 +1,9 @@
+{
+  "name": "total-compensation",
+  "title": "Total compensation",
+  "category": "offers-salary",
+  "tags": ["offers-salary", "total", "compensation", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "employment-gap",
+  "title": "Employment gap",
+  "category": "resume",
+  "tags": ["resume", "employment", "gap", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

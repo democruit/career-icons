@@ -1,0 +1,9 @@
+{
+  "name": "hospitality-job",
+  "title": "Hospitality job",
+  "category": "industries",
+  "tags": ["industries", "hospitality", "job", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

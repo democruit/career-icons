@@ -1,0 +1,9 @@
+{
+  "name": "hiring-pipeline",
+  "title": "Hiring pipeline",
+  "category": "applications",
+  "tags": ["applications", "hiring", "pipeline", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

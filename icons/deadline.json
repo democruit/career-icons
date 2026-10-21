@@ -1,0 +1,9 @@
+{
+  "name": "deadline",
+  "title": "Deadline",
+  "category": "applications",
+  "tags": ["applications", "deadline", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

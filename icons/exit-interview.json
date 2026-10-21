@@ -1,0 +1,9 @@
+{
+  "name": "exit-interview",
+  "title": "Exit interview",
+  "category": "layoffs-transition",
+  "tags": ["layoffs-transition", "exit", "interview", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}

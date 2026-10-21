@@ -8,7 +8,15 @@ from PIL import Image, ImageDraw, ImageFont
 source, target = map(Path, sys.argv[1:3])
 sheet = json.loads((source / "sheet.json").read_text())
 names = sheet["names"]
-columns = 6 if sheet["category"] == "all" else 4
+columns = 6 if sheet["category"] in ["all", "similarity"] else 4
+groups = sheet.get("groups")
+labels = {}
+if groups:
+    names = []
+    for label, members in groups:
+        labels[len(names) // columns] = label
+        names.extend(members)
+        names.extend([None] * ((-len(names)) % columns))
 cell_width, cell_height = 180, 134
 rows = math.ceil(len(names) / columns)
 width = columns * cell_width + 40
@@ -34,7 +42,7 @@ def icon(name, theme, size, x, y):
     canvas.paste(image, (int(x - size / 2), int(y - size / 2)), image)
 
 
-text(24, 20, f"DEMOCRUIT / {sheet['category'].upper()} / {len(names)} ICONS", "#243447", 19)
+text(24, 20, f"DEMOCRUIT / {sheet['category'].upper()} / {sum(name is not None for name in names)} ENTRIES", "#243447", 19)
 text(24, 52, "24×24 grid · 2px stroke · native 16 / 24 / 48px · inspect at 100%", "#516175", 13)
 
 for theme, background, foreground, muted, index in [
@@ -52,6 +60,10 @@ for theme, background, foreground, muted, index in [
     for i, name in enumerate(names):
         left = 20 + (i % columns) * cell_width
         y = top + 124 + (i // columns) * cell_height
+        if name is None:
+            continue
+        if i % columns == 0 and i // columns in labels:
+            text(left, y - 16, labels[i // columns], muted, 10)
         text(left + 90, y, name, foreground, 12, anchor="mm")
         for size, x in [(16, left + 38), (24, left + 82), (48, left + 137)]:
             icon(name, theme, size, x, y + 48)

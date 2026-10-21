@@ -1,0 +1,9 @@
+{
+  "name": "work-life-balance",
+  "title": "Work life balance",
+  "category": "layoffs-transition",
+  "tags": ["layoffs-transition", "work", "life", "balance", "career", "job-search", "outline"],
+  "aliases": [],
+  "since": "0.2.0",
+  "animation": "none"
+}
