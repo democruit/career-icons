@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1
+
+### Changed
+
+- Streamlined README and added `docs/usage.md` and `docs/contributing.md`.
+- Relaxed commitlint to enforce type and required scope only.
+
 ## 0.3.0
 
 ### Changed

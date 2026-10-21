@@ -1,5 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { mkdtemp, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -7,6 +7,9 @@ import { Resvg } from "@resvg/resvg-js";
 import { loadIcons } from "./icons.mjs";
 
 const category = process.argv[2] ?? "all";
+const packageVersion = JSON.parse(
+  await readFile(new URL("../package.json", import.meta.url), "utf8"),
+).version;
 const icons = await loadIcons();
 const names = icons.map(({ metadata }) => metadata.name);
 const categories = [...new Set(icons.map(({ metadata }) => metadata.category))].sort();
@@ -104,7 +107,7 @@ try {
       fileURLToPath(new URL("../docs/previews/index.json", import.meta.url)),
       `${JSON.stringify(
         {
-          version: "0.2.0",
+          version: packageVersion,
           iconCount: icons.length,
           categories: Object.fromEntries(
             categories.map((name) => [
