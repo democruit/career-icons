@@ -5,5 +5,6 @@
   "tags": ["ghosted", "ghosting", "no-response", "silence", "recruiter", "application"],
   "aliases": ["no-response"],
   "since": "0.1.0",
-  "animation": "none"
+  "animation": "none",
+  "animationReason": "Animating its only dotted outline would reduce legibility and turn absence into activity."
 }

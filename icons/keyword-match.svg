@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M5 3H10L15 8L8 15L3 10V5Q3 3 5 3Z"/>
-  <circle cx="6" cy="6" r="0.75"/>
-  <path d="M16 10L21 15L15 21L10 16"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-keyword-match">
+  <g class="ci-rest">
+    <path d="M5 3H10L15 8L8 15L3 10V5Q3 3 5 3Z"/>
+    <circle cx="6" cy="6" r="0.75"/>
+    <path d="M16 10L21 15L15 21L10 16"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M5 3H10L15 8L8 15L3 10V5Q3 3 5 3Z"/>
+    <circle cx="6" cy="6" r="0.75"/>
+    <path d="M16 10L21 15L15 21L10 16" data-ci-part="tag" class="ci-part-tag"/>
+  </g>
 </svg>

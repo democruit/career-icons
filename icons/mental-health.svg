@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M9 21V17Q4 15 4 9Q4 3 11 3Q17 3 18 9L21 12H18V17H14V21"/>
-  <path d="M9 8Q9 6 11 6Q13 6 13 8Q13 10 11 12Q9 10 9 8Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-mental-health">
+  <g class="ci-rest">
+    <path d="M9 21V17Q4 15 4 9Q4 3 11 3Q17 3 18 9L21 12H18V17H14V21"/>
+    <path d="M9 8Q9 6 11 6Q13 6 13 8Q13 10 11 12Q9 10 9 8Z"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M9 21V17Q4 15 4 9Q4 3 11 3Q17 3 18 9L21 12H18V17H14V21"/>
+    <path d="M9 8Q9 6 11 6Q13 6 13 8Q13 10 11 12Q9 10 9 8Z" data-ci-part="heart" class="ci-part-heart"/>
+  </g>
 </svg>

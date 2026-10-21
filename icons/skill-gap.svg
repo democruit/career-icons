@@ -1,3 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M3 21V13H7V21M11 21V8H15V21M19 21V17H21M18 8H21M18 12H21"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-skill-gap">
+  <g class="ci-rest">
+    <path d="M3 21V13H7V21M11 21V8H15V21M19 21V17H21M18 8H21M18 12H21"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M3 21V13H7V21"/>
+    <path d="M11 21V8H15V21"/>
+    <path d="M19 21V17H21"/>
+    <g data-ci-part="gap-marks" class="ci-part-gap-marks">
+      <path d="M18 8H21"/>
+      <path d="M18 12H21"/>
+    </g>
+  </g>
 </svg>

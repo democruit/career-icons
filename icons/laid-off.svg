@@ -1,8 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <g data-ci-part="box">
-    <path d="M4 12H20V19Q20 21 18 21H6Q4 21 4 19Z"/>
-    <path d="M4 12L7 16H17L20 12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-laid-off">
+  <g class="ci-rest">
+    <g data-ci-part="box">
+      <path d="M4 12H20V19Q20 21 18 21H6Q4 21 4 19Z"/>
+      <path d="M4 12L7 16H17L20 12"/>
+    </g>
+    <path d="M7 12L6.2 6.5L11 5.6L11.8 12"/>
+    <path d="M17 12V8Q14 8 14 5.5Q17 5.5 17 8M17 8Q20 8 20 5.5Q17 5.5 17 8"/>
   </g>
-  <path d="M7 12L6.2 6.5L11 5.6L11.8 12"/>
-  <path d="M17 12V8Q14 8 14 5.5Q17 5.5 17 8M17 8Q20 8 20 5.5Q17 5.5 17 8"/>
+  <g class="ci-motion" display="none">
+    <g data-ci-part="box" class="ci-part-box">
+      <path d="M4 12H20V19Q20 21 18 21H6Q4 21 4 19Z"/>
+      <path d="M4 12L7 16H17L20 12"/>
+    </g>
+    <path d="M7 12L6.2 6.5L11 5.6L11.8 12"/>
+    <path d="M17 12V8Q14 8 14 5.5Q17 5.5 17 8M17 8Q20 8 20 5.5Q17 5.5 17 8"/>
+  </g>
 </svg>

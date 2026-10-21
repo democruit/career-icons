@@ -5,5 +5,6 @@
   "tags": ["skills", "competency", "capability", "puzzle", "expertise", "talent"],
   "aliases": ["skill-set"],
   "since": "0.1.0",
-  "animation": "none"
+  "animation": "none",
+  "animationReason": "No independent part exists inside the connected puzzle silhouette."
 }

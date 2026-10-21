@@ -5,5 +5,5 @@
   "tags": ["interview", "conversation", "hiring", "candidate", "interviewer", "meeting"],
   "aliases": ["in-person-interview"],
   "since": "0.1.0",
-  "animation": "none"
+  "animation": "people-sequence"
 }

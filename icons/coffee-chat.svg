@@ -1,3 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M4 10H15V16Q15 20 11 20H8Q4 20 4 16ZM15 11H18Q21 11 21 14Q21 17 18 17H15M7 3V6M12 4V7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-coffee-chat">
+  <g class="ci-rest">
+    <path d="M4 10H15V16Q15 20 11 20H8Q4 20 4 16ZM15 11H18Q21 11 21 14Q21 17 18 17H15M7 3V6M12 4V7"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M4 10H15V16Q15 20 11 20H8Q4 20 4 16Z"/>
+    <path d="M15 11H18Q21 11 21 14Q21 17 18 17H15"/>
+    <path d="M7 3V6" data-ci-part="steam-left" class="ci-part-steam-left"/>
+    <path d="M12 4V7" data-ci-part="steam-right" class="ci-part-steam-right"/>
+  </g>
 </svg>

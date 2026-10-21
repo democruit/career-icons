@@ -1,7 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="7" cy="6" r="2"/>
-  <circle cx="17" cy="6" r="2"/>
-  <path d="M3 13Q3 11 5 11H9Q11 11 11 13"/>
-  <path d="M13 13Q13 11 15 11H19Q21 11 21 13"/>
-  <path data-ci-part="lines" d="M9 19H20M17 16L20 19L17 21"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-referral">
+  <g class="ci-rest">
+    <circle cx="7" cy="6" r="2"/>
+    <circle cx="17" cy="6" r="2"/>
+    <path d="M3 13Q3 11 5 11H9Q11 11 11 13"/>
+    <path d="M13 13Q13 11 15 11H19Q21 11 21 13"/>
+    <path data-ci-part="lines" d="M9 19H20M17 16L20 19L17 21"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <circle cx="7" cy="6" r="2"/>
+    <circle cx="17" cy="6" r="2"/>
+    <path d="M3 13Q3 11 5 11H9Q11 11 11 13"/>
+    <path d="M13 13Q13 11 15 11H19Q21 11 21 13"/>
+    <path d="M9 19H20M17 16L20 19L17 21" data-ci-part="arrow" class="ci-part-arrow"/>
+  </g>
 </svg>

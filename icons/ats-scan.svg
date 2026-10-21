@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z"/>
-  <path d="M14 3V8H19"/>
-  <path data-ci-part="lines" d="M3 13H21"/>
-  <path d="M8 17H13"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-ats-scan">
+  <g class="ci-rest">
+    <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z"/>
+    <path d="M14 3V8H19"/>
+    <path data-ci-part="lines" d="M3 13H21"/>
+    <path d="M8 17H13"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z"/>
+    <path d="M14 3V8H19"/>
+    <path d="M3 13H21" data-ci-part="scan-line" class="ci-part-scan-line"/>
+    <path d="M8 17H13"/>
+  </g>
 </svg>

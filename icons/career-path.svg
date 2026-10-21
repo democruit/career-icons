@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M4 21V18Q4 15 7 15H13Q17 15 17 11V7M13 7L17 3L21 7"/>
-  <circle cx="5" cy="6" r="2"/>
-  <path d="M5 10V11"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-career-path">
+  <g class="ci-rest">
+    <path d="M4 21V18Q4 15 7 15H13Q17 15 17 11V7M13 7L17 3L21 7"/>
+    <circle cx="5" cy="6" r="2"/>
+    <path d="M5 10V11"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M4 21V18Q4 15 7 15H13Q17 15 17 11V7M13 7L17 3L21 7" data-ci-part="route" class="ci-part-route" pathLength="1"/>
+    <circle cx="5" cy="6" r="2"/>
+    <path d="M5 10V11"/>
+  </g>
 </svg>

@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10M3 9H21"/>
-  <path d="M13 13H21M13 17H18M13 21H20M6 13L8 15L11 11"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-browser-autofill">
+  <g class="ci-rest">
+    <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10M3 9H21"/>
+    <path d="M13 13H21M13 17H18M13 21H20M6 13L8 15L11 11"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10M3 9H21"/>
+    <path d="M13 13H21" data-ci-part="field-first" class="ci-part-field-first"/>
+    <path d="M13 17H18" data-ci-part="field-second" class="ci-part-field-second"/>
+    <path d="M13 21H20" data-ci-part="field-third" class="ci-part-field-third"/>
+    <path d="M6 13L8 15L11 11" data-ci-part="check" class="ci-part-check" pathLength="1"/>
+  </g>
 </svg>

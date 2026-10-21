@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="4" y="4" width="16" height="16" rx="2"/>
-  <rect x="8" y="9" width="8" height="8" rx="2"/>
-  <circle cx="12" cy="7" r="0.75"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-job-post">
+  <g class="ci-rest">
+    <rect x="4" y="4" width="16" height="16" rx="2"/>
+    <rect x="8" y="9" width="8" height="8" rx="2"/>
+    <circle cx="12" cy="7" r="0.75"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <rect x="4" y="4" width="16" height="16" rx="2"/>
+    <rect x="8" y="9" width="8" height="8" rx="2" data-ci-part="post" class="ci-part-post"/>
+    <circle cx="12" cy="7" r="0.75"/>
+  </g>
 </svg>

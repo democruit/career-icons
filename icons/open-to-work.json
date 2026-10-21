@@ -5,5 +5,5 @@
   "tags": ["open-to-work", "available", "job-search", "employment", "candidate", "transition"],
   "aliases": ["available-for-work"],
   "since": "0.1.0",
-  "animation": "none"
+  "animation": "availability-reveal"
 }

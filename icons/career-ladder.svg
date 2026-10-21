@@ -1,3 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M6 21V3M18 21V3M6 7H18M6 12H18M6 17H18"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-career-ladder">
+  <g class="ci-rest">
+    <path d="M6 21V3M18 21V3M6 7H18M6 12H18M6 17H18"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M6 21V3"/>
+    <path d="M18 21V3"/>
+    <path d="M6 7H18"/>
+    <path d="M6 12H18" data-ci-part="rung" class="ci-part-rung"/>
+    <path d="M6 17H18"/>
+  </g>
 </svg>

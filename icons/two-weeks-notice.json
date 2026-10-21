@@ -5,5 +5,5 @@
   "tags": ["layoffs-transition", "two", "weeks", "notice", "career", "job-search", "outline"],
   "aliases": [],
   "since": "0.2.0",
-  "animation": "none"
+  "animation": "notice-sequence"
 }

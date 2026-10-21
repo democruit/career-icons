@@ -5,5 +5,5 @@
   "tags": ["layoff", "redundancy", "job-loss", "career-transition", "outplacement", "severance"],
   "aliases": ["job-displacement", "laid-off-worker"],
   "since": "0.1.0",
-  "animation": "wiggle"
+  "animation": "gentle-shake"
 }

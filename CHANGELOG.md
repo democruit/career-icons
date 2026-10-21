@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0
+
+### Changed
+
+- Per-part CSS motion for 196 icons; four icons explicitly stay static with metadata reasons.
+- Stable icon and part classes, keyboard focus triggers, 560ms hover cycles and paused loops.
+- Original resting SVG pixels preserved; React animation props and optional CSS import retained.
+- 200-icon motion review page, browser checks and 40 KB gzip CSS budget.
+
 ## 0.2.0
 
 ### Added

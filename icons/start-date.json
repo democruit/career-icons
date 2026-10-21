@@ -5,5 +5,5 @@
   "tags": ["offers-salary", "start", "date", "career", "job-search", "outline"],
   "aliases": [],
   "since": "0.2.0",
-  "animation": "none"
+  "animation": "start-arrow"
 }

@@ -1,0 +1,118 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #182234;
+  background: #f5f7fa;
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1440px;
+  margin: auto;
+  padding: 28px;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f5f7fa;
+  padding: 12px 0;
+}
+h1 {
+  font-size: 24px;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+input,
+select {
+  font: inherit;
+  padding: 6px;
+}
+#gallery {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+  gap: 12px;
+}
+#gallery li {
+  min-width: 0;
+}
+#gallery button {
+  width: 100%;
+  min-height: 172px;
+  padding: 16px;
+  border: 1px solid #d6deea;
+  border-radius: 12px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+#gallery button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+.sample {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  margin-bottom: 8px;
+}
+.name {
+  display: block;
+  font-size: 13px;
+  font-weight: 650;
+}
+.motion {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+}
+.description {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.75;
+}
+[data-dark="true"] {
+  color: #e5ebf5;
+  background: #101827;
+  color-scheme: dark;
+}
+[data-dark="true"] header {
+  background: #101827;
+}
+[data-dark="true"] #gallery button {
+  background: #182234;
+  border-color: #34435c;
+}
+[data-ci-reduced="true"] [data-ci-animate] * {
+  /* biome-ignore lint/complexity/noImportantStyles: The explicit accessibility toggle must override every generated icon selector. */
+  animation: none !important;
+}
+[data-ci-reduced="true"] .ci-motion {
+  /* biome-ignore lint/complexity/noImportantStyles: Restore the exact static layer when motion is disabled. */
+  display: none !important;
+}
+[data-ci-reduced="true"] .ci-rest {
+  /* biome-ignore lint/complexity/noImportantStyles: Restore the exact static layer when motion is disabled. */
+  visibility: visible !important;
+}

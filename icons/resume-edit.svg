@@ -1,7 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
-  <path d="M14 3V8H19"/>
-  <rect x="8" y="9" width="4" height="4" rx="2"/>
-  <path data-ci-part="lines" d="M15 10H16M8 16H10"/>
-  <path d="M13 21L14 17L19 12L21 14L16 19Z M18 13L20 15"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-resume-edit">
+  <g class="ci-rest">
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
+    <path d="M14 3V8H19"/>
+    <rect x="8" y="9" width="4" height="4" rx="2"/>
+    <path data-ci-part="lines" d="M15 10H16M8 16H10"/>
+    <path d="M13 21L14 17L19 12L21 14L16 19Z M18 13L20 15"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
+    <path d="M14 3V8H19"/>
+    <rect x="8" y="9" width="4" height="4" rx="2"/>
+    <path d="M15 10H16M8 16H10"/>
+    <path d="M13 21L14 17L19 12L21 14L16 19Z M18 13L20 15" data-ci-part="pen" class="ci-part-pen"/>
+  </g>
 </svg>

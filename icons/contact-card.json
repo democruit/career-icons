@@ -5,5 +5,5 @@
   "tags": ["networking", "contact", "card", "career", "job-search", "outline"],
   "aliases": [],
   "since": "0.2.0",
-  "animation": "none"
+  "animation": "contact-reveal"
 }

@@ -1,4 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M3 20L8 15M8 15L7 8L18 3L21 6L16 17L8 15ZM8 15L16 7"/>
-  <circle cx="16" cy="7" r="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-freelance">
+  <g class="ci-rest">
+    <path d="M3 20L8 15M8 15L7 8L18 3L21 6L16 17L8 15ZM8 15L16 7"/>
+    <circle cx="16" cy="7" r="1"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M3 20L8 15"/>
+    <g data-ci-part="pen" class="ci-part-pen">
+      <path d="M8 15L7 8L18 3L21 6L16 17L8 15Z"/>
+      <path d="M8 15L16 7"/>
+      <circle cx="16" cy="7" r="1"/>
+    </g>
+  </g>
 </svg>

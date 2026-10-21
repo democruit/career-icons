@@ -1,6 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
-  <path d="M14 3V8H19"/>
-  <path d="M8 11H10"/>
-  <path d="M12 20A4.5 4.5 0 0 1 21 20M16.5 20L19 16M13 13H20"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-resume-score">
+  <g class="ci-rest">
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
+    <path d="M14 3V8H19"/>
+    <path d="M8 11H10"/>
+    <path d="M12 20A4.5 4.5 0 0 1 21 20M16.5 20L19 16M13 13H20"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
+    <path d="M14 3V8H19"/>
+    <path d="M8 11H10"/>
+    <path d="M12 20A4.5 4.5 0 0 1 21 20"/>
+    <path d="M16.5 20L19 16" data-ci-part="needle" class="ci-part-needle"/>
+    <path d="M13 13H20"/>
+  </g>
 </svg>

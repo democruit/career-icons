@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M3 21H21M5 21V12M19 21V12M3 12L12 7L21 12"/>
-  <circle cx="12" cy="4" r="1"/>
-  <path d="M8 15H16M12 15V21"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-retirement-plan">
+  <g class="ci-rest">
+    <path d="M3 21H21M5 21V12M19 21V12M3 12L12 7L21 12"/>
+    <circle cx="12" cy="4" r="1"/>
+    <path d="M8 15H16M12 15V21"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M3 21H21M5 21V12M19 21V12M3 12L12 7L21 12"/>
+    <circle cx="12" cy="4" r="1" data-ci-part="coin" class="ci-part-coin"/>
+    <path d="M8 15H16M12 15V21"/>
+  </g>
 </svg>

@@ -1,5 +1,7 @@
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { animationPlan } from "./animation-plan.mjs";
+import { generateAnimationsCss } from "./animations.mjs";
 import { auditBuild } from "./audit-build.mjs";
 import { loadIcons } from "./icons.mjs";
 
@@ -34,6 +36,7 @@ function resolveIconProps(props = {}) {
 }`;
 
 const reactAttributes = {
+  class: "className",
   "stroke-width": "strokeWidth",
   "stroke-dasharray": "strokeDasharray",
   "stroke-linecap": "strokeLinecap",
@@ -62,8 +65,13 @@ export async function buildIcons(output = fileURLToPath(new URL("../dist/", impo
   const records = icons.map(({ metadata, svg }) => ({ ...metadata, svg }));
   const declarations = [
     "export declare const version: string;",
-    'export type IconAnimation = "none" | "draw" | "draw-check" | "nudge-right" | "scan" | "wiggle" | "pop" | "slide";',
-    "export interface IconMetadata { name: string; title: string; category: string; tags: string[]; aliases: string[]; since: string; animation: IconAnimation; placeholder?: boolean; }",
+    `export type IconAnimation = ${[
+      ...new Set(Object.values(animationPlan).map(({ motion }) => motion)),
+    ]
+      .sort()
+      .map((motion) => JSON.stringify(motion))
+      .join(" | ")};`,
+    "export interface IconMetadata { name: string; title: string; category: string; tags: string[]; aliases: string[]; since: string; animation: IconAnimation; animationReason?: string; placeholder?: boolean; }",
     "export declare const icons: ReadonlyArray<IconMetadata & { svg: string }>;",
   ];
   const esm = [
@@ -105,7 +113,7 @@ export async function buildIcons(output = fileURLToPath(new URL("../dist/", impo
     declarations.push(`export declare const ${componentName}: string;`);
     const root = JSON.stringify(reactProps(tree[":@"]));
     const children = tree.svg.map(element).join(", ");
-    const component = `function ${componentName}(props) { return createElement("svg", { ...${root}, ...resolveIconProps(props) }, ${children}); }`;
+    const component = `function ${componentName}(props) { return createElement("svg", { ...${root}, ...resolveIconProps(props), className: [${JSON.stringify(`ci-${metadata.name}`)}, props?.className].filter(Boolean).join(" ") }, ${children}); }`;
     reactEsm.push(`export ${component}`);
     reactCjs.push(`${component}\nexports.${componentName} = ${componentName};`);
     reactTypes.push(`export declare const ${componentName}: FunctionComponent<CareerIconProps>;`);
@@ -125,7 +133,7 @@ export async function buildIcons(output = fileURLToPath(new URL("../dist/", impo
   };
   for (const [name, content] of Object.entries(outputs))
     await writeFile(`${output}/${name}`, `${content}\n`);
-  const css = await readFile(fileURLToPath(new URL("../src/animations.css", import.meta.url)));
+  const css = generateAnimationsCss();
   await writeFile(`${output}/animations.css`, css);
   await auditBuild(output, icons, packageVersion);
   return icons;

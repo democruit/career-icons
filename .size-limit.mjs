@@ -6,7 +6,7 @@ const names = readdirSync(new URL("./icons/", import.meta.url))
   .sort();
 
 export default [
-  { path: "dist/animations.css", limit: "3 kB", gzip: true },
+  { path: "dist/animations.css", limit: "40 kB", gzip: true },
   ...names.map((name) => {
     const component = `${name
       .split("-")

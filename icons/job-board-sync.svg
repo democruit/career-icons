@@ -1,4 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10M3 9H21"/>
-  <path d="M14 14A4 4 0 1 1 13 18M13 12V15H16M7 13H9M7 17H9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-job-board-sync">
+  <g class="ci-rest">
+    <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10M3 9H21"/>
+    <path d="M14 14A4 4 0 1 1 13 18M13 12V15H16M7 13H9M7 17H9"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10M3 9H21"/>
+    <g data-ci-part="sync-arrow" class="ci-part-sync-arrow">
+      <path d="M14 14A4 4 0 1 1 13 18"/>
+      <path d="M13 12V15H16"/>
+    </g>
+    <path d="M7 13H9"/>
+    <path d="M7 17H9"/>
+  </g>
 </svg>

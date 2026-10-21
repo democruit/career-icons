@@ -139,7 +139,7 @@ function assertTagAvailable(version) {
 }
 
 function runChecks() {
-  const steps = ["validate", "lint", "typecheck", "test", "build", "size"];
+  const steps = ["validate", "lint", "typecheck", "test", "build", "size", "check:animations"];
   if (!skipSite) steps.push("site:build");
   for (const step of steps) {
     console.log(`\n▶ npm run ${step}`);

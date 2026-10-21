@@ -5,5 +5,5 @@
   "tags": ["application", "tracker", "kanban", "pipeline", "status", "job-search"],
   "aliases": ["application-pipeline"],
   "since": "0.1.0",
-  "animation": "draw"
+  "animation": "pipeline-sequence"
 }

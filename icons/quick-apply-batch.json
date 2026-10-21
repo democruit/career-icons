@@ -5,5 +5,5 @@
   "tags": ["applications", "quick", "apply", "batch", "career", "job-search", "outline"],
   "aliases": [],
   "since": "0.2.0",
-  "animation": "none"
+  "animation": "batch-flash"
 }

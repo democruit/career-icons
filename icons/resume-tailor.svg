@@ -1,7 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
-  <path d="M14 3V8H19"/>
-  <path d="M8 11H10M15 15L21 21M15 19L21 13"/>
-  <circle cx="13.5" cy="14" r="1.5"/>
-  <circle cx="13.5" cy="19.5" r="1.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-resume-tailor">
+  <g class="ci-rest">
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
+    <path d="M14 3V8H19"/>
+    <path d="M8 11H10M15 15L21 21M15 19L21 13"/>
+    <circle cx="13.5" cy="14" r="1.5"/>
+    <circle cx="13.5" cy="19.5" r="1.5"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
+    <path d="M14 3V8H19"/>
+    <path d="M8 11H10"/>
+    <g data-ci-part="blade" class="ci-part-blade">
+      <path d="M15 15L21 21"/>
+      <circle cx="13.5" cy="14" r="1.5"/>
+    </g>
+    <path d="M15 19L21 13"/>
+    <circle cx="13.5" cy="19.5" r="1.5"/>
+  </g>
 </svg>

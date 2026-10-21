@@ -5,5 +5,5 @@
   "tags": ["ats", "scan", "screening", "resume", "document", "parsing"],
   "aliases": ["resume-scan"],
   "since": "0.1.0",
-  "animation": "draw"
+  "animation": "scan-line"
 }

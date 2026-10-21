@@ -5,5 +5,5 @@
   "tags": ["follow-up", "reminder", "email", "response", "application", "contact"],
   "aliases": ["application-followup"],
   "since": "0.1.0",
-  "animation": "none"
+  "animation": "follow-turn"
 }

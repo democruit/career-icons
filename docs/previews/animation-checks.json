@@ -1,0 +1,36 @@
+{
+  "version": "0.3.0",
+  "icons": 200,
+  "animated": 196,
+  "static": [
+    {
+      "name": "chrome-extension",
+      "reason": "The single connected puzzle outline has no separate functional part."
+    },
+    {
+      "name": "ghosted",
+      "reason": "Animating its only dotted outline would reduce legibility and turn absence into activity."
+    },
+    {
+      "name": "skills",
+      "reason": "No independent part exists inside the connected puzzle silhouette."
+    },
+    {
+      "name": "star-method",
+      "reason": "The single closed star has no independent semantic sub-part."
+    }
+  ],
+  "css": {
+    "bytes": 448857,
+    "gzipBytes": 19254,
+    "budgetGzipBytes": 40960
+  },
+  "snapshots": 2400,
+  "checks": [
+    "2400 browser resting snapshots: SVG + React, 16/24/48px, light + dark",
+    "196 live part motions; root transforms absent; 1120ms loop pause matches static frame",
+    "all 196 hover/focus triggers, endpoints and cancellation",
+    "direct SVG and ancestor descendant focus-visible triggers",
+    "OS reduced-motion and demo reduced-motion toggles disable all motion"
+  ]
+}

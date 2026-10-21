@@ -5,5 +5,5 @@
   "tags": ["workplace", "office", "badge", "career", "job-search", "outline"],
   "aliases": [],
   "since": "0.2.0",
-  "animation": "none"
+  "animation": "badge-reveal"
 }

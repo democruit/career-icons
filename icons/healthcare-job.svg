@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10"/>
-  <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7"/>
-  <path d="M14 13H19V16H21V19H19V21H14V19H12V16H14Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-healthcare-job">
+  <g class="ci-rest">
+    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10"/>
+    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7"/>
+    <path d="M14 13H19V16H21V19H19V21H14V19H12V16H14Z"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10"/>
+    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7"/>
+    <path d="M14 13H19V16H21V19H19V21H14V19H12V16H14Z" data-ci-part="cross" class="ci-part-cross"/>
+  </g>
 </svg>

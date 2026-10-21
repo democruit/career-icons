@@ -1,5 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="3" y="5" width="18" height="16" rx="2"/>
-  <path d="M7 3V7M17 3V7M3 9H21"/>
-  <path data-ci-part="lines" d="M6 13H6.01M12 13H12.01M18 13H18.01M6 18H6.01M10 18H10.01M14 18H14.01M18 18H18.01"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-seven-day-plan">
+  <g class="ci-rest">
+    <rect x="3" y="5" width="18" height="16" rx="2"/>
+    <path d="M7 3V7M17 3V7M3 9H21"/>
+    <path data-ci-part="lines" d="M6 13H6.01M12 13H12.01M18 13H18.01M6 18H6.01M10 18H10.01M14 18H14.01M18 18H18.01"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <rect x="3" y="5" width="18" height="16" rx="2"/>
+    <path d="M7 3V7M17 3V7M3 9H21"/>
+    <g data-ci-part="days-first" class="ci-part-days-first">
+      <path d="M6 13H6.01"/>
+      <path d="M6 18H6.01"/>
+    </g>
+    <g data-ci-part="days-second" class="ci-part-days-second">
+      <path d="M12 13H12.01"/>
+      <path d="M10 18H10.01"/>
+      <path d="M14 18H14.01"/>
+    </g>
+    <g data-ci-part="days-third" class="ci-part-days-third">
+      <path d="M18 13H18.01"/>
+      <path d="M18 18H18.01"/>
+    </g>
+  </g>
 </svg>

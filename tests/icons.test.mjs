@@ -56,7 +56,9 @@ test("collection includes the pilot and final icons with useful search metadata"
     [...names, ...Object.values(additions).flat()].sort(),
   );
   for (const metadata of original) {
-    expect(icons.find((icon) => icon.metadata.name === metadata.name)?.metadata).toEqual(metadata);
+    const current = icons.find((icon) => icon.metadata.name === metadata.name)?.metadata;
+    const { animationReason: _reason, ...stable } = current;
+    expect({ ...stable, animation: metadata.animation }).toEqual(metadata);
   }
   for (const [category, list] of Object.entries(approved)) {
     expect(
@@ -73,7 +75,7 @@ test("collection includes the pilot and final icons with useful search metadata"
     expect(metadata.since).toBe(names.includes(metadata.name) ? "0.1.0" : "0.2.0");
     if (!names.includes(metadata.name)) {
       expect(additions[metadata.category]).toContain(metadata.name);
-      expect(metadata.animation).toBe("none");
+      expect(animations.has(metadata.animation)).toBe(true);
     }
   }
 });
@@ -87,7 +89,8 @@ test("all 200 geometries are distinct, minimal and honestly describe their anima
         const tag = Object.keys(node).find((key) => key !== ":@");
         return total + (tag === "g" ? count(node.g) : 1);
       }, 0);
-    expect(count(tree.svg), metadata.name).toBeLessThanOrEqual(6);
+    const resting = tree.svg.find((node) => node[":@"]?.class === "ci-rest")?.g ?? tree.svg;
+    expect(count(resting), metadata.name).toBeLessThanOrEqual(6);
     expect(svg.includes("data-ci-part"), metadata.name).toBe(metadata.animation !== "none");
   }
 });
@@ -127,11 +130,11 @@ test("padding audit catches painted strokes, even beyond the original viewport",
 
 test("pilot icons declare animations and part attributes the validator accepts", async () => {
   const expected = {
-    resume: { animation: "draw", part: "lines" },
+    resume: { animation: "resume-write", part: "lines" },
     "ats-pass": { animation: "draw-check", part: "check" },
-    "video-interview": { animation: "pop", part: "person" },
-    "salary-range": { animation: "slide", part: "handle-left" },
-    "laid-off": { animation: "wiggle", part: "box" },
+    "video-interview": { animation: "person-reveal", part: "person" },
+    "salary-range": { animation: "range-adjust", part: "handle-left" },
+    "laid-off": { animation: "gentle-shake", part: "box" },
   };
   const icons = (await loadIcons()).filter(({ metadata }) => pilot.includes(metadata.name));
   for (const { metadata, svg } of icons) {

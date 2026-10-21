@@ -5,5 +5,5 @@
   "tags": ["warn", "notice", "layoff", "warning", "employer", "redundancy", "notification"],
   "aliases": ["layoff-notice"],
   "since": "0.1.0",
-  "animation": "none"
+  "animation": "notice-reveal"
 }

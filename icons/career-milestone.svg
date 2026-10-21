@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M5 21V3H17L15 7L17 11H5M10 21H3"/>
-  <circle cx="17" cy="18" r="3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-career-milestone">
+  <g class="ci-rest">
+    <path d="M5 21V3H17L15 7L17 11H5M10 21H3"/>
+    <circle cx="17" cy="18" r="3"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M5 21V3H17L15 7L17 11H5M10 21H3"/>
+    <circle cx="17" cy="18" r="3" data-ci-part="milestone" class="ci-part-milestone"/>
+  </g>
 </svg>

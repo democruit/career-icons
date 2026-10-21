@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="12" cy="5" r="2"/>
-  <path d="M3 10H21M12 7V14M12 14L7 21M12 14L17 21"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-accessibility">
+  <g class="ci-rest">
+    <circle cx="12" cy="5" r="2"/>
+    <path d="M3 10H21M12 7V14M12 14L7 21M12 14L17 21"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <circle cx="12" cy="5" r="2"/>
+    <path d="M3 10H21" data-ci-part="arms" class="ci-part-arms"/>
+    <path d="M12 7V14"/>
+    <path d="M12 14L7 21"/>
+    <path d="M12 14L17 21"/>
+  </g>
 </svg>

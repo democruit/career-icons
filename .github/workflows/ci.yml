@@ -43,5 +43,11 @@ jobs:
       - name: Size limit
         run: npm run size
 
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Animation checks
+        run: npm run check:animations
+
       - name: Site build
         run: npm run site:build

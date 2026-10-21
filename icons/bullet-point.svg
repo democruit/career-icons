@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="5" cy="6" r="1"/>
-  <circle cx="5" cy="12" r="1"/>
-  <circle cx="5" cy="18" r="1"/>
-  <path d="M10 6H21M10 12H18M10 18H20"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-bullet-point">
+  <g class="ci-rest">
+    <circle cx="5" cy="6" r="1"/>
+    <circle cx="5" cy="12" r="1"/>
+    <circle cx="5" cy="18" r="1"/>
+    <path d="M10 6H21M10 12H18M10 18H20"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <circle cx="5" cy="6" r="1" data-ci-part="bullet-first" class="ci-part-bullet-first"/>
+    <circle cx="5" cy="12" r="1" data-ci-part="bullet-second" class="ci-part-bullet-second"/>
+    <circle cx="5" cy="18" r="1" data-ci-part="bullet-third" class="ci-part-bullet-third"/>
+    <path d="M10 6H21M10 12H18M10 18H20"/>
+  </g>
 </svg>

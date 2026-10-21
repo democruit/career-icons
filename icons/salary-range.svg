@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M14 5H11Q9.5 5 9.5 6.5T12 8Q14.5 8 14.5 9.5T13 11H10M12 4V12"/>
-  <path d="M3 16H5M9 16H15M19 16H21"/>
-  <rect data-ci-part="handle-left" x="5" y="13" width="4" height="6" rx="2"/>
-  <rect data-ci-part="handle-right" x="15" y="13" width="4" height="6" rx="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-salary-range">
+  <g class="ci-rest">
+    <path d="M14 5H11Q9.5 5 9.5 6.5T12 8Q14.5 8 14.5 9.5T13 11H10M12 4V12"/>
+    <path d="M3 16H5M9 16H15M19 16H21"/>
+    <rect data-ci-part="handle-left" x="5" y="13" width="4" height="6" rx="2"/>
+    <rect data-ci-part="handle-right" x="15" y="13" width="4" height="6" rx="2"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M14 5H11Q9.5 5 9.5 6.5T12 8Q14.5 8 14.5 9.5T13 11H10M12 4V12"/>
+    <path d="M3 16H5M9 16H15M19 16H21"/>
+    <rect x="5" y="13" width="4" height="6" rx="2" data-ci-part="handle-left" class="ci-part-handle-left"/>
+    <rect x="15" y="13" width="4" height="6" rx="2" data-ci-part="handle-right" class="ci-part-handle-right"/>
+  </g>
 </svg>

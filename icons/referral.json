@@ -5,5 +5,5 @@
   "tags": ["referral", "introduction", "recommendation", "connection", "hiring", "network"],
   "aliases": ["employee-referral"],
   "since": "0.1.0",
-  "animation": "draw"
+  "animation": "referral-arrow"
 }

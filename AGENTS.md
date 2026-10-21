@@ -70,7 +70,7 @@ export function SaveResume() {
 }
 ```
 
-`animate="hover"` runs the icon's motion once when the pointer is over the icon or any ancestor with the class `ci-hover`. `animate="always"` loops that motion. `animate="none"` leaves the icon static even if the CSS is loaded. Hover runs are 300–500ms, ease-out, and use transform, opacity, or stroke-dashoffset. `prefers-reduced-motion: reduce` disables them.
+`animate="hover"` runs the icon's motion once when the pointer is over the icon or any ancestor with the class `ci-hover`. Keyboard `:focus-visible` on the icon, the ancestor, or a descendant of that ancestor also triggers motion. `animate="always"` loops a 560ms motion with a 1120ms pause. `animate="none"` leaves the icon static even if the CSS is loaded. Hover runs are 300–600ms, ease-out, and use transform, opacity, or stroke-dashoffset. `prefers-reduced-motion: reduce` disables them.
 
 ## Icon contract
 
@@ -81,9 +81,12 @@ SVG:
 - Root `<svg viewBox="0 0 24 24">` with `fill="none"`, `stroke="currentColor"`, `stroke-width="2"`, `stroke-linecap="round"`, `stroke-linejoin="round"`.
 - No `width` or `height` attributes (SVGO strips dimensions and keeps `viewBox`).
 - 2px padding. Painted strokes, caps and joins stay inside the 20×20 live area from (2,2) to (22,22). Outer centerlines normally sit between 3 and 21.
-- Rectangles use `rx="2"`. Use approximately six or fewer elements; prioritize legibility at 16px.
+- Rectangles use `rx="2"`. Use approximately six or fewer visible static elements; motion layers may split paths. Prioritize legibility at 16px.
 - Child elements may only be `path`, `circle`, `rect`, `line`, `polyline`, `polygon`, and `g`.
 - A path may use `stroke-dasharray` for intentional dotted geometry, such as `ghosted`. Dots retain the same 2px round stroke.
+- Root classes use `ci-<icon-name>`; animated part classes use `ci-part-<part-name>`.
+- Animated icons keep original geometry in `g.ci-rest` and structured motion geometry in `g.ci-motion` with `display="none"`; CSS switches layers only during a cycle. Keep the hidden layer when optimizing SVGs.
+- Animated draw geometry may set `pathLength="1"`; static geometry must retain its original pixels.
 - Animated sub-parts may set `data-ci-part` to a kebab-case name, for example `data-ci-part="check"`. No other `data-*` attributes, `id` attributes, or inline styles.
 - Forbidden: `text`, raster images, gradients, filters, masks, clip paths, `style` attributes, `id` attributes, hardcoded colors, and `transform` on the root `<svg>`.
 - Optimized file size must be 1 KB or under (1024 bytes).
@@ -109,7 +112,7 @@ Metadata:
 - An alias may not match any icon name or another icon's alias, except the preserved legacy
   mappings `ats-score` → `resume-score` and `feedback` → `interview-feedback` in 0.2.0.
 - `since` is the SemVer version that introduced the icon.
-- `animation` names the motion CSS will run when animation is enabled: `draw`, `draw-check`, `nudge-right`, `scan`, `wiggle`, `pop`, or `slide`. Use `none` for artwork with no animated parts. The pilot uses `draw` (resume lines), `draw-check`, `pop` (video-interview person), `slide` (salary handles), and `wiggle` (laid-off box).
+- `animation` must match the per-icon motion id in `scripts/animation-plan.mjs`. `none` requires `animationReason` matching the plan. All 200 icons have entries; four stay static. Generated CSS in `src/animations.css` must match `scripts/animations.mjs`.
 - Placeholders add `"placeholder": true`. Remove that flag when the icon is final art.
 
 ## How to add an icon
@@ -133,13 +136,16 @@ npm run build       # dist outputs
 npm run preview:pilot # pilot stroke comparison; Python 3 + Pillow
 npm run preview -- <category> # category sheet; all = collection; sheets = all + categories + similarity
 npm run preview:animations # pilot animation GIF; Playwright + ffmpeg
-npm run size        # each React icon < 1 KB gzip; animations.css < 3 KB gzip
+npm run size        # each React icon < 1 KB gzip; animations.css < 40 KB gzip
+npm run generate:animations # regenerate src/animations.css
+npm run check:animations # Playwright motion/rest/reduced-motion checks + CSS size report
+npm run animations:dev # local all-icon review at /docs/animations.html
 npm run site:build  # static docs
 npm run release:dry-run # CI checks + npm publish --dry-run
 npm run release       # same checks, npm publish, git tag v<version>
 ```
 
-`release` mirrors CI (`validate` through `size` and `site:build`), confirms `dist` `version` matches
+`release` mirrors CI (`validate` through `size`, `check:animations`, and `site:build`), confirms `dist` `version` matches
 `package.json`, checks npm login and that the version is not already on the registry, then runs
 `npm publish`. It creates `v<version>` unless you pass `--no-tag`. Pass `--push` to push the branch
 and tag. Requires a clean git tree unless `--allow-dirty`. Does not commit or bump versions.
@@ -153,7 +159,7 @@ with the same names. React remains an optional peer; render/build tools are deve
 It also shows the two review-only alternatives. Python 3 with Pillow is required; set `PILOT_PYTHON`
 to a virtual environment executable if needed. This local preview command is not part of CI.
 
-`size` uses `.size-limit.mjs` to check every individual React import (including shared runtime, excluding the React peer) under 1 KB gzip and `dist/animations.css` under 3 KB gzip. `site:build` builds the static preview in `site/` after the package build. CI runs these checks and does not publish or deploy. The site searches all 200 icons by title/name/tags/aliases, filters fourteen categories and previews 16/24/48px on light/dark backgrounds. It also previews the five pilot animations, the provider, a `ci-hover` parent, an icon inside a colored button, and stroke controls (1 to 2, plus `absoluteStrokeWidth`).
+`size` uses `.size-limit.mjs` to check every individual React import (including shared runtime, excluding the React peer) under 1 KB gzip and `dist/animations.css` under 40 KB gzip. `site:build` builds the static preview in `site/` after the package build, including `site/dist/animations.html` from the local `docs/animations.html` demo. CI runs these checks and does not publish or deploy. The site searches all 200 icons by title/name/tags/aliases, filters fourteen categories and previews 16/24/48px on light/dark backgrounds. It also previews the five pilot animations, the provider, a `ci-hover` parent, an icon inside a colored button, and stroke controls (1 to 2, plus `absoluteStrokeWidth`).
 
 The approved style reference is `resume`, `ats-pass`, `video-interview`, `salary-range`, and `laid-off`.
 The user approved expanding the collection in task 2B. Base shapes in `docs/` and alternatives

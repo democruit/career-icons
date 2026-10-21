@@ -1,3 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M3 8L12 3L21 8ZM3 21H21M5 11V18M10 11V18M15 11V18M20 11V18"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-government-job">
+  <g class="ci-rest">
+    <path d="M3 8L12 3L21 8ZM3 21H21M5 11V18M10 11V18M15 11V18M20 11V18"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M3 8L12 3L21 8Z"/>
+    <path d="M3 21H21"/>
+    <path d="M5 11V18" data-ci-part="column-first" class="ci-part-column-first"/>
+    <path d="M10 11V18" data-ci-part="column-second" class="ci-part-column-second"/>
+    <path d="M15 11V18" data-ci-part="column-third" class="ci-part-column-third"/>
+    <path d="M20 11V18" data-ci-part="column-fourth" class="ci-part-column-fourth"/>
+  </g>
 </svg>

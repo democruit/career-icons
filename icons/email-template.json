@@ -5,5 +5,5 @@
   "tags": ["tools", "email", "template", "career", "job-search", "outline"],
   "aliases": [],
   "since": "0.2.0",
-  "animation": "none"
+  "animation": "template-draw"
 }

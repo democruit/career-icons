@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="5" cy="7" r="2"/>
-  <circle cx="12" cy="7" r="2"/>
-  <circle cx="19" cy="7" r="2"/>
-  <path d="M3 14Q5 11 8 14M9 14Q12 11 15 14M16 14Q19 11 21 14M3 18H21M6 18V21M18 18V21"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-panel-interview">
+  <g class="ci-rest">
+    <circle cx="5" cy="7" r="2"/>
+    <circle cx="12" cy="7" r="2"/>
+    <circle cx="19" cy="7" r="2"/>
+    <path d="M3 14Q5 11 8 14M9 14Q12 11 15 14M16 14Q19 11 21 14M3 18H21M6 18V21M18 18V21"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <circle cx="5" cy="7" r="2" data-ci-part="person-left" class="ci-part-person-left"/>
+    <circle cx="12" cy="7" r="2" data-ci-part="person-middle" class="ci-part-person-middle"/>
+    <circle cx="19" cy="7" r="2" data-ci-part="person-right" class="ci-part-person-right"/>
+    <path d="M3 14Q5 11 8 14M9 14Q12 11 15 14M16 14Q19 11 21 14M3 18H21M6 18V21M18 18V21"/>
+  </g>
 </svg>

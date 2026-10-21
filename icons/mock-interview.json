@@ -5,5 +5,5 @@
   "tags": ["mock-interview", "practice", "rehearsal", "coaching", "interview", "repeat"],
   "aliases": ["practice-interview"],
   "since": "0.1.0",
-  "animation": "none"
+  "animation": "practice-turn"
 }

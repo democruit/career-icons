@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { Resvg } from "@resvg/resvg-js";
 import { XMLParser, XMLValidator } from "fast-xml-parser";
 import { optimize } from "svgo";
+import { animationPlan } from "./animation-plan.mjs";
 
 export const iconDirectory = fileURLToPath(new URL("../icons/", import.meta.url));
 const categories = new Set([
@@ -23,16 +24,7 @@ const categories = new Set([
   "inclusion",
 ]);
 const kebab = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-export const animations = new Set([
-  "none",
-  "draw",
-  "draw-check",
-  "nudge-right",
-  "scan",
-  "wiggle",
-  "pop",
-  "slide",
-]);
+export const animations = new Set(Object.values(animationPlan).map(({ motion }) => motion));
 const semver =
   /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[\da-zA-Z-]+(?:\.[\da-zA-Z-]+)*)?(?:\+[\da-zA-Z-]+(?:\.[\da-zA-Z-]+)*)?$/;
 const roots = {
@@ -44,14 +36,14 @@ const roots = {
   "stroke-linejoin": "round",
 };
 const attributes = {
-  svg: new Set([...Object.keys(roots), "xmlns"]),
+  svg: new Set([...Object.keys(roots), "xmlns", "class"]),
   path: new Set(["d", "stroke-dasharray"]),
   circle: new Set(["cx", "cy", "r"]),
   rect: new Set(["x", "y", "width", "height", "rx", "ry"]),
   line: new Set(["x1", "y1", "x2", "y2"]),
   polyline: new Set(["points"]),
   polygon: new Set(["points"]),
-  g: new Set(),
+  g: new Set(["display"]),
 };
 const parser = new XMLParser({
   preserveOrder: true,
@@ -77,11 +69,22 @@ export function parseSvg(svg) {
         `Forbidden element: ${tag}`,
       );
       const attrs = node[":@"] ?? {};
+      if (attrs.display !== undefined)
+        assert(
+          tag === "g" && attrs.class === "ci-motion" && attrs.display === "none",
+          "Only the motion layer may set display=none",
+        );
       for (const [key, value] of Object.entries(attrs)) {
         const inherited = key in roots && key !== "viewBox" && value === roots[key];
         const part = !root && key === "data-ci-part" && kebab.test(value);
+        const partClass =
+          !root &&
+          key === "class" &&
+          (value === `ci-part-${attrs["data-ci-part"]}` ||
+            (tag === "g" && ["ci-rest", "ci-motion"].includes(value)));
+        const length = !root && tag !== "g" && key === "pathLength" && value === "1";
         assert(
-          attributes[tag].has(key) || (!root && inherited) || part,
+          attributes[tag].has(key) || (!root && inherited) || part || partClass || length,
           `Forbidden attribute/value: ${tag}.${key}`,
         );
       }
@@ -173,6 +176,33 @@ export async function loadIcons(directory = iconDirectory) {
     assert(typeof metadata.title === "string" && metadata.title.trim(), `${name}: missing title`);
     assert(categories.has(metadata.category), `${name}: invalid category`);
     assert(animations.has(metadata.animation), `${name}: invalid animation`);
+    if (directory === iconDirectory) {
+      const plan = animationPlan[name];
+      assert(plan && metadata.animation === plan.motion, `${name}: animation plan mismatch`);
+      assert(
+        metadata.animation !== "none" || metadata.animationReason === plan.reason,
+        `${name}: missing static reason`,
+      );
+      const tree = parseSvg(svg);
+      assert(tree[":@"].class === `ci-${name}`, `${name}: missing icon namespace`);
+      const found = [];
+      function parts(nodes) {
+        for (const node of nodes) {
+          const tag = Object.keys(node).find((key) => key !== ":@");
+          if (node[":@"]?.["data-ci-part"]) {
+            const part = node[":@"]["data-ci-part"];
+            assert(node[":@"].class === `ci-part-${part}`, `${name}: missing part class`);
+            found.push(part);
+          }
+          parts(node[tag]);
+        }
+      }
+      parts(tree.svg.find((node) => node[":@"]?.class === "ci-motion")?.g ?? []);
+      assert(
+        JSON.stringify(found.sort()) === JSON.stringify(plan.parts.map(({ part }) => part).sort()),
+        `${name}: animation part coverage`,
+      );
+    }
     assert(
       typeof metadata.since === "string" && semver.test(metadata.since),
       `${name}: invalid since`,
@@ -200,11 +230,14 @@ export async function loadIcons(directory = iconDirectory) {
       const tree = parseSvg(svg);
       assertPaintBounds(svg);
       const optimized = optimize(svg, {
-        plugins: ["preset-default", "removeDimensions"],
+        plugins: [
+          { name: "preset-default", params: { overrides: { removeHiddenElems: false } } },
+          "removeDimensions",
+        ],
       }).data;
       assert(Buffer.byteLength(optimized) <= 1024, "Optimized SVG exceeds 1024 bytes");
       assertPaintBounds(optimized);
-      const geometry = optimized.replace(/\sdata-ci-part="[^"]*"/g, "");
+      const geometry = optimized.replace(/\s(?:data-ci-part|class|pathLength)="[^"]*"/g, "");
       assert(!geometries.has(geometry), "Duplicate optimized geometry");
       geometries.add(geometry);
       const small = new Resvg(optimized, {

@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M3 19V7Q3 5 5 5H10L13 8H19Q21 8 21 10V12M3 19Q3 21 5 21H10"/>
-  <path d="M17 13V21M13 17H21"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-side-project">
+  <g class="ci-rest">
+    <path d="M3 19V7Q3 5 5 5H10L13 8H19Q21 8 21 10V12M3 19Q3 21 5 21H10"/>
+    <path d="M17 13V21M13 17H21"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <path d="M3 19V7Q3 5 5 5H10L13 8H19Q21 8 21 10V12M3 19Q3 21 5 21H10"/>
+    <path d="M17 13V21M13 17H21" data-ci-part="plus" class="ci-part-plus"/>
+  </g>
 </svg>

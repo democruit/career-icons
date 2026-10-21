@@ -44,6 +44,18 @@
           }
         }
       }
+    },
+    {
+      "includes": ["src/animations.css"],
+      "formatter": {
+        "enabled": false
+      },
+      "linter": {
+        "enabled": false
+      },
+      "assist": {
+        "enabled": false
+      }
     }
   ]
 }

@@ -1,5 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="7" y="7" width="10" height="10" rx="2"/>
-  <path d="M10 3V7M14 3V7M10 17V21M14 17V21M3 10H7M3 14H7M17 10H21M17 14H21"/>
-  <circle cx="12" cy="12" r="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-tech-job">
+  <g class="ci-rest">
+    <rect x="7" y="7" width="10" height="10" rx="2"/>
+    <path d="M10 3V7M14 3V7M10 17V21M14 17V21M3 10H7M3 14H7M17 10H21M17 14H21"/>
+    <circle cx="12" cy="12" r="1"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <rect x="7" y="7" width="10" height="10" rx="2"/>
+    <g data-ci-part="contacts-first" class="ci-part-contacts-first">
+      <path d="M10 3V7"/>
+      <path d="M10 17V21"/>
+      <path d="M3 10H7"/>
+      <path d="M17 10H21"/>
+    </g>
+    <g data-ci-part="contacts-second" class="ci-part-contacts-second">
+      <path d="M14 3V7"/>
+      <path d="M14 17V21"/>
+      <path d="M3 14H7"/>
+      <path d="M17 14H21"/>
+    </g>
+    <circle cx="12" cy="12" r="1"/>
+  </g>
 </svg>

@@ -5,5 +5,5 @@
   "tags": ["resume", "cv", "edit", "rewrite", "document", "profile"],
   "aliases": ["edit-resume"],
   "since": "0.1.0",
-  "animation": "draw"
+  "animation": "pen-write"
 }

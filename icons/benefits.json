@@ -5,5 +5,5 @@
   "tags": ["benefits", "perks", "employee-benefits", "reward", "gift", "compensation"],
   "aliases": ["employee-perks"],
   "since": "0.1.0",
-  "animation": "none"
+  "animation": "gift-open"
 }

@@ -5,5 +5,6 @@
   "tags": ["tools", "chrome", "extension", "career", "job-search", "outline"],
   "aliases": [],
   "since": "0.2.0",
-  "animation": "none"
+  "animation": "none",
+  "animationReason": "The single connected puzzle outline has no separate functional part."
 }

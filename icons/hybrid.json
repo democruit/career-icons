@@ -5,5 +5,5 @@
   "tags": ["hybrid", "office", "home", "flexible-work", "workplace", "mixed"],
   "aliases": ["hybrid-work"],
   "since": "0.1.0",
-  "animation": "draw"
+  "animation": "office-sequence"
 }

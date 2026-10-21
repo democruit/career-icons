@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="12" cy="6" r="3"/>
-  <circle cx="6" cy="18" r="3"/>
-  <circle cx="18" cy="18" r="3"/>
-  <path d="M10.5 8.6L7.5 15.4M13.5 8.6L16.5 15.4M9 18H15"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ci-network">
+  <g class="ci-rest">
+    <circle cx="12" cy="6" r="3"/>
+    <circle cx="6" cy="18" r="3"/>
+    <circle cx="18" cy="18" r="3"/>
+    <path d="M10.5 8.6L7.5 15.4M13.5 8.6L16.5 15.4M9 18H15"/>
+  </g>
+  <g class="ci-motion" display="none">
+    <circle cx="12" cy="6" r="3" data-ci-part="node-top" class="ci-part-node-top"/>
+    <circle cx="6" cy="18" r="3" data-ci-part="node-left" class="ci-part-node-left"/>
+    <circle cx="18" cy="18" r="3" data-ci-part="node-right" class="ci-part-node-right"/>
+    <path d="M10.5 8.6L7.5 15.4M13.5 8.6L16.5 15.4M9 18H15"/>
+  </g>
 </svg>
