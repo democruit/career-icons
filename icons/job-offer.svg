@@ -5,10 +5,11 @@
     <path d="M15 18L14 21L17 20L20 21L19 18"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 20H5Q3 20 3 18V8Q3 6 5 6H19Q21 6 21 8V10M3 8L12 14L21 8"/>
+    <path d="M11 20H5Q3 20 3 18V8Q3 6 5 6H19Q21 6 21 8V10" class="ci-s1"/>
+    <path d="M3 8L12 14L21 8" class="ci-s2"/>
     <g data-ci-part="seal" class="ci-part-seal">
-      <circle cx="17" cy="15" r="3"/>
-      <path d="M15 18L14 21L17 20L20 21L19 18"/>
+      <circle cx="17" cy="15" r="3" class="ci-s3"/>
+      <path d="M15 18L14 21L17 20L20 21L19 18" class="ci-s4"/>
     </g>
   </g>
 </svg>

@@ -4,7 +4,9 @@
     <path d="M17 12L13 17H17L16 21L21 16H17Z"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 17V5Q3 3 5 3H14M7 20V8Q7 6 9 6H18M11 21V11Q11 9 13 9H21"/>
+    <path d="M3 17V5Q3 3 5 3H14" class="ci-s1"/>
+    <path d="M7 20V8Q7 6 9 6H18" class="ci-s2"/>
+    <path d="M11 21V11Q11 9 13 9H21" class="ci-s3"/>
     <path d="M17 12L13 17H17L16 21L21 16H17Z" data-ci-part="bolt" class="ci-part-bolt"/>
   </g>
 </svg>

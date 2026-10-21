@@ -5,8 +5,12 @@
     <path d="M17 21V17M17 17Q13 17 13 13Q17 13 17 17M17 17Q21 17 21 13Q17 13 17 17"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10"/>
-    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7"/>
-    <path d="M17 21V17M17 17Q13 17 13 13Q17 13 17 17M17 17Q21 17 21 13Q17 13 17 17" data-ci-part="sprout" class="ci-part-sprout"/>
+    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10" class="ci-s1"/>
+    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7" class="ci-s2"/>
+    <g data-ci-part="sprout" class="ci-part-sprout">
+      <path d="M17 21V17" class="ci-s3"/>
+      <path d="M17 17Q13 17 13 13Q17 13 17 17" class="ci-s4"/>
+      <path d="M17 17Q21 17 21 13Q17 13 17 17" class="ci-s5"/>
+    </g>
   </g>
 </svg>

@@ -5,8 +5,11 @@
     <path d="M14 12Q12 16 15 18L18 21L21 18L18 15Q18 12 14 12ZM14 12L16 15L18 13"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10"/>
-    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7"/>
-    <path d="M14 12Q12 16 15 18L18 21L21 18L18 15Q18 12 14 12ZM14 12L16 15L18 13" data-ci-part="wrench" class="ci-part-wrench"/>
+    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10" class="ci-s1"/>
+    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7" class="ci-s2"/>
+    <g data-ci-part="wrench" class="ci-part-wrench">
+      <path d="M14 12Q12 16 15 18L18 21L21 18L18 15Q18 12 14 12Z" class="ci-s3"/>
+      <path d="M14 12L16 15L18 13" class="ci-s4"/>
+    </g>
   </g>
 </svg>

@@ -21,16 +21,22 @@
     }
   ],
   "css": {
-    "bytes": 448857,
-    "gzipBytes": 19254,
+    "bytes": 719273,
+    "gzipBytes": 31697,
     "budgetGzipBytes": 40960
   },
   "snapshots": 2400,
   "checks": [
     "2400 browser resting snapshots: SVG + React, 16/24/48px, light + dark",
+    "custom durations: provider/prop precedence, default + draw, hover + always, synchronized layers, zero and reduced motion",
     "196 live part motions; root transforms absent; 1120ms loop pause matches static frame",
     "all 196 hover/focus triggers, endpoints and cancellation",
     "direct SVG and ancestor descendant focus-visible triggers",
-    "OS reduced-motion and demo reduced-motion toggles disable all motion"
-  ]
+    "OS reduced-motion and demo reduced-motion toggles disable all motion",
+    "1200 completed draw-layer snapshots: SVG + React, 16/24/48px, before returning to rest",
+    "all 200 draw animations: empty start, progressive first/last strokes, hover/focus, type switching, cancellation, exact loop pause and reduced-motion pixels",
+    "ghosted draw preserves the original dotted outline"
+  ],
+  "drawCompletionSnapshots": 1200,
+  "drawIcons": 200
 }

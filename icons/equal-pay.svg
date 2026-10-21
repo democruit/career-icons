@@ -5,13 +5,13 @@
     <path d="M6 4V8M18 4V8M5 14H19M5 19H19"/>
   </g>
   <g class="ci-motion" display="none">
-    <circle cx="6" cy="6" r="3"/>
-    <circle cx="18" cy="6" r="3"/>
-    <path d="M6 4V8"/>
-    <path d="M18 4V8"/>
+    <circle cx="6" cy="6" r="3" class="ci-s1"/>
+    <circle cx="18" cy="6" r="3" class="ci-s2"/>
+    <path d="M6 4V8" class="ci-s3"/>
+    <path d="M18 4V8" class="ci-s4"/>
     <g data-ci-part="equal-bars" class="ci-part-equal-bars">
-      <path d="M5 14H19"/>
-      <path d="M5 19H19"/>
+      <path d="M5 14H19" class="ci-s5"/>
+      <path d="M5 19H19" class="ci-s6"/>
     </g>
   </g>
 </svg>

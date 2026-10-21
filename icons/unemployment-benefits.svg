@@ -5,8 +5,8 @@
     <circle cx="16.5" cy="17.5" r="1.25"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M10 20Q3 17 3 11V6L12 3L21 6V10"/>
-    <rect x="12" y="14" width="9" height="7" rx="2"/>
+    <path d="M10 20Q3 17 3 11V6L12 3L21 6V10" class="ci-s1"/>
+    <rect x="12" y="14" width="9" height="7" rx="2" class="ci-s2"/>
     <circle cx="16.5" cy="17.5" r="1.25" data-ci-part="coin" class="ci-part-coin"/>
   </g>
 </svg>

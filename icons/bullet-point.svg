@@ -9,6 +9,8 @@
     <circle cx="5" cy="6" r="1" data-ci-part="bullet-first" class="ci-part-bullet-first"/>
     <circle cx="5" cy="12" r="1" data-ci-part="bullet-second" class="ci-part-bullet-second"/>
     <circle cx="5" cy="18" r="1" data-ci-part="bullet-third" class="ci-part-bullet-third"/>
-    <path d="M10 6H21M10 12H18M10 18H20"/>
+    <path d="M10 6H21" class="ci-s4"/>
+    <path d="M10 12H18" class="ci-s5"/>
+    <path d="M10 18H20" class="ci-s6"/>
   </g>
 </svg>

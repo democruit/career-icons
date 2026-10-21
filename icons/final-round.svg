@@ -4,9 +4,9 @@
     <path d="M18 11V3L21 4V7H18M3 5H8M6 3L8 5L6 7"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 21H8V16H13V11H18"/>
+    <path d="M3 21H8V16H13V11H18" class="ci-s1"/>
     <path d="M18 11V3L21 4V7H18" data-ci-part="flag" class="ci-part-flag"/>
-    <path d="M3 5H8"/>
-    <path d="M6 3L8 5L6 7"/>
+    <path d="M3 5H8" class="ci-s3"/>
+    <path d="M6 3L8 5L6 7" class="ci-s4"/>
   </g>
 </svg>

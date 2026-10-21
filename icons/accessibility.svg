@@ -4,10 +4,10 @@
     <path d="M3 10H21M12 7V14M12 14L7 21M12 14L17 21"/>
   </g>
   <g class="ci-motion" display="none">
-    <circle cx="12" cy="5" r="2"/>
+    <circle cx="12" cy="5" r="2" class="ci-s1"/>
     <path d="M3 10H21" data-ci-part="arms" class="ci-part-arms"/>
-    <path d="M12 7V14"/>
-    <path d="M12 14L7 21"/>
-    <path d="M12 14L17 21"/>
+    <path d="M12 7V14" class="ci-s3"/>
+    <path d="M12 14L7 21" class="ci-s4"/>
+    <path d="M12 14L17 21" class="ci-s5"/>
   </g>
 </svg>

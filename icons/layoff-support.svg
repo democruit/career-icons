@@ -4,7 +4,11 @@
     <path d="M12 11V3M8 7H16"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 14L6 11L10 15H16Q19 15 19 17Q19 19 16 19H11M3 14L9 21H17L21 17"/>
-    <path d="M12 11V3M8 7H16" data-ci-part="support" class="ci-part-support"/>
+    <path d="M3 14L6 11L10 15H16Q19 15 19 17Q19 19 16 19H11" class="ci-s1"/>
+    <path d="M3 14L9 21H17L21 17" class="ci-s2"/>
+    <g data-ci-part="support" class="ci-part-support">
+      <path d="M12 11V3" class="ci-s3"/>
+      <path d="M8 7H16" class="ci-s4"/>
+    </g>
   </g>
 </svg>

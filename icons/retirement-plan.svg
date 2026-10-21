@@ -5,8 +5,12 @@
     <path d="M8 15H16M12 15V21"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 21H21M5 21V12M19 21V12M3 12L12 7L21 12"/>
+    <path d="M3 21H21" class="ci-s1"/>
+    <path d="M5 21V12" class="ci-s2"/>
+    <path d="M19 21V12" class="ci-s3"/>
+    <path d="M3 12L12 7L21 12" class="ci-s4"/>
     <circle cx="12" cy="4" r="1" data-ci-part="coin" class="ci-part-coin"/>
-    <path d="M8 15H16M12 15V21"/>
+    <path d="M8 15H16" class="ci-s6"/>
+    <path d="M12 15V21" class="ci-s7"/>
   </g>
 </svg>

@@ -4,12 +4,12 @@
   </g>
   <g class="ci-motion" display="none">
     <g data-ci-part="branch-left" class="ci-part-branch-left">
-      <path d="M12 21V15L6 9V3" pathLength="1"/>
-      <path d="M3 6L6 3L9 6" pathLength="1"/>
+      <path d="M12 21V15L6 9V3" pathLength="1" class="ci-s1"/>
+      <path d="M3 6L6 3L9 6" pathLength="1" class="ci-s2"/>
     </g>
     <g data-ci-part="branch-right" class="ci-part-branch-right">
-      <path d="M12 15L18 9V3" pathLength="1"/>
-      <path d="M15 6L18 3L21 6" pathLength="1"/>
+      <path d="M12 15L18 9V3" pathLength="1" class="ci-s3"/>
+      <path d="M15 6L18 3L21 6" pathLength="1" class="ci-s4"/>
     </g>
   </g>
 </svg>

@@ -3,10 +3,10 @@
     <path d="M6 21V3M18 21V3M6 7H18M6 12H18M6 17H18"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M6 21V3"/>
-    <path d="M18 21V3"/>
-    <path d="M6 7H18"/>
+    <path d="M6 21V3" class="ci-s1"/>
+    <path d="M18 21V3" class="ci-s2"/>
+    <path d="M6 7H18" class="ci-s3"/>
     <path d="M6 12H18" data-ci-part="rung" class="ci-part-rung"/>
-    <path d="M6 17H18"/>
+    <path d="M6 17H18" class="ci-s5"/>
   </g>
 </svg>

@@ -5,8 +5,12 @@
     <path d="M5 11H19M5 16H19M10 11V21"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z"/>
-    <path d="M14 3V8H19"/>
-    <path d="M5 11H19M5 16H19M10 11V21" data-ci-part="dividers" class="ci-part-dividers" pathLength="1"/>
+    <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z" class="ci-s1"/>
+    <path d="M14 3V8H19" class="ci-s2"/>
+    <g data-ci-part="dividers" class="ci-part-dividers">
+      <path d="M5 11H19" pathLength="1" class="ci-s3"/>
+      <path d="M5 16H19" pathLength="1" class="ci-s4"/>
+      <path d="M10 11V21" pathLength="1" class="ci-s5"/>
+    </g>
   </g>
 </svg>

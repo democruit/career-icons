@@ -8,11 +8,12 @@
     </g>
   </g>
   <g class="ci-motion" display="none">
-    <rect x="4" y="4" width="16" height="13" rx="2"/>
-    <path d="M3 17H4M20 17H21V19Q21 21 19 21H5Q3 21 3 19V17"/>
+    <rect x="4" y="4" width="16" height="13" rx="2" class="ci-s1"/>
+    <path d="M3 17H4" class="ci-s2"/>
+    <path d="M20 17H21V19Q21 21 19 21H5Q3 21 3 19V17" class="ci-s3"/>
     <g data-ci-part="person" class="ci-part-person">
-      <circle cx="12" cy="9" r="2"/>
-      <path d="M8 15Q8 14 10 14H14Q16 14 16 15"/>
+      <circle cx="12" cy="9" r="2" class="ci-s4"/>
+      <path d="M8 15Q8 14 10 14H14Q16 14 16 15" class="ci-s5"/>
     </g>
   </g>
 </svg>

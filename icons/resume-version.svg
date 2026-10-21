@@ -6,9 +6,12 @@
     <path d="M14 14A4 4 0 1 1 13 18M13 12V15H16"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
-    <path d="M14 3V8H19"/>
-    <path d="M8 11H11"/>
-    <path d="M14 14A4 4 0 1 1 13 18M13 12V15H16" data-ci-part="history-arrow" class="ci-part-history-arrow"/>
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10" class="ci-s1"/>
+    <path d="M14 3V8H19" class="ci-s2"/>
+    <path d="M8 11H11" class="ci-s3"/>
+    <g data-ci-part="history-arrow" class="ci-part-history-arrow">
+      <path d="M14 14A4 4 0 1 1 13 18" class="ci-s4"/>
+      <path d="M13 12V15H16" class="ci-s5"/>
+    </g>
   </g>
 </svg>

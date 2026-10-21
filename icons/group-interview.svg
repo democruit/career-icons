@@ -9,8 +9,10 @@
   <g class="ci-motion" display="none">
     <circle cx="7" cy="6" r="2" data-ci-part="person-left" class="ci-part-person-left"/>
     <circle cx="17" cy="6" r="2" data-ci-part="person-right" class="ci-part-person-right"/>
-    <path d="M3 13Q3 11 7 11Q11 11 11 13M13 13Q13 11 17 11Q21 11 21 13"/>
-    <rect x="8" y="16" width="8" height="5" rx="2"/>
-    <path d="M3 19H5M19 19H21"/>
+    <path d="M3 13Q3 11 7 11Q11 11 11 13" class="ci-s3"/>
+    <path d="M13 13Q13 11 17 11Q21 11 21 13" class="ci-s4"/>
+    <rect x="8" y="16" width="8" height="5" rx="2" class="ci-s5"/>
+    <path d="M3 19H5" class="ci-s6"/>
+    <path d="M19 19H21" class="ci-s7"/>
   </g>
 </svg>

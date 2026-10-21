@@ -4,7 +4,7 @@
     <path d="M8 8H16"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 4H21L15 11V18L9 21V11Z"/>
+    <path d="M3 4H21L15 11V18L9 21V11Z" class="ci-s1"/>
     <path d="M8 8H16" data-ci-part="filter-bar" class="ci-part-filter-bar"/>
   </g>
 </svg>

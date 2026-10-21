@@ -5,6 +5,7 @@ import { Resvg } from "@resvg/resvg-js";
 import { XMLParser, XMLValidator } from "fast-xml-parser";
 import { optimize } from "svgo";
 import { animationPlan } from "./animation-plan.mjs";
+import { drawPlan } from "./draw-plan.mjs";
 
 export const iconDirectory = fileURLToPath(new URL("../icons/", import.meta.url));
 const categories = new Set([
@@ -61,7 +62,7 @@ export function parseSvg(svg) {
   assert(XMLValidator.validate(svg) === true, "Malformed SVG XML");
   const tree = parser.parse(svg);
   assert(tree.length === 1 && tree[0].svg, "Expected one SVG root");
-  function walk(nodes, root = false) {
+  function walk(nodes, root = false, drawLayer = false) {
     for (const node of nodes) {
       const tag = Object.keys(node).find((key) => key !== ":@");
       assert(
@@ -71,8 +72,8 @@ export function parseSvg(svg) {
       const attrs = node[":@"] ?? {};
       if (attrs.display !== undefined)
         assert(
-          tag === "g" && attrs.class === "ci-motion" && attrs.display === "none",
-          "Only the motion layer may set display=none",
+          tag === "g" && ["ci-motion", "ci-draw"].includes(attrs.class) && attrs.display === "none",
+          "Only animation layers may set display=none",
         );
       for (const [key, value] of Object.entries(attrs)) {
         const inherited = key in roots && key !== "viewBox" && value === roots[key];
@@ -81,7 +82,9 @@ export function parseSvg(svg) {
           !root &&
           key === "class" &&
           (value === `ci-part-${attrs["data-ci-part"]}` ||
-            (tag === "g" && ["ci-rest", "ci-motion"].includes(value)));
+            (drawLayer && /^ci-part-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)) ||
+            /^ci-s[1-9][0-9]*$/.test(value) ||
+            (tag === "g" && ["ci-rest", "ci-motion", "ci-draw"].includes(value)));
         const length = !root && tag !== "g" && key === "pathLength" && value === "1";
         assert(
           attributes[tag].has(key) || (!root && inherited) || part || partClass || length,
@@ -98,7 +101,7 @@ export function parseSvg(svg) {
         );
       }
       if (tag === "rect") assert(attrs.rx === "2", "Rectangles must have rx=2");
-      walk(node[tag]);
+      walk(node[tag], false, drawLayer || attrs.class === "ci-draw");
     }
   }
   walk(tree, true);
@@ -201,6 +204,26 @@ export async function loadIcons(directory = iconDirectory) {
       assert(
         JSON.stringify(found.sort()) === JSON.stringify(plan.parts.map(({ part }) => part).sort()),
         `${name}: animation part coverage`,
+      );
+      const strokes = [];
+      function drawStrokes(nodes) {
+        for (const node of nodes) {
+          const tag = Object.keys(node).find((key) => key !== ":@");
+          if (tag === "g") drawStrokes(node.g);
+          else strokes.push(node[":@"]?.class);
+        }
+      }
+      drawStrokes(tree.svg.find((node) => node[":@"]?.class === "ci-motion")?.g ?? []);
+      assert(drawPlan[name]?.length > 0, `${name}: missing full-icon draw plan`);
+      assert(
+        JSON.stringify(strokes) === JSON.stringify(drawPlan[name].map(({ target }) => target)),
+        `${name}: full-icon draw coverage mismatch`,
+      );
+      assert(
+        drawPlan[name].every(
+          ({ length, start, end }) => length > 0 && start >= 0 && start < end && end <= 96,
+        ),
+        `${name}: invalid draw timing or length`,
       );
     }
     assert(

@@ -25,7 +25,8 @@ import { ResumeIcon, JobSearchIcon } from "@democruit-labs/career-icons/react";
 ```
 
 Icons inherit the parent color. The React defaults are `size={24}`, `strokeWidth={2}`,
-`color="currentColor"`, `animate="none"`, and `absoluteStrokeWidth={false}`. `CareerIconsProvider`
+`color="currentColor"`, `animate="none"`, `animationType="default"`, `animationDuration={560}`,
+and `absoluteStrokeWidth={false}`. `CareerIconsProvider`
 sets shared defaults; icon props override the provider. `absoluteStrokeWidth` keeps a selected
 stroke weight constant in pixels when the icon size changes.
 
@@ -33,14 +34,20 @@ stroke weight constant in pixels when the icon size changes.
 import { CareerIconsProvider, AtsPassIcon } from "@democruit-labs/career-icons/react";
 import "@democruit-labs/career-icons/animations.css"; // optional; honors reduced motion
 
-<CareerIconsProvider size={24} color="#2563eb" animate="hover">
+<CareerIconsProvider size={24} color="#2563eb" animate="hover" animationDuration={800}>
   <AtsPassIcon aria-label="ATS approved" />
+  <AtsPassIcon animationDuration={400} aria-label="Faster ATS approval" />
 </CareerIconsProvider>;
 ```
 
 Pilot motions remain available. Metadata identifies each icon's motion; `animation: "none"`
 identifies artwork with no animated parts. Motion is opt-in through the CSS import and `animate`
 prop (`hover`, `always`, `none`). A `ci-hover` class lets an ancestor trigger hover motion.
+`animationDuration` sets the motion duration in milliseconds for both `default` and `draw`.
+It inherits through nested providers; icon props take precedence. With `animate="always"`,
+the pause lasts twice the motion duration (800ms motion + 1600ms pause in the example).
+Use a non-negative finite number; zero completes immediately and invalid values fall back to
+560ms. Raw SVG consumers can set `--ci-animation-duration: 800ms` in CSS.
 
 | Import | Contents |
 | --- | --- |

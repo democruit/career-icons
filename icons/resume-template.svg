@@ -7,10 +7,14 @@
     <path data-ci-part="lines" d="M17 13H18M10 19H18"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 17V5Q3 3 5 3H15M3 17H4"/>
-    <path d="M17 6H9Q7 6 7 8V19Q7 21 9 21H19Q21 21 21 19V10Z"/>
-    <path d="M17 6V10H21"/>
-    <rect x="10" y="12" width="4" height="4" rx="2"/>
-    <path d="M17 13H18M10 19H18" data-ci-part="lines" class="ci-part-lines" pathLength="1"/>
+    <path d="M3 17V5Q3 3 5 3H15" class="ci-s1"/>
+    <path d="M3 17H4" class="ci-s2"/>
+    <path d="M17 6H9Q7 6 7 8V19Q7 21 9 21H19Q21 21 21 19V10Z" class="ci-s3"/>
+    <path d="M17 6V10H21" class="ci-s4"/>
+    <rect x="10" y="12" width="4" height="4" rx="2" class="ci-s5"/>
+    <g data-ci-part="lines" class="ci-part-lines">
+      <path d="M17 13H18" pathLength="1" class="ci-s6"/>
+      <path d="M10 19H18" pathLength="1" class="ci-s7"/>
+    </g>
   </g>
 </svg>

@@ -7,10 +7,13 @@
     <path data-ci-part="lines" d="M9 19H20M17 16L20 19L17 21"/>
   </g>
   <g class="ci-motion" display="none">
-    <circle cx="7" cy="6" r="2"/>
-    <circle cx="17" cy="6" r="2"/>
-    <path d="M3 13Q3 11 5 11H9Q11 11 11 13"/>
-    <path d="M13 13Q13 11 15 11H19Q21 11 21 13"/>
-    <path d="M9 19H20M17 16L20 19L17 21" data-ci-part="arrow" class="ci-part-arrow"/>
+    <circle cx="7" cy="6" r="2" class="ci-s1"/>
+    <circle cx="17" cy="6" r="2" class="ci-s2"/>
+    <path d="M3 13Q3 11 5 11H9Q11 11 11 13" class="ci-s3"/>
+    <path d="M13 13Q13 11 15 11H19Q21 11 21 13" class="ci-s4"/>
+    <g data-ci-part="arrow" class="ci-part-arrow">
+      <path d="M9 19H20" class="ci-s5"/>
+      <path d="M17 16L20 19L17 21" class="ci-s6"/>
+    </g>
   </g>
 </svg>

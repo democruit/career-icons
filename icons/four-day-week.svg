@@ -4,10 +4,10 @@
     <path d="M7 3V7M17 3V7M3 9H21M7 13H10M14 13H17M7 17H10M14 17H17"/>
   </g>
   <g class="ci-motion" display="none">
-    <rect x="3" y="5" width="18" height="16" rx="2"/>
-    <path d="M7 3V7"/>
-    <path d="M17 3V7"/>
-    <path d="M3 9H21"/>
+    <rect x="3" y="5" width="18" height="16" rx="2" class="ci-s1"/>
+    <path d="M7 3V7" class="ci-s2"/>
+    <path d="M17 3V7" class="ci-s3"/>
+    <path d="M3 9H21" class="ci-s4"/>
     <path d="M7 13H10" data-ci-part="day-first" class="ci-part-day-first"/>
     <path d="M14 13H17" data-ci-part="day-second" class="ci-part-day-second"/>
     <path d="M7 17H10" data-ci-part="day-third" class="ci-part-day-third"/>

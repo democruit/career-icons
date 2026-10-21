@@ -6,11 +6,12 @@
     <path d="M6 14L11 19Q12 20 13 19L18 14M11 15L14 18"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 10L5 7L8 9L5 15L3 14Z"/>
-    <path d="M21 10L19 7L16 9L19 15L21 14Z"/>
+    <path d="M3 10L5 7L8 9L5 15L3 14Z" class="ci-s1"/>
+    <path d="M21 10L19 7L16 9L19 15L21 14Z" class="ci-s2"/>
     <g data-ci-part="handshake" class="ci-part-handshake">
-      <path d="M8 10L10 8H13L17 12L15 14L12 11L10 13L8 11"/>
-      <path d="M6 14L11 19Q12 20 13 19L18 14M11 15L14 18"/>
+      <path d="M8 10L10 8H13L17 12L15 14L12 11L10 13L8 11" class="ci-s3"/>
+      <path d="M6 14L11 19Q12 20 13 19L18 14" class="ci-s4"/>
+      <path d="M11 15L14 18" class="ci-s5"/>
     </g>
   </g>
 </svg>

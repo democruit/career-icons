@@ -3,9 +3,9 @@
     <path d="M3 6H9V19H3ZM15 6H21V19H15ZM12 3V21M5 11H7M17 14H19"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 6H9V19H3Z"/>
-    <path d="M15 6H21V19H15Z"/>
-    <path d="M12 3V21"/>
+    <path d="M3 6H9V19H3Z" class="ci-s1"/>
+    <path d="M15 6H21V19H15Z" class="ci-s2"/>
+    <path d="M12 3V21" class="ci-s3"/>
     <path d="M5 11H7" data-ci-part="offer-left" class="ci-part-offer-left"/>
     <path d="M17 14H19" data-ci-part="offer-right" class="ci-part-offer-right"/>
   </g>

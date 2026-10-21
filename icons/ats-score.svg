@@ -6,9 +6,12 @@
     <path d="M5 12L6.5 13M12 8V10M19 12L17.5 13"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 17A9 9 0 0 1 21 17M5 21H19"/>
-    <circle cx="12" cy="17" r="2"/>
+    <path d="M3 17A9 9 0 0 1 21 17" class="ci-s1"/>
+    <path d="M5 21H19" class="ci-s2"/>
+    <circle cx="12" cy="17" r="2" class="ci-s3"/>
     <path d="M13.4 15.6L17 12" data-ci-part="needle" class="ci-part-needle"/>
-    <path d="M5 12L6.5 13M12 8V10M19 12L17.5 13"/>
+    <path d="M5 12L6.5 13" class="ci-s5"/>
+    <path d="M12 8V10" class="ci-s6"/>
+    <path d="M19 12L17.5 13" class="ci-s7"/>
   </g>
 </svg>

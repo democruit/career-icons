@@ -3,9 +3,9 @@
     <path d="M12 3V21M8 21H16M3 7H21M6 7L3 15Q6 18 9 15ZM18 7L15 15Q18 18 21 15Z"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M12 3V21"/>
-    <path d="M8 21H16"/>
-    <path d="M3 7H21"/>
+    <path d="M12 3V21" class="ci-s1"/>
+    <path d="M8 21H16" class="ci-s2"/>
+    <path d="M3 7H21" class="ci-s3"/>
     <path d="M6 7L3 15Q6 18 9 15Z" data-ci-part="pan-left" class="ci-part-pan-left"/>
     <path d="M18 7L15 15Q18 18 21 15Z" data-ci-part="pan-right" class="ci-part-pan-right"/>
   </g>

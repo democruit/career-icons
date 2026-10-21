@@ -52,7 +52,8 @@ select {
 #gallery li {
   min-width: 0;
 }
-#gallery button {
+#gallery button,
+#draw-pilot button {
   width: 100%;
   min-height: 172px;
   padding: 16px;
@@ -64,9 +65,16 @@ select {
   text-align: left;
   cursor: pointer;
 }
-#gallery button:focus-visible {
+#gallery button:focus-visible,
+#draw-pilot button:focus-visible {
   outline: 3px solid #2563eb;
   outline-offset: 3px;
+}
+.pilot-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 280px));
+  gap: 12px;
+  margin-bottom: 24px;
 }
 .sample {
   display: flex;
@@ -100,7 +108,8 @@ select {
 [data-dark="true"] header {
   background: #101827;
 }
-[data-dark="true"] #gallery button {
+[data-dark="true"] #gallery button,
+[data-dark="true"] #draw-pilot button {
   background: #182234;
   border-color: #34435c;
 }
@@ -108,7 +117,8 @@ select {
   /* biome-ignore lint/complexity/noImportantStyles: The explicit accessibility toggle must override every generated icon selector. */
   animation: none !important;
 }
-[data-ci-reduced="true"] .ci-motion {
+[data-ci-reduced="true"] .ci-motion,
+[data-ci-reduced="true"] .ci-draw {
   /* biome-ignore lint/complexity/noImportantStyles: Restore the exact static layer when motion is disabled. */
   display: none !important;
 }

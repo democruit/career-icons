@@ -5,8 +5,8 @@
     <path d="M16.5 12L18 15L21 16.5L18 18L16.5 21L15 18L12 16.5L15 15Z"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10"/>
-    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7"/>
+    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10" class="ci-s1"/>
+    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7" class="ci-s2"/>
     <path d="M16.5 12L18 15L21 16.5L18 18L16.5 21L15 18L12 16.5L15 15Z" data-ci-part="spark" class="ci-part-spark"/>
   </g>
 </svg>

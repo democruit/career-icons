@@ -3,14 +3,14 @@
     <path d="M3 8H9M15 8H21M3 16H9M15 16H21M12 5V6M12 11V13M12 18V19"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 8H9"/>
-    <path d="M15 8H21"/>
-    <path d="M3 16H9"/>
-    <path d="M15 16H21"/>
+    <path d="M3 8H9" class="ci-s1"/>
+    <path d="M15 8H21" class="ci-s2"/>
+    <path d="M3 16H9" class="ci-s3"/>
+    <path d="M15 16H21" class="ci-s4"/>
     <g data-ci-part="gap-marks" class="ci-part-gap-marks">
-      <path d="M12 5V6"/>
-      <path d="M12 11V13"/>
-      <path d="M12 18V19"/>
+      <path d="M12 5V6" class="ci-s5"/>
+      <path d="M12 11V13" class="ci-s6"/>
+      <path d="M12 18V19" class="ci-s7"/>
     </g>
   </g>
 </svg>

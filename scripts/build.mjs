@@ -5,24 +5,28 @@ import { generateAnimationsCss } from "./animations.mjs";
 import { auditBuild } from "./audit-build.mjs";
 import { loadIcons } from "./icons.mjs";
 
-const reactRuntime = `const defaults = { size: 24, strokeWidth: 2, color: "currentColor", animate: "none", absoluteStrokeWidth: false };
+const reactRuntime = `const defaults = { size: 24, strokeWidth: 2, color: "currentColor", animate: "none", animationType: "default", animationDuration: 560, absoluteStrokeWidth: false };
 const CareerIconsContext = createContext(defaults);
-function CareerIconsProvider({ children, size, strokeWidth, color, animate, absoluteStrokeWidth }) {
+function CareerIconsProvider({ children, size, strokeWidth, color, animate, animationType, animationDuration, absoluteStrokeWidth }) {
   const parent = useContext(CareerIconsContext);
   return createElement(CareerIconsContext.Provider, { value: {
     size: size ?? parent.size,
     strokeWidth: strokeWidth ?? parent.strokeWidth,
     color: color ?? parent.color,
     animate: animate ?? parent.animate,
+    animationType: animationType ?? parent.animationType,
+    animationDuration: animationDuration ?? parent.animationDuration,
     absoluteStrokeWidth: absoluteStrokeWidth ?? parent.absoluteStrokeWidth,
   } }, children);
 }
 function resolveIconProps(props = {}) {
   const parent = useContext(CareerIconsContext);
-  const { size, strokeWidth, color, animate, absoluteStrokeWidth, width, height, ...rest } = props;
+  const { size, strokeWidth, color, animate, animationType, animationDuration, absoluteStrokeWidth, width, height, style, ...rest } = props;
   const resolvedSize = size ?? parent.size;
   const resolvedStroke = strokeWidth ?? parent.strokeWidth;
   const mode = animate ?? parent.animate;
+  const type = animationType ?? parent.animationType;
+  const duration = animationDuration ?? parent.animationDuration;
   const absolute = absoluteStrokeWidth ?? parent.absoluteStrokeWidth;
   const box = Number(width ?? height ?? resolvedSize);
   return {
@@ -31,7 +35,9 @@ function resolveIconProps(props = {}) {
     color: color ?? parent.color,
     strokeWidth: absolute ? (Number(resolvedStroke) * 24) / box : resolvedStroke,
     ...(mode !== "none" ? { "data-ci-animate": mode } : {}),
+    ...(mode !== "none" && type === "draw" ? { "data-ci-animation-type": type } : {}),
     ...rest,
+    style: mode === "none" ? style : { ...style, "--ci-animation-duration": (Number.isFinite(duration) && duration >= 0 ? duration : 560) + "ms" },
   };
 }`;
 
@@ -99,11 +105,12 @@ export async function buildIcons(output = fileURLToPath(new URL("../dist/", impo
   const reactTypes = [
     'import type { Context, FunctionComponent, ReactNode, SVGProps } from "react";',
     'export type CareerIconAnimate = "hover" | "always" | "none";',
-    "export interface CareerIconsContextValue { size: number | string; strokeWidth: number | string; color: string; animate: CareerIconAnimate; absoluteStrokeWidth: boolean; }",
+    'export type CareerIconAnimationType = "default" | "draw";',
+    "export interface CareerIconsContextValue { size: number | string; strokeWidth: number | string; color: string; animate: CareerIconAnimate; animationType: CareerIconAnimationType; animationDuration: number; absoluteStrokeWidth: boolean; }",
     "export declare const CareerIconsContext: Context<CareerIconsContextValue>;",
-    "export interface CareerIconsProviderProps { size?: number | string; strokeWidth?: number | string; color?: string; animate?: CareerIconAnimate; absoluteStrokeWidth?: boolean; children?: ReactNode; }",
+    "export interface CareerIconsProviderProps { size?: number | string; strokeWidth?: number | string; color?: string; animate?: CareerIconAnimate; animationType?: CareerIconAnimationType; animationDuration?: number; absoluteStrokeWidth?: boolean; children?: ReactNode; }",
     "export declare const CareerIconsProvider: FunctionComponent<CareerIconsProviderProps>;",
-    "export interface CareerIconProps extends SVGProps<SVGSVGElement> { size?: number | string; animate?: CareerIconAnimate; absoluteStrokeWidth?: boolean; }",
+    "export interface CareerIconProps extends SVGProps<SVGSVGElement> { size?: number | string; animate?: CareerIconAnimate; animationType?: CareerIconAnimationType; animationDuration?: number; absoluteStrokeWidth?: boolean; }",
   ];
   const symbols = [];
   for (const { metadata, svg, tree, componentName } of icons) {

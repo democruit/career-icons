@@ -4,6 +4,11 @@
 
 ### Changed
 
+- Configurable `animationDuration` in milliseconds on icons and nested providers for default and draw motion, with proportional loop pauses.
+
+- Provider and icon `animationType="default" | "draw"` option, with full-icon drawing for all 200 icons, per-stroke timing, and comparison controls.
+- Complete draw strokes for disconnected paths, circles and rounded corners, including `team-meeting` and `promotion`.
+
 - Per-part CSS motion for 196 icons; four icons explicitly stay static with metadata reasons.
 - Stable icon and part classes, keyboard focus triggers, 560ms hover cycles and paused loops.
 - Original resting SVG pixels preserved; React animation props and optional CSS import retained.

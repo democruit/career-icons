@@ -6,11 +6,11 @@
     <path d="M19 19L21 21"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10"/>
-    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7"/>
+    <path d="M11 20H5Q3 20 3 18V9Q3 7 5 7H19Q21 7 21 9V10" class="ci-s1"/>
+    <path d="M8 7V5Q8 3 10 3H14Q16 3 16 5V7" class="ci-s2"/>
     <g data-ci-part="magnifier" class="ci-part-magnifier">
-      <circle cx="16.5" cy="16.5" r="3.5"/>
-      <path d="M19 19L21 21"/>
+      <circle cx="16.5" cy="16.5" r="3.5" class="ci-s3"/>
+      <path d="M19 19L21 21" class="ci-s4"/>
     </g>
   </g>
 </svg>

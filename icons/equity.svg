@@ -4,7 +4,7 @@
     <path data-ci-part="lines" d="M12 3V12H21"/>
   </g>
   <g class="ci-motion" display="none">
-    <circle cx="12" cy="12" r="9"/>
+    <circle cx="12" cy="12" r="9" class="ci-s1"/>
     <path d="M12 3V12H21" data-ci-part="share-lines" class="ci-part-share-lines" pathLength="1"/>
   </g>
 </svg>

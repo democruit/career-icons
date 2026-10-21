@@ -3,16 +3,16 @@
     <path d="M10 3H5Q3 3 3 5V17Q3 19 5 19H8M14 5H19Q21 5 21 7V19Q21 21 19 21H16M12 3V21M6 8H8M16 10H18M6 14H8M16 16H18"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M10 3H5Q3 3 3 5V17Q3 19 5 19H8"/>
-    <path d="M14 5H19Q21 5 21 7V19Q21 21 19 21H16"/>
-    <path d="M12 3V21"/>
+    <path d="M10 3H5Q3 3 3 5V17Q3 19 5 19H8" class="ci-s1"/>
+    <path d="M14 5H19Q21 5 21 7V19Q21 21 19 21H16" class="ci-s2"/>
+    <path d="M12 3V21" class="ci-s3"/>
     <g data-ci-part="lines-left" class="ci-part-lines-left">
-      <path d="M6 8H8"/>
-      <path d="M6 14H8"/>
+      <path d="M6 8H8" class="ci-s4"/>
+      <path d="M6 14H8" class="ci-s5"/>
     </g>
     <g data-ci-part="lines-right" class="ci-part-lines-right">
-      <path d="M16 10H18"/>
-      <path d="M16 16H18"/>
+      <path d="M16 10H18" class="ci-s6"/>
+      <path d="M16 16H18" class="ci-s7"/>
     </g>
   </g>
 </svg>

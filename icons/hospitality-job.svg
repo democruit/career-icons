@@ -3,10 +3,10 @@
     <path d="M3 19H21M4 16Q4 8 12 8Q20 8 20 16ZM12 8V5M10 5H14M6 21H18"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 19H21"/>
+    <path d="M3 19H21" class="ci-s1"/>
     <path d="M4 16Q4 8 12 8Q20 8 20 16Z" data-ci-part="cloche" class="ci-part-cloche"/>
-    <path d="M12 8V5"/>
-    <path d="M10 5H14"/>
-    <path d="M6 21H18"/>
+    <path d="M12 8V5" class="ci-s3"/>
+    <path d="M10 5H14" class="ci-s4"/>
+    <path d="M6 21H18" class="ci-s5"/>
   </g>
 </svg>

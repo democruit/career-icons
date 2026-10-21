@@ -6,11 +6,11 @@
     <path d="M9 18Q12 15 15 18"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M9 7V3H15V7"/>
-    <rect x="5" y="7" width="14" height="14" rx="2"/>
+    <path d="M9 7V3H15V7" class="ci-s1"/>
+    <rect x="5" y="7" width="14" height="14" rx="2" class="ci-s2"/>
     <g data-ci-part="portrait" class="ci-part-portrait">
-      <circle cx="12" cy="12" r="2"/>
-      <path d="M9 18Q12 15 15 18"/>
+      <circle cx="12" cy="12" r="2" class="ci-s3"/>
+      <path d="M9 18Q12 15 15 18" class="ci-s4"/>
     </g>
   </g>
 </svg>

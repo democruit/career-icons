@@ -4,6 +4,6 @@
   </g>
   <g class="ci-motion" display="none">
     <path d="M3 7L7 11L12 4L17 11L21 7L19 17H5Z" data-ci-part="crown" class="ci-part-crown"/>
-    <path d="M6 21H18"/>
+    <path d="M6 21H18" class="ci-s2"/>
   </g>
 </svg>

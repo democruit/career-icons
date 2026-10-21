@@ -6,9 +6,9 @@
     <path d="M14 13H20M14 17H18M14 21H16"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
-    <path d="M14 3V8H19"/>
-    <path d="M8 11H10"/>
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10" class="ci-s1"/>
+    <path d="M14 3V8H19" class="ci-s2"/>
+    <path d="M8 11H10" class="ci-s3"/>
     <path d="M14 13H20" data-ci-part="status-first" class="ci-part-status-first"/>
     <path d="M14 17H18" data-ci-part="status-second" class="ci-part-status-second"/>
     <path d="M14 21H16" data-ci-part="status-third" class="ci-part-status-third"/>

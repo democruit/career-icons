@@ -5,8 +5,11 @@
     <path data-ci-part="lines" d="M14 18H21M18 15L21 18L18 21"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M9 21Q3 14 3 9A6 6 0 0 1 15 9Q15 14 9 21Z"/>
-    <circle cx="9" cy="9" r="2"/>
-    <path d="M14 18H21M18 15L21 18L18 21" data-ci-part="arrow" class="ci-part-arrow"/>
+    <path d="M9 21Q3 14 3 9A6 6 0 0 1 15 9Q15 14 9 21Z" class="ci-s1"/>
+    <circle cx="9" cy="9" r="2" class="ci-s2"/>
+    <g data-ci-part="arrow" class="ci-part-arrow">
+      <path d="M14 18H21" class="ci-s3"/>
+      <path d="M18 15L21 18L18 21" class="ci-s4"/>
+    </g>
   </g>
 </svg>

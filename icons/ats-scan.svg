@@ -6,9 +6,9 @@
     <path d="M8 17H13"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z"/>
-    <path d="M14 3V8H19"/>
+    <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z" class="ci-s1"/>
+    <path d="M14 3V8H19" class="ci-s2"/>
     <path d="M3 13H21" data-ci-part="scan-line" class="ci-part-scan-line"/>
-    <path d="M8 17H13"/>
+    <path d="M8 17H13" class="ci-s4"/>
   </g>
 </svg>

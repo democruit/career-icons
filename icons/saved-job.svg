@@ -5,10 +5,10 @@
     <path d="M15 15V13H18V15"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 18L5 21V5Q5 3 7 3H17Q19 3 19 5V10"/>
+    <path d="M11 18L5 21V5Q5 3 7 3H17Q19 3 19 5V10" class="ci-s1"/>
     <g data-ci-part="briefcase" class="ci-part-briefcase">
-      <rect x="12" y="15" width="9" height="6" rx="2"/>
-      <path d="M15 15V13H18V15"/>
+      <rect x="12" y="15" width="9" height="6" rx="2" class="ci-s2"/>
+      <path d="M15 15V13H18V15" class="ci-s3"/>
     </g>
   </g>
 </svg>

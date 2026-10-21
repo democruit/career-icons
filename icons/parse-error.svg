@@ -5,11 +5,11 @@
     <path data-ci-part="lines" d="M8 12H10L11 14M14 12H16M8 17H11M14 17H16"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z"/>
-    <path d="M14 3V8H19"/>
+    <path d="M14 3H7Q5 3 5 5V19Q5 21 7 21H17Q19 21 19 19V8Z" class="ci-s1"/>
+    <path d="M14 3V8H19" class="ci-s2"/>
     <path d="M8 12H10L11 14" data-ci-part="broken-line" class="ci-part-broken-line"/>
-    <path d="M14 12H16"/>
-    <path d="M8 17H11"/>
-    <path d="M14 17H16"/>
+    <path d="M14 12H16" class="ci-s4"/>
+    <path d="M8 17H11" class="ci-s5"/>
+    <path d="M14 17H16" class="ci-s6"/>
   </g>
 </svg>

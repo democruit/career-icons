@@ -5,8 +5,9 @@
     <path data-ci-part="lines" d="M5 9H7M11 12H13M17 15H19"/>
   </g>
   <g class="ci-motion" display="none">
-    <rect x="3" y="4" width="18" height="16" rx="2"/>
-    <path d="M9 4V20M15 4V20"/>
+    <rect x="3" y="4" width="18" height="16" rx="2" class="ci-s1"/>
+    <path d="M9 4V20" class="ci-s2"/>
+    <path d="M15 4V20" class="ci-s3"/>
     <path d="M5 9H7" data-ci-part="card-first" class="ci-part-card-first"/>
     <path d="M11 12H13" data-ci-part="card-second" class="ci-part-card-second"/>
     <path d="M17 15H19" data-ci-part="card-third" class="ci-part-card-third"/>

@@ -6,9 +6,12 @@
     <path d="M14 18Q18 15 21 18V21Q18 18 14 21Z"/>
   </g>
   <g class="ci-motion" display="none">
-    <circle cx="7" cy="7" r="2"/>
-    <path d="M3 20V17Q3 14 6 14H8Q11 14 11 17V20"/>
-    <path d="M14 10H21M17 7L14 10L17 13" data-ci-part="arrow" class="ci-part-arrow"/>
-    <path d="M14 18Q18 15 21 18V21Q18 18 14 21Z"/>
+    <circle cx="7" cy="7" r="2" class="ci-s1"/>
+    <path d="M3 20V17Q3 14 6 14H8Q11 14 11 17V20" class="ci-s2"/>
+    <g data-ci-part="arrow" class="ci-part-arrow">
+      <path d="M14 10H21" class="ci-s3"/>
+      <path d="M17 7L14 10L17 13" class="ci-s4"/>
+    </g>
+    <path d="M14 18Q18 15 21 18V21Q18 18 14 21Z" class="ci-s5"/>
   </g>
 </svg>

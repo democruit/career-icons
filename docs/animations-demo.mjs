@@ -3,9 +3,31 @@ import { animationPlan } from "../scripts/animation-plan.mjs";
 
 const gallery = document.querySelector("#gallery");
 const controls = Object.fromEntries(
-  ["mode", "size", "reduced", "dark", "search"].map((id) => [id, document.getElementById(id)]),
+  ["mode", "type", "size", "reduced", "dark", "search"].map((id) => [
+    id,
+    document.getElementById(id),
+  ]),
 );
 const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+const resume = icons.find((icon) => icon.name === "resume");
+const pilotIcons = ["default", "draw"].map((type) => {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "ci-hover";
+  button.dataset.pilotType = type;
+  const sample = document.createElement("span");
+  sample.className = "sample";
+  sample.innerHTML = resume.svg;
+  const svg = sample.querySelector("svg");
+  svg.setAttribute("aria-hidden", "true");
+  if (type === "draw") svg.setAttribute("data-ci-animation-type", "draw");
+  const label = document.createElement("span");
+  label.className = "name";
+  label.textContent = type === "draw" ? "Draw from scratch" : "Current animation";
+  button.append(sample, label);
+  document.getElementById("draw-pilot").append(button);
+  return svg;
+});
 const items = icons.map((icon) => {
   const plan = animationPlan[icon.name];
   const item = document.createElement("li");
@@ -38,6 +60,12 @@ const items = icons.map((icon) => {
 function update() {
   const query = controls.search.value.trim().toLowerCase();
   let count = 0;
+  for (const svg of pilotIcons) {
+    if (controls.mode.value === "none") svg.removeAttribute("data-ci-animate");
+    else svg.setAttribute("data-ci-animate", controls.mode.value);
+    svg.setAttribute("width", controls.size.value);
+    svg.setAttribute("height", controls.size.value);
+  }
   for (const { icon, plan, item, svg } of items) {
     item.hidden = ![
       icon.name,
@@ -51,6 +79,12 @@ function update() {
       .toLowerCase()
       .includes(query);
     if (!item.hidden) count++;
+    if (controls.type.value === "draw") svg.setAttribute("data-ci-animation-type", "draw");
+    else svg.removeAttribute("data-ci-animation-type");
+    item.querySelector(".motion").textContent =
+      controls.type.value === "draw" ? "draw" : icon.animation;
+    item.querySelector(".description").textContent =
+      controls.type.value === "draw" ? "The complete icon draws from scratch." : plan.description;
     if (controls.mode.value === "none") svg.removeAttribute("data-ci-animate");
     else svg.setAttribute("data-ci-animate", controls.mode.value);
     svg.setAttribute("width", controls.size.value);

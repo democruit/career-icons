@@ -5,8 +5,8 @@
     <path d="M13 21V12L21 14L13 17"/>
   </g>
   <g class="ci-motion" display="none">
-    <circle cx="7" cy="7" r="2"/>
-    <path d="M3 20V17Q3 14 6 14H8Q11 14 11 17V20"/>
+    <circle cx="7" cy="7" r="2" class="ci-s1"/>
+    <path d="M3 20V17Q3 14 6 14H8Q11 14 11 17V20" class="ci-s2"/>
     <path d="M13 21V12L21 14L13 17" data-ci-part="flag" class="ci-part-flag"/>
   </g>
 </svg>

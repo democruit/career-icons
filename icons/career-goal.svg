@@ -5,8 +5,8 @@
     <circle cx="12" cy="12" r="1"/>
   </g>
   <g class="ci-motion" display="none">
-    <circle cx="12" cy="12" r="9"/>
-    <circle cx="12" cy="12" r="5"/>
+    <circle cx="12" cy="12" r="9" class="ci-s1"/>
+    <circle cx="12" cy="12" r="5" class="ci-s2"/>
     <circle cx="12" cy="12" r="1" data-ci-part="target-center" class="ci-part-target-center"/>
   </g>
 </svg>

@@ -6,10 +6,11 @@
     <path d="M13 13H21V19Q21 21 19 21H13ZM16 16H18"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
-    <path d="M14 3V8H19"/>
-    <path d="M8 11H10M8 15H10"/>
-    <path d="M13 13H21V19Q21 21 19 21H13Z"/>
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10" class="ci-s1"/>
+    <path d="M14 3V8H19" class="ci-s2"/>
+    <path d="M8 11H10" class="ci-s3"/>
+    <path d="M8 15H10" class="ci-s4"/>
+    <path d="M13 13H21V19Q21 21 19 21H13Z" class="ci-s5"/>
     <path d="M16 16H18" data-ci-part="note-lines" class="ci-part-note-lines" pathLength="1"/>
   </g>
 </svg>

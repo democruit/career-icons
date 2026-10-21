@@ -8,6 +8,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { optimize } from "svgo";
 import { animationPlan } from "./animation-plan.mjs";
 import { hoverDuration, loopDuration } from "./animations.mjs";
+import { drawPlan } from "./draw-plan.mjs";
 import { serveAnimations } from "./serve-animations.mjs";
 
 const baseline = JSON.parse(
@@ -102,6 +103,64 @@ try {
   }
   report.checks.push("2400 browser resting snapshots: SVG + React, 16/24/48px, light + dark");
 
+  // Custom timing must keep every animated part and visibility layer in sync.
+  for (const animationType of ["default", "draw"]) {
+    for (const animate of ["hover", "always"]) {
+      for (const duration of [560, 240, 800, 0]) {
+        const svg = renderToStaticMarkup(
+          createElement(
+            components.CareerIconsProvider,
+            { animate, animationType, animationDuration: 800 },
+            createElement(
+              components.CareerIconsProvider,
+              { animationDuration: 240 },
+              createElement(components.ResumeIcon, { animationDuration: duration }),
+            ),
+          ),
+        );
+        await page.setContent(`<style>${css}</style><button class="ci-hover">${svg}</button>`);
+        await page.keyboard.press("Tab");
+        await page.locator("button").focus();
+        const state = await page.locator("svg").evaluate(
+          (svg, { duration, animate }) => {
+            const animations = svg.getAnimations({ subtree: true });
+            const timings = animations.map((animation) => animation.effect.getTiming().duration);
+            for (const animation of animations) {
+              animation.pause();
+              animation.currentTime = duration * 0.4;
+            }
+            const active = getComputedStyle(svg.querySelector(".ci-motion")).visibility;
+            for (const animation of animations) animation.currentTime = duration * 2;
+            return {
+              timings,
+              active,
+              rest: getComputedStyle(svg.querySelector(".ci-rest")).visibility,
+              motion: getComputedStyle(svg.querySelector(".ci-motion")).visibility,
+              expected: duration * (animate === "always" ? 3 : 1),
+            };
+          },
+          { duration, animate },
+        );
+        if (duration > 0) {
+          assert(state.timings.length > 2, "custom duration: missing animations");
+          assert(
+            state.timings.every((value) => Math.abs(value - state.expected) < 0.001),
+            `custom duration: layers out of sync (${animationType}, ${animate}, ${duration}): ${state.timings}`,
+          );
+          assert.equal(state.active, "visible");
+        }
+        assert.equal(state.rest, "visible", "custom duration: rest frame missing at end/pause");
+        assert.equal(state.motion, "hidden", "custom duration: motion visible at end/pause");
+        await page.emulateMedia({ reducedMotion: "reduce" });
+        assert.equal(await page.evaluate(() => document.getAnimations().length), 0);
+        await page.emulateMedia({ reducedMotion: "no-preference" });
+      }
+    }
+  }
+  report.checks.push(
+    "custom durations: provider/prop precedence, default + draw, hover + always, synchronized layers, zero and reduced motion",
+  );
+
   const url = `http://127.0.0.1:${server.address().port}/docs/animations.html`;
   await page.goto(url, { waitUntil: "networkidle" });
   assert.equal(await page.locator("#gallery button").count(), 200);
@@ -159,7 +218,7 @@ try {
     assert.equal(count, plan.parts.length + 1, `${name}: missing live part animations`);
     assert.equal(visible, "visible", `${name}: motion layer not visible during cycle`);
     assert(
-      playing.every((animation) => animation.duration === loopDuration),
+      playing.every((animation) => Math.abs(animation.duration - loopDuration) < 0.001),
       `${name}: wrong loop duration`,
     );
     assert(
@@ -275,6 +334,222 @@ try {
     "demo reduced-motion frame changed",
   );
   report.checks.push("OS reduced-motion and demo reduced-motion toggles disable all motion");
+
+  await page.uncheck("#reduced");
+  await page.selectOption("#type", "draw");
+  await page.selectOption("#mode", "none");
+  await page.mouse.move(0, 0);
+  const drawResting = await page.locator("#gallery").screenshot();
+  await page.selectOption("#mode", "always");
+  const sampleCollection = async (time) =>
+    page.evaluate((currentTime) => {
+      return [...document.querySelectorAll("#gallery svg")].map((svg) => {
+        const animations = svg.getAnimations({ subtree: true });
+        for (const animation of animations) {
+          animation.pause();
+          animation.currentTime = currentTime;
+        }
+        return {
+          name: svg.closest("button").dataset.icon,
+          names: animations.map((animation) => animation.animationName),
+          rootTransform: getComputedStyle(svg).transform,
+          rest: getComputedStyle(svg.querySelector(".ci-rest")).visibility,
+          motion: getComputedStyle(svg.querySelector(".ci-motion")).visibility,
+          parts: [
+            ...svg.querySelectorAll(
+              ".ci-motion path,.ci-motion circle,.ci-motion rect,.ci-motion line,.ci-motion polyline,.ci-motion polygon",
+            ),
+          ].map((part) => ({
+            opacity: Number(getComputedStyle(part).opacity),
+            offset: Number.parseFloat(
+              getComputedStyle(part).strokeDashoffset.replace(/^calc\(/, ""),
+            ),
+            dash: getComputedStyle(part).strokeDasharray,
+          })),
+        };
+      });
+    }, time);
+  for (const state of await sampleCollection(6)) {
+    assert.equal(
+      state.names.length,
+      drawPlan[state.name].length + 2,
+      `${state.name}: draw animation coverage`,
+    );
+    assert(
+      state.names.every((name) => name.startsWith("ci-draw-")),
+      `${state.name}: semantic motion also runs during drawing`,
+    );
+    assert.equal(state.rootTransform, "none");
+    assert.equal(state.rest, "hidden");
+    assert.equal(state.motion, "visible");
+    assert(
+      state.parts.every((part) => part.opacity === 0),
+      `${state.name}: draw does not start empty`,
+    );
+  }
+  for (const state of await sampleCollection(210)) {
+    const first = state.parts[0];
+    const spec = drawPlan[state.name][0];
+    if (spec.dotted) {
+      assert(first.opacity > 0 && first.opacity < 1, "ghosted: dotted reveal is not progressive");
+      assert.equal(first.dash, "1px, 4px", "ghosted: original dash pattern changed");
+    } else
+      assert(
+        first.offset > 0 && first.offset < spec.length,
+        `${state.name}: first stroke is not progressively drawing`,
+      );
+  }
+  for (const state of await sampleCollection(520)) {
+    const last = state.parts.at(-1);
+    const spec = drawPlan[state.name].at(-1);
+    if (!spec.dotted)
+      assert(
+        last.offset > 0 && last.offset < spec.length,
+        `${state.name}: last stroke is not progressively drawing`,
+      );
+  }
+  // Verify the actual completed motion layer before the pristine resting
+  // layer takes over; checking only the pause can hide missing draw strokes.
+  for (const state of await sampleCollection(548)) {
+    assert.equal(state.rest, "hidden", `${state.name}: completed draw masked by rest layer`);
+    assert.equal(state.motion, "visible");
+    for (const [index, part] of state.parts.entries()) {
+      assert.equal(part.opacity, 1, `${state.name}: stroke ${index} never finishes revealing`);
+      if (!drawPlan[state.name][index].dotted) {
+        assert.equal(part.offset, 0, `${state.name}: stroke ${index} never finishes drawing`);
+        assert.equal(part.dash, "none", `${state.name}: completed stroke retains a gap`);
+      }
+    }
+  }
+  // Isolate artwork from the demo's translucent text and compositing layers.
+  const drawPage = await browser.newPage({ viewport: { width: 1040, height: 800 } });
+  const drawSvgs = await page.evaluate(() =>
+    [...document.querySelectorAll("#gallery svg")].map((svg) => svg.outerHTML),
+  );
+  for (const kind of ["svg", "react"]) {
+    for (const size of [16, 24, 48]) {
+      const sheet = manifest
+        .map(({ name }, index) => {
+          const svg =
+            kind === "svg"
+              ? drawSvgs[index].replace(/(?:width|height)="\d+"/g, (attribute) =>
+                  attribute.replace(/\d+/, size),
+                )
+              : renderToStaticMarkup(
+                  createElement(component(name), {
+                    size,
+                    animate: "always",
+                    animationType: "draw",
+                  }),
+                );
+          return `<div class="sample">${svg}</div>`;
+        })
+        .join("");
+      await drawPage.setContent(`<style>${sheetStyle}${css}</style><div id="sheet">${sheet}</div>`);
+      await drawPage.evaluate(() => {
+        for (const animation of document.getAnimations()) {
+          animation.pause();
+          animation.currentTime = 548;
+        }
+      });
+      const completedDraw = await drawPage.locator("#sheet").screenshot();
+      await drawPage.addStyleTag({
+        content:
+          ".ci-motion :is(path,circle,rect,line,polyline,polygon){opacity:1!important;stroke-dashoffset:0!important}.ci-motion :is(path,circle,rect,line,polyline,polygon):not([stroke-dasharray]){stroke-dasharray:none!important}",
+      });
+      assert(
+        completedDraw.equals(await drawPage.locator("#sheet").screenshot()),
+        `${kind} ${size}px: completed motion layer differs from fully drawn geometry`,
+      );
+    }
+  }
+  await drawPage.close();
+  report.drawCompletionSnapshots = 1200;
+  report.checks.push(
+    "1200 completed draw-layer snapshots: SVG + React, 16/24/48px, before returning to rest",
+  );
+  await sampleCollection(1120);
+  assert(
+    drawResting.equals(await page.locator("#gallery").screenshot()),
+    "full collection draw loop pause differs from static pixels",
+  );
+  await page.selectOption("#mode", "hover");
+  await page.keyboard.press("Tab");
+  for (const { name } of manifest) {
+    const button = page.locator(`[data-icon="${name}"]`);
+    await button.focus();
+    const endpoints = await button.evaluate((node) => {
+      const svg = node.querySelector("svg");
+      const animations = svg.getAnimations({ subtree: true });
+      const count = animations.length;
+      for (const animation of animations) {
+        animation.pause();
+        animation.currentTime = 560;
+      }
+      return {
+        count,
+        rest: getComputedStyle(svg.querySelector(".ci-rest")).visibility,
+        motion: getComputedStyle(svg.querySelector(".ci-motion")).visibility,
+      };
+    });
+    assert.equal(endpoints.count, drawPlan[name].length + 2, `${name}: draw focus trigger`);
+    assert.equal(endpoints.rest, "visible");
+    assert.equal(endpoints.motion, "hidden");
+    const restarted = await button.evaluate((node) => {
+      const svg = node.querySelector("svg");
+      svg.removeAttribute("data-ci-animation-type");
+      getComputedStyle(svg.querySelector(".ci-rest")).animationName;
+      svg.setAttribute("data-ci-animation-type", "draw");
+      const animations = svg.getAnimations({ subtree: true });
+      for (const animation of animations) {
+        animation.pause();
+        animation.currentTime = 6;
+      }
+      return getComputedStyle(svg.querySelector(".ci-rest")).visibility;
+    });
+    assert.equal(
+      restarted,
+      "hidden",
+      `${name}: switching animationType during focus did not restart drawing`,
+    );
+    await button.evaluate((node) => node.blur());
+    await button.hover();
+    assert.equal(
+      await button.evaluate(
+        (node) => node.querySelector("svg").getAnimations({ subtree: true }).length,
+      ),
+      drawPlan[name].length + 2,
+      `${name}: draw hover trigger`,
+    );
+    await page.mouse.move(0, 0);
+    await button.evaluate((node) => node.blur());
+    assert.equal(
+      await button.evaluate(
+        (node) => node.querySelector("svg").getAnimations({ subtree: true }).length,
+      ),
+      0,
+      `${name}: draw cancellation`,
+    );
+  }
+  await page.selectOption("#mode", "always");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  assert.equal(await page.evaluate(() => document.getAnimations().length), 0);
+  assert(
+    drawResting.equals(await page.locator("#gallery").screenshot()),
+    "draw system reduced-motion pixels changed",
+  );
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.check("#reduced");
+  assert.equal(await page.evaluate(() => document.getAnimations().length), 0);
+  assert(
+    drawResting.equals(await page.locator("#gallery").screenshot()),
+    "draw demo reduced-motion pixels changed",
+  );
+  report.drawIcons = 200;
+  report.checks.push(
+    "all 200 draw animations: empty start, progressive first/last strokes, hover/focus, type switching, cancellation, exact loop pause and reduced-motion pixels",
+  );
+  report.checks.push("ghosted draw preserves the original dotted outline");
   assert.deepEqual(errors, [], "demo runtime errors");
   await mkdir(new URL("../docs/previews/", import.meta.url), { recursive: true });
   await writeFile(

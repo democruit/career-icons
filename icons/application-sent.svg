@@ -4,7 +4,8 @@
     <path d="M13 17L16 20L21 14"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 20H5Q3 20 3 18V8Q3 6 5 6H19Q21 6 21 8V10M3 8L12 14L17 10"/>
+    <path d="M11 20H5Q3 20 3 18V8Q3 6 5 6H19Q21 6 21 8V10" class="ci-s1"/>
+    <path d="M3 8L12 14L17 10" class="ci-s2"/>
     <path d="M13 17L16 20L21 14" data-ci-part="check" class="ci-part-check" pathLength="1"/>
   </g>
 </svg>

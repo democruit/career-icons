@@ -9,6 +9,7 @@
     <rect x="9" y="3" width="6" height="5" rx="2" data-ci-part="node-parent" class="ci-part-node-parent"/>
     <rect x="3" y="16" width="6" height="5" rx="2" data-ci-part="node-left" class="ci-part-node-left"/>
     <rect x="15" y="16" width="6" height="5" rx="2" data-ci-part="node-right" class="ci-part-node-right"/>
-    <path d="M12 8V12M6 16V12H18V16"/>
+    <path d="M12 8V12" class="ci-s4"/>
+    <path d="M6 16V12H18V16" class="ci-s5"/>
   </g>
 </svg>

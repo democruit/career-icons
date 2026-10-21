@@ -5,10 +5,11 @@
     <path d="M15 17H19"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 11L10 4L17 11M5 10V21H10"/>
+    <path d="M3 11L10 4L17 11" class="ci-s1"/>
+    <path d="M5 10V21H10" class="ci-s2"/>
     <g data-ci-part="coin" class="ci-part-coin">
-      <circle cx="17" cy="17" r="4"/>
-      <path d="M15 17H19"/>
+      <circle cx="17" cy="17" r="4" class="ci-s3"/>
+      <path d="M15 17H19" class="ci-s4"/>
     </g>
   </g>
 </svg>

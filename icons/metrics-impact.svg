@@ -3,12 +3,12 @@
     <path d="M4 21V15H8V21M11 21V11H15V21M18 21V7H21V21M4 10L11 6L16 8L21 3M17 3H21V7"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M4 21V15H8V21"/>
-    <path d="M11 21V11H15V21"/>
-    <path d="M18 21V7H21V21"/>
+    <path d="M4 21V15H8V21" class="ci-s1"/>
+    <path d="M11 21V11H15V21" class="ci-s2"/>
+    <path d="M18 21V7H21V21" class="ci-s3"/>
     <g data-ci-part="trend" class="ci-part-trend">
-      <path d="M4 10L11 6L16 8L21 3" pathLength="1"/>
-      <path d="M17 3H21V7" pathLength="1"/>
+      <path d="M4 10L11 6L16 8L21 3" pathLength="1" class="ci-s4"/>
+      <path d="M17 3H21V7" pathLength="1" class="ci-s5"/>
     </g>
   </g>
 </svg>

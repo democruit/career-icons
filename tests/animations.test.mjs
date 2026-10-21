@@ -16,6 +16,7 @@ import {
   loopDuration,
 } from "../scripts/animations.mjs";
 import { buildIcons } from "../scripts/build.mjs";
+import { drawPlan } from "../scripts/draw-plan.mjs";
 
 const require = createRequire(import.meta.url);
 const baseline = JSON.parse(
@@ -109,7 +110,8 @@ test("CSS is generated, opt-in, namespaced, keyboard accessible and below 40KB g
   expect(css).toContain("prefers-reduced-motion:reduce");
   expect(css).toContain("prefers-reduced-motion:no-preference");
   expect(css).toContain("transform-box:fill-box");
-  expect(css).not.toMatch(/scale\(|stroke-width:|stroke:|fill:|animation-fill-mode:|\bboth\b/);
+  expect(css).not.toMatch(/scale\(|animation-fill-mode:|\bboth\b/);
+  expect(css).not.toMatch(/(?:^|[;{])(?:stroke-width|stroke|fill):/);
   expect(hoverDuration).toBeGreaterThanOrEqual(300);
   expect(hoverDuration).toBeLessThanOrEqual(600);
   expect(loopDuration - hoverDuration).toBeGreaterThanOrEqual(hoverDuration);
@@ -133,4 +135,46 @@ test("motion endpoints restore the rest state and transforms respect amplitude l
       }
     }
   }
+});
+
+test("all 200 icons draw every visible shape with measured stroke lengths", async () => {
+  const css = await readFile(join(output, "animations.css"), "utf8");
+  expect(Object.keys(drawPlan)).toHaveLength(200);
+  for (const { metadata, tree, svg } of collection) {
+    const shapes = [];
+    function walk(nodes) {
+      for (const node of nodes) {
+        if (node.g) walk(node.g);
+        else shapes.push(node[":@"]);
+      }
+    }
+    walk(tree.svg.find((node) => node[":@"].class === "ci-motion").g);
+    const parts = drawPlan[metadata.name];
+    expect(shapes).toHaveLength(parts.length);
+    for (const [index, part] of parts.entries()) {
+      expect(shapes[index].class).toBe(part.target);
+      expect(svg).toContain(`class="${part.target}"`);
+      expect(part.length).toBeGreaterThan(0);
+      if (!part.dotted && shapes[index].d)
+        expect(
+          shapes[index].d.match(/[Mm]/g),
+          `${metadata.name}: disconnected draw stroke`,
+        ).toHaveLength(1);
+      if (shapes[index].r) {
+        const circumference = 2 * Math.PI * Number(shapes[index].r);
+        expect(part.length, `${metadata.name}: incomplete circle`).toBeGreaterThanOrEqual(
+          circumference,
+        );
+        expect(part.length).toBeLessThan(circumference + 0.02);
+      }
+      expect(part.end).toBeLessThanOrEqual(96);
+      expect(css).toContain(
+        `.ci-${metadata.name} .ci-motion .${part.target}{--ci-length:${part.length}`,
+      );
+    }
+  }
+  expect(drawPlan.ghosted[0].dotted).toBe(true);
+  expect(drawPlan.promotion).toHaveLength(3);
+  expect(drawPlan["team-meeting"]).toHaveLength(7);
+  expect(drawPlan["team-meeting"][4].length).toBeCloseTo(14 + 4 * Math.PI, 1);
 });

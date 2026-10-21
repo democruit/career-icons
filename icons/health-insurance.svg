@@ -5,8 +5,12 @@
     <path d="M3 11V8Q3 6 5 6H10V3H15V6H19Q21 6 21 8V10M3 11H9V18H5Q3 18 3 16Z"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M16.5 12L21 14V17Q21 19 16.5 21Q12 19 12 17V14Z"/>
-    <path d="M16.5 14.5V18.5M14.5 16.5H18.5" data-ci-part="cross" class="ci-part-cross"/>
-    <path d="M3 11V8Q3 6 5 6H10V3H15V6H19Q21 6 21 8V10M3 11H9V18H5Q3 18 3 16Z"/>
+    <path d="M16.5 12L21 14V17Q21 19 16.5 21Q12 19 12 17V14Z" class="ci-s1"/>
+    <g data-ci-part="cross" class="ci-part-cross">
+      <path d="M16.5 14.5V18.5" class="ci-s2"/>
+      <path d="M14.5 16.5H18.5" class="ci-s3"/>
+    </g>
+    <path d="M3 11V8Q3 6 5 6H10V3H15V6H19Q21 6 21 8V10" class="ci-s4"/>
+    <path d="M3 11H9V18H5Q3 18 3 16Z" class="ci-s5"/>
   </g>
 </svg>

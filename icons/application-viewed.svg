@@ -5,8 +5,9 @@
     <circle cx="16.5" cy="17" r="1"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 20H5Q3 20 3 18V8Q3 6 5 6H19Q21 6 21 8V10M3 8L12 14L17 10"/>
-    <path d="M12 17C14 13 19 13 21 17C19 21 14 21 12 17Z"/>
+    <path d="M11 20H5Q3 20 3 18V8Q3 6 5 6H19Q21 6 21 8V10" class="ci-s1"/>
+    <path d="M3 8L12 14L17 10" class="ci-s2"/>
+    <path d="M12 17C14 13 19 13 21 17C19 21 14 21 12 17Z" class="ci-s3"/>
     <circle cx="16.5" cy="17" r="1" data-ci-part="pupil" class="ci-part-pupil"/>
   </g>
 </svg>

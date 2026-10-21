@@ -4,7 +4,7 @@
     <path d="M16.5 12L18 15L21 16.5L18 18L16.5 21L15 18L12 16.5L15 15Z"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 20Q3 11 11 11"/>
+    <path d="M3 20Q3 11 11 11" class="ci-s1"/>
     <path d="M7 20L11 16" data-ci-part="needle" class="ci-part-needle"/>
     <path d="M16.5 12L18 15L21 16.5L18 18L16.5 21L15 18L12 16.5L15 15Z" data-ci-part="spark" class="ci-part-spark"/>
   </g>

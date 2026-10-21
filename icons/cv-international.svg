@@ -7,10 +7,13 @@
     <path d="M12 16.5H21M16.5 12Q20 16.5 16.5 21"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10"/>
-    <path d="M14 3V8H19"/>
-    <path d="M8 11H10"/>
-    <circle cx="16.5" cy="16.5" r="4.5"/>
-    <path d="M12 16.5H21M16.5 12Q20 16.5 16.5 21" data-ci-part="meridians" class="ci-part-meridians" pathLength="1"/>
+    <path d="M11 21H7Q5 21 5 19V5Q5 3 7 3H14L19 8V10" class="ci-s1"/>
+    <path d="M14 3V8H19" class="ci-s2"/>
+    <path d="M8 11H10" class="ci-s3"/>
+    <circle cx="16.5" cy="16.5" r="4.5" class="ci-s4"/>
+    <g data-ci-part="meridians" class="ci-part-meridians">
+      <path d="M12 16.5H21" pathLength="1" class="ci-s5"/>
+      <path d="M16.5 12Q20 16.5 16.5 21" pathLength="1" class="ci-s6"/>
+    </g>
   </g>
 </svg>

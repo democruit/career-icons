@@ -8,7 +8,7 @@
   <g class="ci-motion" display="none">
     <circle cx="7" cy="7" r="2" data-ci-part="person-left" class="ci-part-person-left"/>
     <circle cx="17" cy="7" r="2" data-ci-part="person-right" class="ci-part-person-right"/>
-    <path d="M3 19V16Q3 13 6 13H8Q10 13 10 16V19"/>
-    <path d="M14 19V16Q14 13 17 13H18Q21 13 21 16V19"/>
+    <path d="M3 19V16Q3 13 6 13H8Q10 13 10 16V19" class="ci-s3"/>
+    <path d="M14 19V16Q14 13 17 13H18Q21 13 21 16V19" class="ci-s4"/>
   </g>
 </svg>

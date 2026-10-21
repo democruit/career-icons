@@ -7,10 +7,14 @@
     <path d="M16 15L18 18M11 14H13M15 19H17"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 21H5Q3 21 3 19V7Q3 5 5 5H19Q21 5 21 7V10"/>
-    <path d="M7 3V7M17 3V7M3 9H21"/>
+    <path d="M11 21H5Q3 21 3 19V7Q3 5 5 5H19Q21 5 21 7V10" class="ci-s1"/>
+    <path d="M7 3V7" class="ci-s2"/>
+    <path d="M17 3V7" class="ci-s3"/>
+    <path d="M3 9H21" class="ci-s4"/>
     <circle cx="15" cy="14" r="1.5" data-ci-part="node-first" class="ci-part-node-first"/>
     <circle cx="19" cy="19" r="1.5" data-ci-part="node-second" class="ci-part-node-second"/>
-    <path d="M16 15L18 18M11 14H13M15 19H17"/>
+    <path d="M16 15L18 18" class="ci-s7"/>
+    <path d="M11 14H13" class="ci-s8"/>
+    <path d="M15 19H17" class="ci-s9"/>
   </g>
 </svg>

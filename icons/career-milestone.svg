@@ -4,7 +4,8 @@
     <circle cx="17" cy="18" r="3"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M5 21V3H17L15 7L17 11H5M10 21H3"/>
+    <path d="M5 21V3H17L15 7L17 11H5" class="ci-s1"/>
+    <path d="M10 21H3" class="ci-s2"/>
     <circle cx="17" cy="18" r="3" data-ci-part="milestone" class="ci-part-milestone"/>
   </g>
 </svg>

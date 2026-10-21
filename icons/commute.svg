@@ -5,7 +5,10 @@
     <circle cx="17" cy="19" r="2"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 11H18L21 15V18H3ZM6 11L8 6H16L18 11M3 15H7M17 15H21"/>
+    <path d="M3 11H18L21 15V18H3Z" class="ci-s1"/>
+    <path d="M6 11L8 6H16L18 11" class="ci-s2"/>
+    <path d="M3 15H7" class="ci-s3"/>
+    <path d="M17 15H21" class="ci-s4"/>
     <circle cx="7" cy="19" r="2" data-ci-part="wheel-left" class="ci-part-wheel-left"/>
     <circle cx="17" cy="19" r="2" data-ci-part="wheel-right" class="ci-part-wheel-right"/>
   </g>

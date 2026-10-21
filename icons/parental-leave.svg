@@ -6,13 +6,13 @@
     <path d="M19 21H19.01"/>
   </g>
   <g class="ci-motion" display="none">
-    <circle cx="7" cy="6" r="2"/>
-    <path d="M3 20V15Q3 12 7 12H9"/>
+    <circle cx="7" cy="6" r="2" class="ci-s1"/>
+    <path d="M3 20V15Q3 12 7 12H9" class="ci-s2"/>
     <g data-ci-part="cradle" class="ci-part-cradle">
-      <path d="M11 14H21Q21 20 16 20Q11 20 11 14Z"/>
-      <path d="M11 14V9Q16 9 16 14"/>
+      <path d="M11 14H21Q21 20 16 20Q11 20 11 14Z" class="ci-s3"/>
+      <path d="M11 14V9Q16 9 16 14" class="ci-s4"/>
     </g>
-    <path d="M13 21H13.01"/>
-    <path d="M19 21H19.01"/>
+    <path d="M13 21H13.01" class="ci-s5"/>
+    <path d="M19 21H19.01" class="ci-s6"/>
   </g>
 </svg>

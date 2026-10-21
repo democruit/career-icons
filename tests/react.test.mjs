@@ -112,3 +112,67 @@ test("absoluteStrokeWidth keeps the visual stroke constant and can be set by the
   );
   expect(attr(explicit, "stroke-width")).toBe("1.125");
 });
+
+test("animationType defaults to current motion, inherits through nested providers, and allows icon overrides", () => {
+  const render = (provider, props = {}, nested = {}) =>
+    markup(
+      createElement(
+        icons.CareerIconsProvider,
+        provider,
+        createElement(icons.CareerIconsProvider, nested, createElement(icons.ResumeIcon, props)),
+      ),
+    );
+  expect(attr(render({ animate: "hover" }), "data-ci-animation-type")).toBeUndefined();
+  expect(attr(render({ animate: "hover", animationType: "draw" }), "data-ci-animation-type")).toBe(
+    "draw",
+  );
+  expect(
+    attr(
+      render({ animate: "hover", animationType: "draw" }, { animationType: "default" }),
+      "data-ci-animation-type",
+    ),
+  ).toBeUndefined();
+  expect(
+    attr(render({ animate: "hover" }, { animationType: "draw" }), "data-ci-animation-type"),
+  ).toBe("draw");
+  expect(
+    attr(
+      render({ animate: "always", animationType: "draw" }, {}, { animationType: "default" }),
+      "data-ci-animation-type",
+    ),
+  ).toBeUndefined();
+  const disabled = render({ animate: "always", animationType: "draw" }, { animate: "none" });
+  expect(disabled).not.toContain("data-ci-animate");
+  expect(disabled).not.toContain("data-ci-animation-type");
+  expect(disabled).not.toMatch(/animationType=/i);
+});
+
+test("animationDuration inherits through providers, allows overrides, and preserves consumer styles", () => {
+  const render = (provider = {}, props = {}, nested = {}) =>
+    markup(
+      createElement(
+        icons.CareerIconsProvider,
+        { animate: "hover", ...provider },
+        createElement(icons.CareerIconsProvider, nested, createElement(icons.ResumeIcon, props)),
+      ),
+    );
+  expect(attr(render(), "style")).toBe("--ci-animation-duration:560ms");
+  expect(attr(render({ animationDuration: 800 }), "style")).toBe("--ci-animation-duration:800ms");
+  expect(attr(render({ animationDuration: 800 }, {}, { animationDuration: 300 }), "style")).toBe(
+    "--ci-animation-duration:300ms",
+  );
+  const overridden = render(
+    { animationDuration: 800 },
+    { animationDuration: 400, animationType: "draw", style: { margin: 2, color: "red" } },
+  );
+  expect(attr(overridden, "style")).toBe("margin:2px;color:red;--ci-animation-duration:400ms");
+  expect(overridden).not.toMatch(/animationDuration=/i);
+  expect(attr(render({ animationDuration: 800 }, { animationDuration: 0 }), "style")).toBe(
+    "--ci-animation-duration:0ms",
+  );
+  for (const animationDuration of [-1, Number.NaN, Number.POSITIVE_INFINITY])
+    expect(attr(render({}, { animationDuration }), "style")).toBe("--ci-animation-duration:560ms");
+  const disabled = render({ animationDuration: 800 }, { animate: "none", style: { margin: 2 } });
+  expect(attr(disabled, "style")).toBe("margin:2px");
+  expect(disabled).not.toContain("data-ci-animate");
+});

@@ -55,6 +55,8 @@ Every icon uses `stroke="currentColor"`. The default `color` is `currentColor`, 
 | `strokeWidth` | `2` |
 | `color` | `currentColor` |
 | `animate` | `none` (`hover`, `always`, or `none`) |
+| `animationType` | `default` (`default` or `draw`; full-icon `draw` is available for all 200 icons) |
+| `animationDuration` | `560` (non-negative finite milliseconds; applies to default and draw motion) |
 | `absoluteStrokeWidth` | `false` (when `true`, rendered stroke is `strokeWidth * 24 / size`) |
 
 ```jsx
@@ -70,7 +72,7 @@ export function SaveResume() {
 }
 ```
 
-`animate="hover"` runs the icon's motion once when the pointer is over the icon or any ancestor with the class `ci-hover`. Keyboard `:focus-visible` on the icon, the ancestor, or a descendant of that ancestor also triggers motion. `animate="always"` loops a 560ms motion with a 1120ms pause. `animate="none"` leaves the icon static even if the CSS is loaded. Hover runs are 300–600ms, ease-out, and use transform, opacity, or stroke-dashoffset. `prefers-reduced-motion: reduce` disables them.
+`animate="hover"` runs the icon's motion once when the pointer is over the icon or any ancestor with the class `ci-hover`. Keyboard `:focus-visible` on the icon, the ancestor, or a descendant of that ancestor also triggers motion. `animate="always"` loops a motion of `animationDuration` milliseconds with a pause twice that duration (560ms motion and 1120ms pause by default). `animate="none"` leaves the icon static even if the CSS is loaded. Hover runs default to 560ms, use the configured `animationDuration`, are ease-out, and use transform, opacity, or stroke-dashoffset. `prefers-reduced-motion: reduce` disables them. `animationDuration` inherits through nested providers; an icon prop overrides it. Zero completes immediately; negative or non-finite values fall back to 560ms. React sets `--ci-animation-duration` on active icons while preserving other consumer styles; generated CSS uses it for all parts and rest/motion layer timing. Raw SVG consumers may set the same CSS custom property.
 
 ## Icon contract
 
@@ -86,6 +88,7 @@ SVG:
 - A path may use `stroke-dasharray` for intentional dotted geometry, such as `ghosted`. Dots retain the same 2px round stroke.
 - Root classes use `ci-<icon-name>`; animated part classes use `ci-part-<part-name>`.
 - Animated icons keep original geometry in `g.ci-rest` and structured motion geometry in `g.ci-motion` with `display="none"`; CSS switches layers only during a cycle. Keep the hidden layer when optimizing SVGs.
+- Full-icon draw reuses `g.ci-motion`; each leaf has a stable `ci-part-*` or `ci-s<number>` target. Disconnected subpaths draw separately inside preserved semantic part groups. `scripts/draw-plan.mjs` records stroke lengths measured at 1000× precision and staggered timing; dotted geometry and round-capped point marks use opacity reveals. `ghosted` retains its original dash pattern. Browser checks verify complete motion-layer geometry before returning to rest. React resolves `animationType` from the icon prop, then provider, then `default`; active draw mode sets `data-ci-animation-type="draw"` on the rendered root. Source roots do not use that attribute.
 - Animated draw geometry may set `pathLength="1"`; static geometry must retain its original pixels.
 - Animated sub-parts may set `data-ci-part` to a kebab-case name, for example `data-ci-part="check"`. No other `data-*` attributes, `id` attributes, or inline styles.
 - Forbidden: `text`, raster images, gradients, filters, masks, clip paths, `style` attributes, `id` attributes, hardcoded colors, and `transform` on the root `<svg>`.
@@ -138,6 +141,7 @@ npm run preview -- <category> # category sheet; all = collection; sheets = all +
 npm run preview:animations # pilot animation GIF; Playwright + ffmpeg
 npm run size        # each React icon < 1 KB gzip; animations.css < 40 KB gzip
 npm run generate:animations # regenerate src/animations.css
+npm run generate:draw # regenerate all draw targets/lengths/timing + CSS; Playwright Chromium required
 npm run check:animations # Playwright motion/rest/reduced-motion checks + CSS size report
 npm run animations:dev # local all-icon review at /docs/animations.html
 npm run site:build  # static docs

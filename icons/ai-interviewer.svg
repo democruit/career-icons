@@ -4,7 +4,7 @@
     <path d="M16.5 12L18 15L21 16.5L18 18L16.5 21L15 18L12 16.5L15 15Z"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 17L6 21V17H5Q3 17 3 15V5Q3 3 5 3H19Q21 3 21 5V10"/>
+    <path d="M11 17L6 21V17H5Q3 17 3 15V5Q3 3 5 3H19Q21 3 21 5V10" class="ci-s1"/>
     <path d="M16.5 12L18 15L21 16.5L18 18L16.5 21L15 18L12 16.5L15 15Z" data-ci-part="spark" class="ci-part-spark"/>
   </g>
 </svg>

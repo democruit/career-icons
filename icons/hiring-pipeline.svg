@@ -5,10 +5,10 @@
     <path d="M9 7H16Q18 7 18 9V14M3 17H10M7 14L10 17L7 20"/>
   </g>
   <g class="ci-motion" display="none">
-    <rect x="3" y="4" width="6" height="6" rx="2"/>
-    <rect x="15" y="14" width="6" height="6" rx="2"/>
+    <rect x="3" y="4" width="6" height="6" rx="2" class="ci-s1"/>
+    <rect x="15" y="14" width="6" height="6" rx="2" class="ci-s2"/>
     <path d="M9 7H16Q18 7 18 9V14" data-ci-part="connector" class="ci-part-connector" pathLength="1"/>
-    <path d="M3 17H10"/>
-    <path d="M7 14L10 17L7 20"/>
+    <path d="M3 17H10" class="ci-s4"/>
+    <path d="M7 14L10 17L7 20" class="ci-s5"/>
   </g>
 </svg>

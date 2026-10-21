@@ -4,9 +4,9 @@
     <path d="M12 8V12L15 14M3 8V3H8M21 16V21H16"/>
   </g>
   <g class="ci-motion" display="none">
-    <circle cx="12" cy="12" r="6"/>
+    <circle cx="12" cy="12" r="6" class="ci-s1"/>
     <path d="M12 8V12L15 14" data-ci-part="hands" class="ci-part-hands"/>
-    <path d="M3 8V3H8"/>
-    <path d="M21 16V21H16"/>
+    <path d="M3 8V3H8" class="ci-s3"/>
+    <path d="M21 16V21H16" class="ci-s4"/>
   </g>
 </svg>

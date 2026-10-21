@@ -4,7 +4,10 @@
     <path data-ci-part="lines" d="M18 8V3M15 6L18 3L21 6"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 21H8V16H13V11H18"/>
-    <path d="M18 8V3M15 6L18 3L21 6" data-ci-part="arrow" class="ci-part-arrow"/>
+    <path d="M3 21H8V16H13V11H18" class="ci-s1"/>
+    <g data-ci-part="arrow" class="ci-part-arrow">
+      <path d="M18 8V3" class="ci-s2"/>
+      <path d="M15 6L18 3L21 6" class="ci-s3"/>
+    </g>
   </g>
 </svg>

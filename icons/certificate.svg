@@ -6,11 +6,12 @@
     <path d="M15 18L14 21L17 20L20 21L19 18"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10"/>
-    <path d="M7 8H17M7 12H10"/>
+    <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10" class="ci-s1"/>
+    <path d="M7 8H17" class="ci-s2"/>
+    <path d="M7 12H10" class="ci-s3"/>
     <g data-ci-part="seal" class="ci-part-seal">
-      <circle cx="17" cy="15" r="3"/>
-      <path d="M15 18L14 21L17 20L20 21L19 18"/>
+      <circle cx="17" cy="15" r="3" class="ci-s4"/>
+      <path d="M15 18L14 21L17 20L20 21L19 18" class="ci-s5"/>
     </g>
   </g>
 </svg>

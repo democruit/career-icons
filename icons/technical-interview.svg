@@ -4,7 +4,7 @@
     <path d="M15 13L12 17L15 21M18 13L21 17L18 21"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 17L6 21V17H5Q3 17 3 15V5Q3 3 5 3H19Q21 3 21 5V10"/>
+    <path d="M11 17L6 21V17H5Q3 17 3 15V5Q3 3 5 3H19Q21 3 21 5V10" class="ci-s1"/>
     <path d="M15 13L12 17L15 21" data-ci-part="bracket-left" class="ci-part-bracket-left"/>
     <path d="M18 13L21 17L18 21" data-ci-part="bracket-right" class="ci-part-bracket-right"/>
   </g>

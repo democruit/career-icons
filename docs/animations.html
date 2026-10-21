@@ -15,12 +15,17 @@
         <div class="controls">
           <label>Search <input id="search" type="search" placeholder="Name, tag or motion" /></label>
           <label>Motion <select id="mode"><option value="hover">Hover / focus</option><option value="always">Always</option><option value="none">Static</option></select></label>
+          <label>Animation type <select id="type"><option value="default">Current motions</option><option value="draw">Draw from scratch</option></select></label>
           <label>Size <select id="size"><option>16</option><option selected>24</option><option>48</option></select></label>
           <label><input id="reduced" type="checkbox" /> Reduced motion</label>
           <label><input id="dark" type="checkbox" /> Dark background</label>
         </div>
         <p id="status" role="status" aria-live="polite"></p>
       </header>
+      <section aria-labelledby="draw-heading">
+        <h2 id="draw-heading">Compare animation styles</h2>
+        <div id="draw-pilot" class="pilot-comparison"></div>
+      </section>
       <ul id="gallery" aria-label="All career icon animations"></ul>
     </main>
   </body>

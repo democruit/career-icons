@@ -5,9 +5,10 @@
     <path d="M7 13V17"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10M3 9H21"/>
+    <path d="M11 20H5Q3 20 3 18V6Q3 4 5 4H19Q21 4 21 6V10" class="ci-s1"/>
+    <path d="M3 9H21" class="ci-s2"/>
     <path d="M15 13L12 17L15 21" data-ci-part="bracket-left" class="ci-part-bracket-left"/>
     <path d="M18 13L21 17L18 21" data-ci-part="bracket-right" class="ci-part-bracket-right"/>
-    <path d="M7 13V17"/>
+    <path d="M7 13V17" class="ci-s5"/>
   </g>
 </svg>

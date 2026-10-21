@@ -5,9 +5,10 @@
     <path data-ci-part="lines" d="M14 3V6H17M10 9H14"/>
   </g>
   <g class="ci-motion" display="none">
-    <path d="M3 10V19Q3 21 5 21H19Q21 21 21 19V10"/>
+    <path d="M3 10V19Q3 21 5 21H19Q21 21 21 19V10" class="ci-s1"/>
     <path d="M3 10L12 16L21 10" data-ci-part="envelope-flap" class="ci-part-envelope-flap"/>
-    <path d="M7 12V5Q7 3 9 3H14L17 6V12"/>
-    <path d="M14 3V6H17M10 9H14"/>
+    <path d="M7 12V5Q7 3 9 3H14L17 6V12" class="ci-s3"/>
+    <path d="M14 3V6H17" class="ci-s4"/>
+    <path d="M10 9H14" class="ci-s5"/>
   </g>
 </svg>
