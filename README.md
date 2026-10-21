@@ -1,6 +1,7 @@
 # Career Icons by Democruit
 
-**200 original outline icons for careers and job search.**
+**200 original outline icons for careers and job search**, built and maintained by
+**[Democruit](https://democruit.com)**.
 
 Made for job boards, resume builders and career platforms. Find icons for resumes,
 interviews, salary, remote work and more across 14 categories.
