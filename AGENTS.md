@@ -21,6 +21,8 @@ scripts/                  validate, build, pilot preview, figma export
 dist/                     generated package output (gitignored)
 site/                     static docs site
 docs/design-system.md     pilot visual language and base shapes
+docs/usage.md             consumer API and animation reference
+docs/contributing.md      local development, previews and checks
 docs/previews/            review images; alternatives are not package icons
 tests/                    vitest
 .github/workflows/ci.yml  check only; no publish or deploy
